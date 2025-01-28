@@ -1,7 +1,8 @@
 "use client";
 
+import Header from "@/components/Header";
+import Sidebar from "@/components/Sidebar";
 import { Button } from "@/components/ui/button";
-import SidebarLayout from "@/layouts/SidebarLayout";
 import { step1Schema, step2Schema } from "@/schemas/initial-questions";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
@@ -11,7 +12,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import CustomFormField from "./CustomFormField";
 import { countries } from "./countries";
 
-export default function FreeValuation() {
+export default function InitialQuestions() {
   const [step, setStep] = useState(1);
   const [focusField, setFocusField] = useState(null);
   const [charCount, setCharCount] = useState(0);
@@ -63,139 +64,137 @@ export default function FreeValuation() {
   };
 
   return (
-    <SidebarLayout>
-      <div className="container mx-auto px-6 py-6">
-        <div className="lg:px-[8vw] lg:py-10">
-          <div className="relative flex items-center lg:mb-16">
-            <div className="absolute">
-              <button onClick={handleBack}>
-                <Image
-                  src="/icon-arrow-left.svg"
-                  width={32}
-                  height={32}
-                  alt="left arrow icon"
-                  className="w-[20px] lg:w-[32px]"
-                />
-              </button>
+    <>
+      <Header />
+      <div className="flex">
+        <Sidebar />
+        <main className="w-full">
+          <div className="container mx-auto px-6 lg:px-[calc(8vw+6px)] py-6 lg:py-16">
+            <div className="relative flex items-center lg:mb-16">
+              <div className="absolute">
+                <button onClick={handleBack}>
+                  <Image src="/icon-arrow-left.svg" width={32} height={32} alt="" className="w-[20px] lg:w-[32px]" />
+                </button>
+              </div>
+              <div className="w-full text-center text-2xl lg:text-4xl">
+                <span className="uppercase">Step</span> {step} of 2
+              </div>
             </div>
-            <div className="w-full text-center text-2xl lg:text-4xl">
-              <span className="uppercase">Step</span> {step} of 2
+
+            <div className="py-8 flex flex-col gap-6">
+              <FormProvider {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-7 lg:space-y-16 flex flex-col">
+                  {step === 1 && (
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-8">
+                      <CustomFormField
+                        control={form.control}
+                        name="fullName"
+                        placeholder="John Doe"
+                        focusField={focusField}
+                        setFocusField={setFocusField}
+                        errors={errors}
+                        label="Full Name"
+                      />
+                      <CustomFormField
+                        control={form.control}
+                        name="email"
+                        placeholder="name@gmail.com"
+                        focusField={focusField}
+                        setFocusField={setFocusField}
+                        errors={errors}
+                        label="Email"
+                      />
+                      <CustomFormField
+                        control={form.control}
+                        name="startupName"
+                        placeholder="Finovate"
+                        focusField={focusField}
+                        setFocusField={setFocusField}
+                        errors={errors}
+                        label="Startup Name"
+                      />
+                      <CustomFormField
+                        control={form.control}
+                        name="startupCountry"
+                        placeholder="Choose your startup's country"
+                        focusField={focusField}
+                        setFocusField={setFocusField}
+                        errors={errors}
+                        label="Startup Country"
+                        type="select"
+                        options={countries}
+                      />
+                      <CustomFormField
+                        control={form.control}
+                        name="businessDescription"
+                        placeholder="Is a real estate company specializing in residential and commercial propeties, offering sales, rentals, and property management services."
+                        focusField={focusField}
+                        setFocusField={setFocusField}
+                        errors={errors}
+                        label="Business Description"
+                        type="textarea"
+                        charCount={charCount}
+                        handleDescriptionChange={(e) => {
+                          setCharCount(e.target.value.length);
+                        }}
+                      />
+                      <CustomFormField
+                        control={form.control}
+                        name="startupWebsiteUrl"
+                        placeholder="https://your-startup.com"
+                        focusField={focusField}
+                        setFocusField={setFocusField}
+                        errors={errors}
+                        label="Startup Website URL (optional)"
+                      />
+                    </div>
+                  )}
+
+                  {step === 2 && (
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                      <CustomFormField
+                        control={form.control}
+                        name="startupStage"
+                        placeholder="Series A"
+                        focusField={focusField}
+                        setFocusField={setFocusField}
+                        errors={errors}
+                        label="Startup Stage"
+                      />
+                      <CustomFormField
+                        control={form.control}
+                        name="industryVertical"
+                        placeholder="SaaS"
+                        focusField={focusField}
+                        setFocusField={setFocusField}
+                        errors={errors}
+                        label="Industry Vertical"
+                      />
+                      <CustomFormField
+                        control={form.control}
+                        name="region"
+                        placeholder="Europe"
+                        focusField={focusField}
+                        setFocusField={setFocusField}
+                        errors={errors}
+                        label="Region"
+                      />
+                    </div>
+                  )}
+
+                  <Button
+                    type="submit"
+                    className="w-full lg:max-w-64 ml-auto py-[22px] lg:py-[26px] bg-primary hover:bg-primary text-2xl lg:text-3xl font-bold rounded-xl focus-visible:ring-0 disabled:bg-primary-light disabled:text-background-default disabled:opacity-100"
+                    disabled={!isValid}
+                  >
+                    Continue
+                  </Button>
+                </form>
+              </FormProvider>
             </div>
           </div>
-
-          <div className="py-8 flex flex-col gap-6">
-            <FormProvider {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-7 lg:space-y-16 flex flex-col">
-                {step === 1 && (
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-8">
-                    <CustomFormField
-                      control={form.control}
-                      name="fullName"
-                      placeholder="John Doe"
-                      focusField={focusField}
-                      setFocusField={setFocusField}
-                      errors={errors}
-                      label="Full Name"
-                    />
-                    <CustomFormField
-                      control={form.control}
-                      name="email"
-                      placeholder="name@gmail.com"
-                      focusField={focusField}
-                      setFocusField={setFocusField}
-                      errors={errors}
-                      label="Email"
-                    />
-                    <CustomFormField
-                      control={form.control}
-                      name="startupName"
-                      placeholder="Finovate"
-                      focusField={focusField}
-                      setFocusField={setFocusField}
-                      errors={errors}
-                      label="Startup Name"
-                    />
-                    <CustomFormField
-                      control={form.control}
-                      name="startupCountry"
-                      placeholder="Choose your startup's country"
-                      focusField={focusField}
-                      setFocusField={setFocusField}
-                      errors={errors}
-                      label="Startup Country"
-                      type="select"
-                      options={countries}
-                    />
-                    <CustomFormField
-                      control={form.control}
-                      name="businessDescription"
-                      placeholder="Is a real estate company specializing in residential and commercial propeties, offering sales, rentals, and property management services."
-                      focusField={focusField}
-                      setFocusField={setFocusField}
-                      errors={errors}
-                      label="Business Description"
-                      type="textarea"
-                      charCount={charCount}
-                      handleDescriptionChange={(e) => {
-                        setCharCount(e.target.value.length);
-                      }}
-                    />
-                    <CustomFormField
-                      control={form.control}
-                      name="startupWebsiteUrl"
-                      placeholder="https://your-startup.com"
-                      focusField={focusField}
-                      setFocusField={setFocusField}
-                      errors={errors}
-                      label="Startup Website URL (optional)"
-                    />
-                  </div>
-                )}
-
-                {step === 2 && (
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-                    <CustomFormField
-                      control={form.control}
-                      name="startupStage"
-                      placeholder="Series A"
-                      focusField={focusField}
-                      setFocusField={setFocusField}
-                      errors={errors}
-                      label="Startup Stage"
-                    />
-                    <CustomFormField
-                      control={form.control}
-                      name="industryVertical"
-                      placeholder="SaaS"
-                      focusField={focusField}
-                      setFocusField={setFocusField}
-                      errors={errors}
-                      label="Industry Vertical"
-                    />
-                    <CustomFormField
-                      control={form.control}
-                      name="region"
-                      placeholder="Europe"
-                      focusField={focusField}
-                      setFocusField={setFocusField}
-                      errors={errors}
-                      label="Region"
-                    />
-                  </div>
-                )}
-
-                <Button
-                  type="submit"
-                  className="w-full py-[22px] lg:py-[26px] lg:max-w-64 ml-auto bg-primary text-2xl lg:text-3xl font-bold rounded-xl hover:bg-primary focus-visible:ring-0 disabled:bg-primary-light disabled:text-background-default disabled:opacity-100"
-                  disabled={!isValid}
-                >
-                  Continue
-                </Button>
-              </form>
-            </FormProvider>
-          </div>
-        </div>
+        </main>
       </div>
-    </SidebarLayout>
+    </>
   );
 }
