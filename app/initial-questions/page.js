@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import CustomFormField from "./CustomFormField";
-import { countries } from "./countries";
+import { countries, industryVertical, region, startupStage } from "./optionsData";
 
 export default function InitialQuestions() {
   const [step, setStep] = useState(1);
@@ -116,7 +116,7 @@ export default function InitialQuestions() {
                       <CustomFormField
                         control={form.control}
                         name="startupCountry"
-                        placeholder="Choose your startup's country"
+                        placeholder="Select"
                         focusField={focusField}
                         setFocusField={setFocusField}
                         errors={errors}
@@ -155,29 +155,35 @@ export default function InitialQuestions() {
                       <CustomFormField
                         control={form.control}
                         name="startupStage"
-                        placeholder="Series A"
+                        placeholder="Select"
                         focusField={focusField}
                         setFocusField={setFocusField}
                         errors={errors}
                         label="Startup Stage"
+                        type="select"
+                        options={startupStage}
                       />
                       <CustomFormField
                         control={form.control}
                         name="industryVertical"
-                        placeholder="SaaS"
+                        placeholder="Select"
                         focusField={focusField}
                         setFocusField={setFocusField}
                         errors={errors}
                         label="Industry Vertical"
+                        type="select"
+                        options={industryVertical}
                       />
                       <CustomFormField
                         control={form.control}
                         name="region"
-                        placeholder="Europe"
+                        placeholder="Select"
                         focusField={focusField}
                         setFocusField={setFocusField}
                         errors={errors}
                         label="Region"
+                        type="select"
+                        options={region}
                       />
                     </div>
                   )}

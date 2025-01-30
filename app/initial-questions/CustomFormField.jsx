@@ -60,11 +60,17 @@ const CustomFormField = ({
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    {options.map(({ code, name }) => (
-                      <SelectItem key={code} value={code}>
-                        {name}
-                      </SelectItem>
-                    ))}
+                    {options.map((option) =>
+                      typeof option === "object" ? (
+                        <SelectItem key={option.code} value={option.code}>
+                          {option.name}
+                        </SelectItem>
+                      ) : (
+                        <SelectItem key={option} value={option}>
+                          {option}
+                        </SelectItem>
+                      )
+                    )}
                   </SelectContent>
                 </Select>
               ) : type === "textarea" ? (
