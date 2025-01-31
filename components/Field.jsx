@@ -28,12 +28,14 @@ const Field = ({
         const isFocusedOrValid = focusField === name || field.value;
 
         return (
-          <FormItem className={`space-y-0 ${type === "textarea" ? "lg:col-span-2" : ""}`}>
+          <FormItem
+            className={`${type === "radio" ? "space-y-2 lg:space-y-3" : "space-y-0"} ${type === "textarea" ? "lg:col-span-2" : ""}`}
+          >
             <FormLabel
               className={`transition-colors duration-300 ease-out
                 ${
                   type === "radio"
-                    ? "text-text-primary text-base lg:text-2xl"
+                    ? "text-text-primary text-base lg:text-2xl block mt-5 mb-5 lg:mt-8 lg:mb-8"
                     : isError
                     ? "text-error-dark"
                     : isFocusedOrValid
@@ -101,17 +103,13 @@ const Field = ({
                 </FormControl>
               ) : type === "radio" ? (
                 <FormControl>
-                  <RadioGroup
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                    className="flex flex-col gap-5 lg:gap-6 mt-4 lg:mt-8"
-                  >
+                  <RadioGroup onValueChange={field.onChange} defaultValue={field.value} className="">
                     {options.map((option) => (
-                      <FormItem key={option.value} className="space-y-0 flex items-start gap-3">
+                      <FormItem key={option.value} className="space-y-0 flex gap-3 mb-2 lg:mb-6">
                         <FormControl>
                           <RadioGroupItem
                             value={option.value}
-                            className="w-5 h-5 lg:w-8 lg:h-8 border-others-backdropOverlay focus-visible:ring-0 flex items-center"
+                            className="w-5 h-5 lg:w-8 lg:h-8 border-others-backdropOverlay focus-visible:ring-0"
                           />
                         </FormControl>
                         <FormLabel className="text-text-secondary text-base lg:text-2xl leading-5">{option.label}</FormLabel>

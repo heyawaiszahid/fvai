@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function FreeValuationResults() {
+export default function InitialQuestionsValuation() {
   return (
     <>
       <Header />

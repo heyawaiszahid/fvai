@@ -1,84 +1,90 @@
 {
   "Team": {
-    "title": "Founder & Management Team Strength",
+    "title": "1. Founder / Strength of Management Team",
     "questions": {
-      "Founder Experience": [
+      "Untitled": [
         {
-          "question": "Has the founder or co-founder had a successful exit via M&A or IPO?",
+          "question": "1. Has the founder/co-founder had a successful exit via M&A or IPO?",
           "options": ["Yes", "No"]
         },
         {
-          "question": "Has the founder or co-founder previously been a successful CEO with notable achievements in the industry?",
+          "question": "2. Is the founder/co-founder a successful CEO with prior achievements in the industry?",
           "options": ["Yes", "No"]
         }
       ],
-      "Industry Experience": [
+      "Experience": [
         {
-          "question": "What is the founder or co-founder's prior work experience?",
+          "question": "What prior work experience does the founder/co-founder have?",
           "options": [
-            "No prior work experience",
-            "Generic work experience (not relevant to the industry)",
-            "Experience as a product manager, in sales, technology, or roles specific to the industry",
-            "Experience in building a startup with successful product launches or scaling revenue",
-            "Experience as a C-suite executive (e.g., COO, CTO, CFO) with deep domain expertise"
+            "A. No prior work experience",
+            "B. Generic work experience (not relevant to the industry)",
+            "C. Experience as a product manager, in sales or technology, or in roles specific to the industry",
+            "D. Experience in building a startup with successful product launches / scaling revenue",
+            "E. Experience as a C-suite executive (e.g., COO/CTO/CFO) with deep domain expertise"
           ]
         }
       ],
       "Education": [
         {
-          "question": "What is the highest level of education attained by the founder or co-founder?",
+          "question": "What is the highest level of education attained by the founder/co-founder?",
           "options": [
-            "No formal education",
-            "General degrees not specific to the industry",
-            "Degrees relevant to the industry",
-            "Elite/top-tier university degree (not industry-specific)",
-            "Elite/top-tier university degree relevant to the industry"
+            "A. No education",
+            "B. General degrees not specific to the industry",
+            "C. Degrees relevant to the industry",
+            "D. Elite/top tier universities with general degrees not specific to the industry",
+            "E. Elite/top tier universities with degrees relevant to the industry"
           ]
         }
       ],
-      "Team Composition": [
+      "Team": [
         {
-          "question": "How well-rounded is the founding team?",
+          "question": "Describe the composition of the founding team.",
           "options": [
-            "Solo founder or team covers few functional areas",
-            "Team of entrepreneurs with complementary skills",
-            "Team covers most functional areas",
-            "Complete management team with a well-rounded founding team",
-            "Co-founders or team members have previously worked together in a startup or company"
+            "A. Solo founder or team covers few functional areas",
+            "B. Team of entrepreneurs with complementary skills",
+            "C. Team covers most functional areas",
+            "D. Complete management team with a well-rounded founding team",
+            "E. Co-founders or team members have previously worked together in a startup or company"
           ]
         }
       ]
     }
   },
   "Market Opportunity": {
-    "title": "Market Size & Growth Potential",
+    "title": "2. Size of the Opportunity / Market Size",
     "questions": {
       "Market Size": [
         {
-          "question": "What is the estimated total addressable market (TAM) for the product or service?",
+          "question": "What is the estimated market size for the product/service?",
           "options": [
-            "Less than USD 100 million",
-            "USD 100 million to 300 million",
-            "USD 300 million to 500 million",
-            "USD 500 million to 1 billion",
-            "More than USD 1 billion"
+            "A. Market size < USD 100 million",
+            "B. Market size USD 100 million to 300 million",
+            "C. Market size USD 300 million to 500 million",
+            "D. Market size USD 500 million to 1 billion",
+            "E. Market size > USD 1 billion"
           ]
         }
       ],
-      "Market Growth": [
+      "Market Growth Rate": [
         {
-          "question": "What is the annual growth rate of the market?",
-          "options": ["0% to 10%", "10% to 20%", "20% to 30%", "30% to 40%", "More than 40%"]
+          "question": "What is the growth rate of the market?",
+          "options": [
+            "A. Growth rate 0% to 10%",
+            "B. Growth rate 10% to 20%",
+            "C.  Growth rate 20% to 30%",
+            "D. Growth rate 30% to 40%",
+            "E. Growth rate > 40%"
+          ]
         }
       ]
     }
   },
   "Traction": {
-    "title": "Startup Traction",
+    "title": "3. Traction",
     "questions": {
-      "Revenue Growth": [
+      "Untitled-2": [
         {
-          "question": "Is the startup generating revenue with strong month-over-month or year-over-year growth?",
+          "question": "Is the startup generating revenue with strong month-on-month / year-on-year revenue growth?",
           "options": ["Yes", "No"]
         }
       ],
@@ -120,18 +126,18 @@
       ]
     }
   },
-  "Product / Tech / Solution": {
-    "title": "Stage of Development",
+  "Product Tech Solution": {
+    "title": "4. Product / Tech / Solution",
     "questions": {
-      "Revenue Growth": [
+      "Stage of Development": [
         {
           "question": "What stage is the product/solution currently in?",
           "options": [
-            "Idea / Research stage",
-            "Concept testing / Prototype",
-            "Product development stage",
-            "Market Testing",
-            "Commercialization stage"
+            "A. Idea / Research stage",
+            "B. Concept testing / Prototype",
+            "C. Product development stage",
+            "D. Market Testing",
+            "E. Commercialization stage"
           ]
         }
       ],
@@ -139,11 +145,11 @@
         {
           "question": "How scalable is the product/solution?",
           "options": [
-            "Limited scalability, cannot handle growth",
-            "Some scalability, moderate growth potential",
-            "Moderately scalable with potential for significant growth",
-            "Highly scalable, can handle significant growth",
-            "Highly scalable, designed for extensive growth and additional use cases"
+            "A. Limited scalability, cannot handle growth",
+            "B. Some scalability, moderate growth potential",
+            "C. Moderately scalable with potential for significant growth",
+            "D. Highly scalable, can handle significant growth",
+            "E. Highly scalable, designed for extensive growth and additional use cases"
           ]
         }
       ],
@@ -151,20 +157,20 @@
         {
           "question": "How essential is the product/solution to the target market?",
           "options": [
-            "Vitamin, nice to have but not essential",
-            "Somewhat important, addresses some needs but not critical",
-            "Important, addresses significant needs",
-            "Very important, addresses critical needs",
-            "Painkiller, solves a vital problem"
+            "A. Vitamin, nice to have but not essential",
+            "B. Somewhat important, addresses some needs but not critical",
+            "C. Important, addresses significant needs",
+            "D. Very important, addresses critical needs",
+            "E. Painkiller, solves a vital problem"
           ]
         }
       ]
     }
   },
   "Competitive Landscape": {
-    "title": "Strength of Competitors in the Marketplace",
+    "title": "5. Competitive Landscape",
     "questions": {
-      "Revenue Growth": [
+      "Strength of Competitors in the Marketplace": [
         {
           "question": "How would the competitive landscape be described?",
           "options": [
