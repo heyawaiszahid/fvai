@@ -12,7 +12,7 @@ import Result from "./Result";
 export default function DetailedQuestionnaire() {
   const form = useForm();
   const [currentStep, setCurrentStep] = useState(0);
-  const [isSubmitted, setIsSubmitted] = useState(true);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const steps = Object.keys(data);
   const currentStepData = data[steps[currentStep]];
