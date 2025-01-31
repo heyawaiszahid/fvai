@@ -112,7 +112,7 @@ const Field = ({
                             className="w-5 h-5 lg:w-8 lg:h-8 border-others-backdropOverlay focus-visible:ring-0"
                           />
                         </FormControl>
-                        <FormLabel className="text-text-secondary text-base lg:text-2xl leading-5">{option.label}</FormLabel>
+                        <FormLabel className="text-text-secondary text-base lg:text-2xl leading-5 cursor-pointer">{option.label}</FormLabel>
                       </FormItem>
                     ))}
                   </RadioGroup>

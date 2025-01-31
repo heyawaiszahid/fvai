@@ -1,19 +1,18 @@
 "use client";
 
-import CircularProgress from "@/components/CircularProgress";
 import Field from "@/components/Field";
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import data from "./data.json";
+import Result from "./Result";
 
 export default function DetailedQuestionnaire() {
   const form = useForm();
   const [currentStep, setCurrentStep] = useState(0);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(true);
 
   const steps = Object.keys(data);
   const currentStepData = data[steps[currentStep]];
@@ -27,7 +26,7 @@ export default function DetailedQuestionnaire() {
     });
   });
 
-  const [score, setScore] = useState(92.2);
+  const [score, setScore] = useState(82.2);
 
   const onSubmit = (values) => {
     const formData = {};
@@ -74,30 +73,37 @@ export default function DetailedQuestionnaire() {
   return (
     <>
       <Header />
-      <div className="text-background-paper bg-text-primary">
-        <ul className="container mx-auto flex justify-between gap-3 px-8 py-4 lg:pb-8 lg:pt-0 cursor-default">
+      <div className="bg-text-primary text-background-paper">
+        <div className="container mx-auto flex justify-between gap-2 px-8 py-4 cursor-default lg:pt-0 lg:pb-8">
           {steps.map((step, index) => (
-            <li
-              key={step}
-              className={`relative flex items-center justify-center w-7 h-7 rounded-3xl border text-center leading-7 lg:w-auto lg:min-w-44 lg:min-h-9 lg:px-5 lg:text-xl lg:leading-9 ${
-                index < currentStep || isSubmitted
-                  ? "bg-info border-info"
-                  : index === currentStep
-                  ? "bg-info border-background-default"
-                  : "bg-info-light border-info text-background-default"
-              }`}
-            >
-              {index < currentStep || isSubmitted ? (
-                <Image src="/icon-done.svg" width={14} height={10} alt="" className="lg:w-7" />
-              ) : (
-                <>
-                  <span className="block lg:hidden">{index + 1}</span>
-                  <span className="hidden lg:block">{step}</span>
-                </>
+            <Fragment key={index}>
+              <div
+                className={`relative flex items-center justify-center w-7 h-7 rounded-3xl border text-center leading-7 lg:w-auto lg:min-w-44 lg:h-auto lg:min-h-9 lg:px-5 lg:py-2 lg:text-xl lg:leading-none ${
+                  index < currentStep || isSubmitted
+                    ? "bg-info border-info"
+                    : index === currentStep
+                    ? "bg-info border-background-default"
+                    : "bg-info-light border-info text-background-default"
+                }`}
+              >
+                {index < currentStep || isSubmitted ? (
+                  <Image src="/icon-done.svg" width={14} height={10} alt="" className="lg:w-[26px] lg:h-[20px]" />
+                ) : (
+                  <>
+                    <span className="block lg:hidden">{index + 1}</span>
+                    <span className="hidden lg:block">{step}</span>
+                  </>
+                )}
+              </div>
+
+              {index < steps.length - 1 && (
+                <div className="flex items-center flex-1">
+                  <span className="w-full h-[3px] rounded bg-info-light lg:h-[6px]"></span>
+                </div>
               )}
-            </li>
+            </Fragment>
           ))}
-        </ul>
+        </div>
       </div>
 
       <main>
@@ -110,7 +116,7 @@ export default function DetailedQuestionnaire() {
                   {Object.keys(currentStepData.questions).map((questionGroup) => (
                     <div key={questionGroup}>
                       {!questionGroup.includes("Untitled") && (
-                        <div className="mt-8 mb-4 font-bold text-[19px] lg:text-[30px]">{questionGroup}</div>
+                        <div className="mb-4 mt-8 font-bold text-[19px] lg:text-[30px]">{questionGroup}</div>
                       )}
                       {currentStepData.questions[questionGroup].map((question, index) => (
                         <Field
@@ -127,11 +133,11 @@ export default function DetailedQuestionnaire() {
                 </div>
               </div>
               <div className="lg:bg-text-primary">
-                <div className="container mx-auto px-6 py-8 lg:py-14 mb-10 lg:mb-0">
+                <div className="container mx-auto mb-10 px-6 py-8 lg:mb-0 lg:py-14">
                   <div className="flex items-center justify-between">
                     <Button
                       type="button"
-                      className="text-primary-dark text-base lg:text-2xl lg:text-background-paper underline lg:no-underline hover:no-underline ps-0"
+                      className="text-primary-dark text-base ps-0 lg:text-2xl lg:text-background-paper underline lg:no-underline hover:no-underline"
                       variant="link"
                       onClick={handleBack}
                       disabled={currentStep === 0}
@@ -160,43 +166,7 @@ export default function DetailedQuestionnaire() {
           </form>
         ) : (
           <div className="container mx-auto px-6 pt-8 lg:py-20">
-            {score >= 90 && (
-              <div className="flex">
-                <div className="flex flex-col items-center lg:items-start gap-10 lg:gap-6 lg:w-1/2 lg:pt-16 mx-auto">
-                  <div className="text-[33px] lg:text-5xl text-center lg:text-left text-text-secondary leading-10">
-                    Your result is <span className="text-text-primary font-bold">excellent.</span>
-                  </div>
-                  <div className="text-[19px] text-primary-dark hidden lg:block lg:mb-16">
-                    Your result falls into the <span className="font-bold">"excellent"</span>, indicating strong performance across critical
-                    areas such as leadership, market opportunity, traction, product and competitiveness. Keep building on these strengths to
-                    maintain momentum.
-                  </div>
-                  <div className="lg:hidden mb-12 lg:mb-0 relative">
-                    <CircularProgress size={340} thickness={36} score={score} />
-                    <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center gap-2">
-                      <Image src="/icon-rocket.png" width={64} height={64} alt="" />
-                      <div className="text-5xl text-text-secondary">{score}%</div>
-                    </div>
-                  </div>
-                  <Link
-                    href="/detailed-questionnaire/valuation"
-                    className="w-full max-w-md bg-secondary-light text-background-paper text-center text-base lg:text-[28px] font-semibold rounded-3xl py-2 lg:py-5 lg:rounded-full"
-                  >
-                    View Your Valuation
-                  </Link>
-                </div>
-
-                <div className="hidden lg:flex lg:w-1/2 lg:justify-end">
-                  <div className="flex justify-center relative">
-                    <CircularProgress size={440} thickness={44} score={score} />
-                    <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center gap-8">
-                      <Image src="/icon-rocket.png" width={116} height={116} alt="" />
-                      <div className="text-5xl text-text-secondary">{score}%</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
+            <Result score={score} />
           </div>
         )}
       </main>
