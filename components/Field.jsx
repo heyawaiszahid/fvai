@@ -1,10 +1,12 @@
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+
 import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
 
-const CustomFormField = ({
+const Field = ({
   control,
   name,
   placeholder,
@@ -22,19 +24,27 @@ const CustomFormField = ({
       control={control}
       name={name}
       render={({ field }) => {
-        const isError = !!errors[name];
+        const isError = type !== "radio" && errors?.[name];
         const isFocusedOrValid = focusField === name || field.value;
 
         return (
           <FormItem className={`space-y-0 ${type === "textarea" ? "lg:col-span-2" : ""}`}>
             <FormLabel
-              className={`transition-colors duration-300 ease-out ${
-                isError ? "text-error-dark" : isFocusedOrValid ? "text-primary-dark" : "text-others-backdropOverlay"
-              }`}
+              className={`transition-colors duration-300 ease-out
+                ${
+                  type === "radio"
+                    ? "text-text-primary text-base lg:text-2xl"
+                    : isError
+                    ? "text-error-dark"
+                    : isFocusedOrValid
+                    ? "text-primary-dark"
+                    : "text-others-backdropOverlay"
+                }`}
               htmlFor={name}
             >
               {label}
             </FormLabel>
+
             <div className="relative">
               {type === "input" ? (
                 <Input
@@ -89,6 +99,26 @@ const CustomFormField = ({
                     id={name}
                   />
                 </FormControl>
+              ) : type === "radio" ? (
+                <FormControl>
+                  <RadioGroup
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                    className="flex flex-col gap-5 lg:gap-6 mt-4 lg:mt-8"
+                  >
+                    {options.map((option) => (
+                      <FormItem key={option.value} className="space-y-0 flex items-start gap-3">
+                        <FormControl>
+                          <RadioGroupItem
+                            value={option.value}
+                            className="w-5 h-5 lg:w-8 lg:h-8 border-others-backdropOverlay focus-visible:ring-0 flex items-center"
+                          />
+                        </FormControl>
+                        <FormLabel className="text-text-secondary text-base lg:text-2xl leading-5">{option.label}</FormLabel>
+                      </FormItem>
+                    ))}
+                  </RadioGroup>
+                </FormControl>
               ) : null}
               {type === "input" && !isError && field.value && (
                 <Image
@@ -101,7 +131,7 @@ const CustomFormField = ({
               )}
             </div>
             <div className={`flex gap-4 ${type === "textarea" ? "items-end" : ""}`}>
-              <FormMessage className="text-xs">{errors[name]?.message}</FormMessage>
+              {type !== "radio" && errors?.[name]?.message && <FormMessage className="text-xs">{errors[name]?.message}</FormMessage>}
               {type === "textarea" && charCount !== null && (
                 <p
                   className={`ml-auto shrink-0 text-xs transition-colors duration-300 ease-out ${
@@ -119,4 +149,4 @@ const CustomFormField = ({
   );
 };
 
-export default CustomFormField;
+export default Field;

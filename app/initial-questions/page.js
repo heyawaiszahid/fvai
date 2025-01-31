@@ -9,8 +9,8 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import CustomFormField from "./CustomFormField";
-import { countries, industryVertical, region, startupStage } from "./optionsData";
+import Field from "@/components/Field";
+import data from "./data.json";
 
 export default function InitialQuestions() {
   const [step, setStep] = useState(1);
@@ -86,7 +86,7 @@ export default function InitialQuestions() {
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-7 lg:space-y-16 flex flex-col">
                   {step === 1 && (
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-8">
-                      <CustomFormField
+                      <Field
                         control={form.control}
                         name="fullName"
                         placeholder="John Doe"
@@ -95,7 +95,7 @@ export default function InitialQuestions() {
                         errors={errors}
                         label="Full Name"
                       />
-                      <CustomFormField
+                      <Field
                         control={form.control}
                         name="email"
                         placeholder="name@gmail.com"
@@ -104,7 +104,7 @@ export default function InitialQuestions() {
                         errors={errors}
                         label="Email"
                       />
-                      <CustomFormField
+                      <Field
                         control={form.control}
                         name="startupName"
                         placeholder="Finovate"
@@ -113,7 +113,7 @@ export default function InitialQuestions() {
                         errors={errors}
                         label="Startup Name"
                       />
-                      <CustomFormField
+                      <Field
                         control={form.control}
                         name="startupCountry"
                         placeholder="Select"
@@ -122,9 +122,9 @@ export default function InitialQuestions() {
                         errors={errors}
                         label="Startup Country"
                         type="select"
-                        options={countries}
+                        options={data.countries}
                       />
-                      <CustomFormField
+                      <Field
                         control={form.control}
                         name="businessDescription"
                         placeholder="Is a real estate company specializing in residential and commercial propeties, offering sales, rentals, and property management services."
@@ -138,7 +138,7 @@ export default function InitialQuestions() {
                           setCharCount(e.target.value.length);
                         }}
                       />
-                      <CustomFormField
+                      <Field
                         control={form.control}
                         name="startupWebsiteUrl"
                         placeholder="https://your-startup.com"
@@ -152,7 +152,7 @@ export default function InitialQuestions() {
 
                   {step === 2 && (
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-                      <CustomFormField
+                      <Field
                         control={form.control}
                         name="startupStage"
                         placeholder="Select"
@@ -161,9 +161,9 @@ export default function InitialQuestions() {
                         errors={errors}
                         label="Startup Stage"
                         type="select"
-                        options={startupStage}
+                        options={data.startupStages}
                       />
-                      <CustomFormField
+                      <Field
                         control={form.control}
                         name="industryVertical"
                         placeholder="Select"
@@ -172,9 +172,9 @@ export default function InitialQuestions() {
                         errors={errors}
                         label="Industry Vertical"
                         type="select"
-                        options={industryVertical}
+                        options={data.industryVerticals}
                       />
-                      <CustomFormField
+                      <Field
                         control={form.control}
                         name="region"
                         placeholder="Select"
@@ -183,7 +183,7 @@ export default function InitialQuestions() {
                         errors={errors}
                         label="Region"
                         type="select"
-                        options={region}
+                        options={data.regions}
                       />
                     </div>
                   )}

@@ -1,0 +1,205 @@
+{
+  "Team": {
+    "title": "Founder & Management Team Strength",
+    "questions": {
+      "Founder Experience": [
+        {
+          "question": "Has the founder or co-founder had a successful exit via M&A or IPO?",
+          "options": ["Yes", "No"]
+        },
+        {
+          "question": "Has the founder or co-founder previously been a successful CEO with notable achievements in the industry?",
+          "options": ["Yes", "No"]
+        }
+      ],
+      "Industry Experience": [
+        {
+          "question": "What is the founder or co-founder's prior work experience?",
+          "options": [
+            "No prior work experience",
+            "Generic work experience (not relevant to the industry)",
+            "Experience as a product manager, in sales, technology, or roles specific to the industry",
+            "Experience in building a startup with successful product launches or scaling revenue",
+            "Experience as a C-suite executive (e.g., COO, CTO, CFO) with deep domain expertise"
+          ]
+        }
+      ],
+      "Education": [
+        {
+          "question": "What is the highest level of education attained by the founder or co-founder?",
+          "options": [
+            "No formal education",
+            "General degrees not specific to the industry",
+            "Degrees relevant to the industry",
+            "Elite/top-tier university degree (not industry-specific)",
+            "Elite/top-tier university degree relevant to the industry"
+          ]
+        }
+      ],
+      "Team Composition": [
+        {
+          "question": "How well-rounded is the founding team?",
+          "options": [
+            "Solo founder or team covers few functional areas",
+            "Team of entrepreneurs with complementary skills",
+            "Team covers most functional areas",
+            "Complete management team with a well-rounded founding team",
+            "Co-founders or team members have previously worked together in a startup or company"
+          ]
+        }
+      ]
+    }
+  },
+  "Market Opportunity": {
+    "title": "Market Size & Growth Potential",
+    "questions": {
+      "Market Size": [
+        {
+          "question": "What is the estimated total addressable market (TAM) for the product or service?",
+          "options": [
+            "Less than USD 100 million",
+            "USD 100 million to 300 million",
+            "USD 300 million to 500 million",
+            "USD 500 million to 1 billion",
+            "More than USD 1 billion"
+          ]
+        }
+      ],
+      "Market Growth": [
+        {
+          "question": "What is the annual growth rate of the market?",
+          "options": ["0% to 10%", "10% to 20%", "20% to 30%", "30% to 40%", "More than 40%"]
+        }
+      ]
+    }
+  },
+  "Traction": {
+    "title": "Startup Traction",
+    "questions": {
+      "Revenue Growth": [
+        {
+          "question": "Is the startup generating revenue with strong month-over-month or year-over-year growth?",
+          "options": ["Yes", "No"]
+        }
+      ],
+      "Revenue": [
+        {
+          "question": "What is the current revenue status of the startup?",
+          "options": [
+            "A. No revenue generated",
+            "B. Some revenue generated, inconsistent growth",
+            "C. Some revenue generated, consistent moderate growth",
+            "D. Generating revenue but not consistently growing",
+            "E. Generating consistent and moderately growing revenue"
+          ]
+        }
+      ],
+      "Strategic Partnerships and Pilot Programs": [
+        {
+          "question": "Does the startup have any strategic partnerships or pilot programmes?",
+          "options": [
+            "A. No strategic partnerships or pilot programs",
+            "B. Some partnerships/pilot programs indicating initial market validation",
+            "C. Several partnerships/pilot programs indicating initial market validation",
+            "D. Multiple partnerships/pilot programs indicating strong market validation",
+            "E. Exclusive partnerships or numerous successful pilot programs"
+          ]
+        }
+      ],
+      "User Engagement / Organic Social Media Growth": [
+        {
+          "question": "What is the level of user engagement or organic social media growth for the startup?",
+          "options": [
+            "A. Low engagement, minimal organic growth on socials",
+            "B. Moderate engagement, some organic growth on socials",
+            "C. Decent engagement, consistent organic growth on socials",
+            "D. High engagement, strong organic growth on socials",
+            "E. Very high engagement, key opinion leader on socials"
+          ]
+        }
+      ]
+    }
+  },
+  "Product / Tech / Solution": {
+    "title": "Stage of Development",
+    "questions": {
+      "Revenue Growth": [
+        {
+          "question": "What stage is the product/solution currently in?",
+          "options": [
+            "Idea / Research stage",
+            "Concept testing / Prototype",
+            "Product development stage",
+            "Market Testing",
+            "Commercialization stage"
+          ]
+        }
+      ],
+      "Scalability": [
+        {
+          "question": "How scalable is the product/solution?",
+          "options": [
+            "Limited scalability, cannot handle growth",
+            "Some scalability, moderate growth potential",
+            "Moderately scalable with potential for significant growth",
+            "Highly scalable, can handle significant growth",
+            "Highly scalable, designed for extensive growth and additional use cases"
+          ]
+        }
+      ],
+      "Vitamin or Painkiller": [
+        {
+          "question": "How essential is the product/solution to the target market?",
+          "options": [
+            "Vitamin, nice to have but not essential",
+            "Somewhat important, addresses some needs but not critical",
+            "Important, addresses significant needs",
+            "Very important, addresses critical needs",
+            "Painkiller, solves a vital problem"
+          ]
+        }
+      ]
+    }
+  },
+  "Competitive Landscape": {
+    "title": "Strength of Competitors in the Marketplace",
+    "questions": {
+      "Revenue Growth": [
+        {
+          "question": "How would the competitive landscape be described?",
+          "options": [
+            "A. Dominated by a single large player",
+            "B. Dominated by a few large players",
+            "C. Competitive, but with opportunities",
+            "D. Fragmented, many small players",
+            "E. No Competitors"
+          ]
+        }
+      ],
+      "Strength of Competitive Products": [
+        {
+          "question": "How would the strength of competitive products be rated?",
+          "options": [
+            "A. Saturated market / red ocean",
+            "B. Competitive products are strong",
+            "C. Competitive products are average",
+            "D. Competitive products are weak",
+            "E. No competitive products"
+          ]
+        }
+      ],
+      "Differentiation / Unique Selling Points": [
+        {
+          "question": "How differentiated is the product/solution from competitors?",
+          "options": [
+            "A. Limited or no differentiation, easily copied, no Intellectual property",
+            "B. Some differentiation, duplication possible",
+            "C. Moderately differentiated, some unique aspects",
+            "D. Unique and protected by specialized know-how / trade secrets",
+            "E. Solid patent protections"
+          ]
+        }
+      ]
+    }
+  }
+}
