@@ -103,7 +103,7 @@ const Field = ({
                 </FormControl>
               ) : type === "radio" ? (
                 <FormControl>
-                  <RadioGroup onValueChange={field.onChange} defaultValue={field.value} className="touch-manipulation">
+                  <RadioGroup onValueChange={field.onChange} defaultValue={field.value}>
                     {options.map((option) => (
                       <FormItem key={option.value} className="space-y-0 flex gap-3 mb-2 lg:mb-6">
                         <FormControl>
