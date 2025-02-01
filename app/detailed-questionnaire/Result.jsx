@@ -63,7 +63,7 @@ const Result = ({ score }) => {
       <div className="mx-auto flex flex-col items-center lg:w-1/2 lg:items-start lg:pt-16 gap-10 lg:gap-6">
         <div className="text-text-secondary text-[33px] text-center lg:text-5xl lg:text-left leading-10">{feedback}</div>
         <div className="text-primary-dark text-[19px] hidden lg:block lg:mb-16">{details}</div>
-        <div className="relative lg:hidden mb-12 lg:mb-0">
+        <div className="relative lg:hidden">
           <CircularProgress size={340} thickness={36} score={score} />
           <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center gap-2">
             <Image src={`/icon-${icon}.png`} width={64} height={64} alt="" className="w-[64px] h-[64px]" />
