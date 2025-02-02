@@ -20,18 +20,12 @@ export default function Home() {
               </h1>
               <div className="flex justify-center lg:justify-start mb-8 lg:mb-6">
                 <ul className="flex flex-col gap-2 lg:gap-6 lg:mb-14 lg:text-2xl">
-                  <li className="flex gap-2 lg:gap-3">
-                    <Image src="/icon-checkmark.svg" width={32} height={32} alt="" className="w-[16px] lg:w-[32px]" />
-                    No complex spreadsheets
-                  </li>
-                  <li className="flex gap-2 lg:gap-3">
-                    <Image src="/icon-checkmark.svg" width={32} height={32} alt="" className="w-[16px] lg:w-[32px]" />
-                    Takes under 5 minutes
-                  </li>
-                  <li className="flex gap-2 lg:gap-3">
-                    <Image src="/icon-checkmark.svg" width={32} height={32} alt="" className="w-[16px] lg:w-[32px]" />
-                    AI-powered
-                  </li>
+                  {["No complex spreadsheets", "Takes under 5 minutes", "AI-powered"].map((item) => (
+                    <li key={item} className="flex gap-2 lg:gap-3">
+                      <Image src="/icon-checkmark.svg" width={32} height={32} alt="" className="w-[16px] lg:w-[32px]" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
               <Link
