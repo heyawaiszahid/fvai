@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function DetailedQuestionnaireValuation() {
+export default function Valuation() {
   return (
     <>
       <Header />
@@ -17,8 +17,8 @@ export default function DetailedQuestionnaireValuation() {
                 Based on your responses, the estimated range has been refined, giving you a precise valuation for your startup.
               </div>
               <Link
-                href="/detailed-questionnaire"
-                className="bg-primary block text-2xl lg:text-2xl text-background-paper text-center font-bold rounded-full p-4 max-w-md mx-auto lg:mx-0 mb-6"
+                href="/detailed-questionnaire/valuation/report"
+                className="bg-primary block text-2xl text-background-paper text-center font-bold rounded-full p-4 max-w-md mx-auto lg:mx-0 mb-6"
               >
                 Get Your Full <br />
                 Valuation Report
@@ -37,7 +37,7 @@ export default function DetailedQuestionnaireValuation() {
             </div>
           </section>
           <section className="text-center">
-            <div className="text-base lg:text-2xl mb-2 lg:mb-10 lg:max-w-3xl lg:mx-auto">
+            <div className="text-base lg:text-2xl mb-3 lg:mb-10 lg:max-w-3xl lg:mx-auto">
               Looking for more tailored help? Book a consultation to explore additional services with FVA Advisory.
             </div>
             <ul className="flex flex-wrap justify-between gap-y-2 text-left text-sm lg:text-2xl mb-5 lg:mb-10">
@@ -54,7 +54,7 @@ export default function DetailedQuestionnaireValuation() {
             >
               Book a Consultation
             </Link>
-            <div className="flex items-center gap-1 mb-8 lg:hidden">
+            <div className="flex items-center gap-1 mb-14 lg:hidden">
               <Image src="/icon-back.svg" width={20} height={20} alt="" />
               <Link href="/detailed-questionnaire" className="text-text-secondary text-base">
                 Start Over
