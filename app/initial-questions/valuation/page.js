@@ -2,8 +2,25 @@ import CTA from "@/components/CTA";
 import Header from "@/components/Header";
 import Retry from "@/components/Retry";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 
-export default function Valuation() {
+export default async function Valuation({ searchParams }) {
+  const { region, industry, stage } = searchParams;
+
+  if (!region || !industry || !stage) {
+    redirect("/initial-questions");
+  }
+
+  const response = await fetch("http://localhost:3000/api/initial-questions/valuation", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ region, industry, stage }),
+    cache: "no-store",
+  });
+
+  const data = await response.json();
+  const { range } = data;
+
   return (
     <>
       <Header />
@@ -20,15 +37,12 @@ export default function Valuation() {
           </div>
           <div className="text-center lg:pt-20">
             <h1 className="text-[27px] lg:text-[47px] text-text-secondary leading-[40px] lg:leading-[64px] mb-1">
-              Seed Stage Fintech <br />
-              startups{" "}
-              <span className="text-primary-dark font-bold">
-                pre-money <br /> valuations
-              </span>{" "}
-              range <br />
-              between :
+              {stage} Stage {industry} startups in {region} have{" "}
+              <span className="text-primary-dark font-bold">pre-money valuations</span> range between :
             </h1>
-            <p className="text-[39px] font-bold text-text-secondary mb-5 lg:mb-8">$4.3M - $17.6M</p>
+            <p className="text-[39px] font-bold text-text-secondary mb-5 lg:mb-8">
+              ${range[0] || "_"}M - ${range[1] || "_"}M
+            </p>
             <CTA href="/detailed-questionnaire">
               Refine My Valuation <br />
               Start Scorecard

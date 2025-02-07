@@ -16,8 +16,8 @@ export const initialQuestionsSchema = z.object({
     .refine((val) => !val || z.string().url().safeParse(val).success, {
       message: "Please enter a valid URL.",
     }),
-  startupStage: z.string().min(1, { message: "Startup Stage is required." }),
-  industryVertical: z.string().min(1, { message: "Industry Vertical is required." }),
+  stage: z.string().min(1, { message: "Startup Stage is required." }),
+  industry: z.string().min(1, { message: "Industry Vertical is required." }),
   region: z.string().min(1, { message: "Region is required." }),
 });
 
@@ -31,7 +31,7 @@ export const step1Schema = initialQuestionsSchema.pick({
 });
 
 export const step2Schema = initialQuestionsSchema.pick({
-  startupStage: true,
-  industryVertical: true,
+  stage: true,
+  industry: true,
   region: true,
 });

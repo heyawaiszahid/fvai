@@ -8,18 +8,26 @@ import { Button } from "@/components/ui/button";
 import { step1Schema, step2Schema } from "@/schemas/initial-questions";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { countries } from "./countries.json";
-import options from "./options.json";
 
 export default function InitialQuestions() {
   const [step, setStep] = useState(1);
   const [focusField, setFocusField] = useState(null);
   const [charCount, setCharCount] = useState(0);
-  const [formData, setFormData] = useState({});
+  let [formData, setFormData] = useState({});
+  const [options, setOptions] = useState({});
 
   const router = useRouter();
+
+  useEffect(() => {
+    fetch("/api/initial-questions/valuation")
+      .then((response) => response.json())
+      .then((data) => {
+        setOptions(data);
+      });
+  }, []);
 
   const schema = step === 1 ? step1Schema : step2Schema;
 
@@ -48,8 +56,10 @@ export default function InitialQuestions() {
     }
 
     if (step === 2) {
-      console.log({ ...formData, ...values });
-      router.push("/initial-questions/valuation");
+      formData = { ...formData, ...values };
+      const { region, industry, stage } = formData;
+      const queryString = new URLSearchParams({ region, industry, stage }).toString();
+      router.push(`/initial-questions/valuation?${queryString}`);
     }
   };
 
@@ -153,7 +163,7 @@ export default function InitialQuestions() {
                   <>
                     <Field
                       control={form.control}
-                      name="startupStage"
+                      name="stage"
                       placeholder="Select"
                       focusField={focusField}
                       setFocusField={setFocusField}
@@ -164,7 +174,7 @@ export default function InitialQuestions() {
                     />
                     <Field
                       control={form.control}
-                      name="industryVertical"
+                      name="industry"
                       placeholder="Select"
                       focusField={focusField}
                       setFocusField={setFocusField}
