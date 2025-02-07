@@ -4,7 +4,6 @@ import Field from "@/components/Field";
 import Header from "@/components/Header";
 import Arrow2 from "@/components/icons/Arrow2";
 import { Button } from "@/components/ui/button";
-import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import data from "./data.json";
@@ -12,12 +11,6 @@ import Result from "./Result";
 import StepsIndicator from "./StepsIndicator";
 
 export default function DetailedQuestionnaire() {
-  const searchParams = useSearchParams();
-  const min = searchParams.get("min");
-  const max = searchParams.get("max");
-
-  console.log(min, max);
-
   const form = useForm();
   const [currentStep, setCurrentStep] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
