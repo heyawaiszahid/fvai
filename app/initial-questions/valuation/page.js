@@ -11,7 +11,7 @@ export default async function Valuation({ searchParams }) {
     redirect("/initial-questions");
   }
 
-  const response = await fetch("http://localhost:3000/api/initial-questions/valuation", {
+  const response = await fetch("/api/initial-questions/valuation", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ region, industry, stage }),
