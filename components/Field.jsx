@@ -118,7 +118,7 @@ const Field = ({
                             className="w-5 h-5 lg:w-8 lg:h-8 border-others-backdropOverlay focus-visible:ring-0"
                           />
                         </FormControl>
-                        <FormLabel className="text-text-secondary text-[16px] lg:text-[23px] leading-5 cursor-pointer">
+                        <FormLabel className="text-text-secondary text-[16px] lg:text-[23px] leading-[20px] lg:leading-[32px] cursor-pointer">
                           {option.label}
                         </FormLabel>
                       </FormItem>
