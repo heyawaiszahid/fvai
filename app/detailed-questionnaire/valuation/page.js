@@ -31,7 +31,7 @@ export default function Valuation() {
                 <Image src="/crypto-trading.png" width={248} height={100} alt="" layout="responsive" loading="eager" />
               </div>
               <div className="hidden lg:block">
-                <Retry href="/detailed-questionnaire">Start Over</Retry>
+                <Retry href="/initial-questions">Start Over</Retry>
               </div>
             </div>
             <div className="hidden lg:flex justify-end pt-1">
@@ -64,7 +64,7 @@ export default function Valuation() {
               Book a Consultation
             </Link>
             <div className="lg:hidden">
-              <Retry href="/detailed-questionnaire" className="no-underline">
+              <Retry href="/initial-questions" className="no-underline">
                 Start Over
               </Retry>
             </div>

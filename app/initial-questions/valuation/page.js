@@ -37,9 +37,9 @@ export default async function Valuation({ searchParams }) {
               <span className="text-primary-dark font-bold">pre-money valuations</span> range between :
             </h1>
             <p className="text-[39px] font-bold text-text-secondary mb-5 lg:mb-8">
-              ${range[0] || "_"}M - ${range[1] || "_"}M
+              ${range[0] || 0}M - ${range[1] || 0}M
             </p>
-            <CTA href="/detailed-questionnaire">
+            <CTA href={`/detailed-questionnaire?min=${range[0]}&max=${range[1]}`}>
               Refine My Valuation <br />
               Start Scorecard
             </CTA>
