@@ -5,7 +5,7 @@ export default function Payment() {
     <>
       <Header />
       <main>
-        <div className="container mx-auto px-6 py-2">Payment Page</div>
+        <div className="container pt-2 pb-16">Payment Page</div>
       </main>
     </>
   );
