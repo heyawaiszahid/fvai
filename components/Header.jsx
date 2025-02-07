@@ -13,7 +13,8 @@ const Header = () => {
             src={index === 0 ? logoSrc.mobile : logoSrc.desktop}
             width={index === 0 ? 80 : 174}
             height={index === 0 ? 24 : 52}
-            alt="Logo"
+            alt=""
+            loading="eager"
           />
         </Link>
         {index === 0 && <Hamburger className="w-[28px] h-[28px] fill-current text-text-primary" />}
