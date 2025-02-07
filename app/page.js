@@ -6,9 +6,9 @@ import Image from "next/image";
 const FEATURES = ["No complex spreadsheets", "Takes under 5 minutes", "AI-powered"];
 
 const LOGOS = [
-  { src: "/logo/pitchbook.png", width: 120, height: 19, desktopWidth: 176, desktopHeight: 28 },
-  { src: "/logo/cb.png", width: 30, height: 30, desktopWidth: 44, desktopHeight: 44 },
-  { src: "/logo/tracxn.png", width: 112, height: 28, desktopWidth: 144, desktopHeight: 36 },
+  { src: "/pitchbook.png", width: 120, height: 19, desktopWidth: 176, desktopHeight: 28 },
+  { src: "/cb.png", width: 30, height: 30, desktopWidth: 44, desktopHeight: 44 },
+  { src: "/tracxn.png", width: 112, height: 28, desktopWidth: 144, desktopHeight: 36 },
 ];
 
 export default function Home() {

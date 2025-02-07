@@ -3,7 +3,7 @@ import path from "path";
 import * as xlsx from "xlsx";
 
 function parseSpreadsheet() {
-  const file = path.join(process.cwd(), "public", "spreadsheet.xlsx");
+  const file = path.join(process.cwd(), "private", "spreadsheet.xlsx");
   const buffer = fs.readFileSync(file);
 
   const workbook = xlsx.read(buffer, { type: "buffer" });

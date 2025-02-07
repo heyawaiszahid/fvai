@@ -3,7 +3,7 @@ import Link from "next/link";
 import Hamburger from "./icons/Hamburger";
 
 const Header = () => {
-  const logoSrc = { mobile: "/logo/fvai.png", desktop: "/logo/fvai-desktop.png" };
+  const logoSrc = { mobile: "/fvai.png", desktop: "/fvai-desktop.png" };
 
   return ["lg:hidden", "hidden lg:block lg:bg-text-primary"].map((cls, index) => (
     <header key={index} className={cls}>

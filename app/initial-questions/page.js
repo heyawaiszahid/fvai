@@ -5,12 +5,12 @@ import Header from "@/components/Header";
 import Back from "@/components/icons/Back";
 import Sidebar from "@/components/Sidebar";
 import { Button } from "@/components/ui/button";
+import countries from "@/lib/countries";
 import { step1Schema, step2Schema } from "@/schemas/initial-questions";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import { countries } from "./countries.json";
 
 export default function InitialQuestions() {
   const [step, setStep] = useState(1);
