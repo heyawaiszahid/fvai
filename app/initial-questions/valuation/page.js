@@ -13,7 +13,7 @@ export default async function Valuation({ searchParams }) {
     redirect("/initial-questions");
   }
 
-  const range = spreadsheet.structuredData?.[region]?.[industry]?.[stage];
+  const range = spreadsheet.structuredData?.[region]?.[industry]?.[stage] || [null, null];
 
   return (
     <>
