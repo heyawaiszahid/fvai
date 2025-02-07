@@ -19,16 +19,11 @@ export default async function Valuation({ searchParams }) {
     <>
       <Header />
       <main className="container pb-16">
-        <section className="grid grid-cols-1 lg:grid-cols-2 mb-6">
-          <div className="lg:order-2 flex justify-center -mb-16 lg:mb-0">
-            <Image
-              src="/charts.png"
-              width={709}
-              height={664}
-              alt=""
-              className="w-[393px] lg:w-[709px] h-[295px] lg:h-[664px] -mt-6 lg:mt-0"
-            />
+        <section className="grid grid-cols-1 lg:grid-cols-2 lg:gap-10 mb-6 lg:mb-0">
+          <div className="lg:order-2 flex justify-center -mb-20 lg:mb-0">
+            <Image src="/charts.png" width={709} height={664} alt="" layout="responsive" className="-mt-8 lg:mt-0" />
           </div>
+
           <div className="text-center lg:pt-20">
             <h1 className="text-[27px] lg:text-[47px] text-text-secondary leading-[40px] lg:leading-[64px] mb-1">
               {stage} Stage {industry} startups in {region} have{" "}
