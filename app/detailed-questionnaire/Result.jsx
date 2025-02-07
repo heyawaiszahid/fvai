@@ -59,7 +59,7 @@ const Result = ({ score }) => {
 
   return (
     <div className="flex">
-      <div className="mx-auto flex flex-col items-center lg:w-1/2 lg:items-start lg:pt-16 gap-10 lg:gap-6">
+      <div className="mx-auto flex flex-col items-center lg:w-1/2 lg:items-start lg:pt-16 gap-8 lg:gap-6">
         <div className="text-text-secondary text-[33px] text-center lg:text-[47px] lg:text-left leading-10">
           {feedback}
         </div>
