@@ -6,13 +6,16 @@ import Image from "next/image";
 import { redirect } from "next/navigation";
 
 export default async function Valuation({ searchParams }) {
-  const { region, industry, stage } = searchParams;
+  const params = await searchParams;
+  const { region, industry, stage } = params || {};
 
   if (!region || !industry || !stage) {
     redirect("/initial-questions");
   }
 
-  const host = headers().get("host");
+  const headersList = await headers();
+  const host = headersList.get("host");
+
   const protocol = process.env.NODE_ENV === "production" ? "https" : "http";
   const baseUrl = `${protocol}://${host}`;
 
