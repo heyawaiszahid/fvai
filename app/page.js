@@ -43,10 +43,24 @@ export default function Home() {
 
             <CTA href="/initial-questions">Start Free Valuation</CTA>
           </div>
-
-          <div className="relative mx-auto w-[345px] h-[240px] lg:w-full lg:h-auto">
-            <Image src="/video-placeholder.png" alt="" fill className="rounded-[7px]" />
-          </div>
+          <Image
+            src="/video-placeholder.png"
+            width={345}
+            height={240}
+            alt=""
+            layout="responsive"
+            loading="eager"
+            className="lg:hidden"
+          />
+          <Image
+            src="/video-placeholder-desktop.png"
+            width={709}
+            height={664}
+            alt=""
+            layout="responsive"
+            loading="eager"
+            className="hidden lg:block"
+          />
         </div>
 
         <div className="text-center">

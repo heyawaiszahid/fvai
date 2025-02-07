@@ -31,7 +31,6 @@ export default async function Valuation({ searchParams }) {
               className="-mt-8 lg:mt-0"
             />
           </div>
-
           <div className="text-center lg:pt-20">
             <h1 className="text-[27px] lg:text-[47px] text-text-secondary leading-[40px] lg:leading-[64px] mb-1">
               {stage} Stage {industry} startups in {region} have{" "}
