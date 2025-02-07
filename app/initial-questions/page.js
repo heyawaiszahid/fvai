@@ -10,6 +10,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
+import { countries } from "./countries.json";
 import options from "./options.json";
 
 export default function InitialQuestions() {
@@ -122,7 +123,7 @@ export default function InitialQuestions() {
                       errors={errors}
                       label="Startup Country"
                       type="select"
-                      options={options.countries}
+                      options={countries}
                     />
                     <Field
                       control={form.control}
