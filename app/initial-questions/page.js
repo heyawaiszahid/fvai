@@ -6,10 +6,11 @@ import Back from "@/components/icons/Back";
 import Sidebar from "@/components/Sidebar";
 import { Button } from "@/components/ui/button";
 import countries from "@/lib/countries";
+import spreadsheet from "@/lib/spreadsheet.json";
 import { step1Schema, step2Schema } from "@/schemas/initial-questions";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
 export default function InitialQuestions() {
@@ -17,17 +18,8 @@ export default function InitialQuestions() {
   const [focusField, setFocusField] = useState(null);
   const [charCount, setCharCount] = useState(0);
   let [formData, setFormData] = useState({});
-  const [options, setOptions] = useState({});
 
   const router = useRouter();
-
-  useEffect(() => {
-    fetch("/api/initial-questions/valuation")
-      .then((response) => response.json())
-      .then((data) => {
-        setOptions(data);
-      });
-  }, []);
 
   const schema = step === 1 ? step1Schema : step2Schema;
 
@@ -170,7 +162,7 @@ export default function InitialQuestions() {
                       errors={errors}
                       label="Startup Stage"
                       type="select"
-                      options={options.stages}
+                      options={spreadsheet.stages}
                     />
                     <Field
                       control={form.control}
@@ -181,7 +173,7 @@ export default function InitialQuestions() {
                       errors={errors}
                       label="Industry Vertical"
                       type="select"
-                      options={options.industries}
+                      options={spreadsheet.industries}
                     />
                     <Field
                       control={form.control}
@@ -192,7 +184,7 @@ export default function InitialQuestions() {
                       errors={errors}
                       label="Region"
                       type="select"
-                      options={options.regions}
+                      options={spreadsheet.regions}
                     />
                   </>
                 )}

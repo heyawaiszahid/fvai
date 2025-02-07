@@ -1,7 +1,7 @@
 import CTA from "@/components/CTA";
 import Header from "@/components/Header";
 import Retry from "@/components/Retry";
-import { headers } from "next/headers";
+import spreadsheet from "@/lib/spreadsheet.json";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
@@ -13,21 +13,7 @@ export default async function Valuation({ searchParams }) {
     redirect("/initial-questions");
   }
 
-  const headersList = await headers();
-  const host = headersList.get("host");
-
-  const protocol = process.env.NODE_ENV === "production" ? "https" : "http";
-  const baseUrl = `${protocol}://${host}`;
-
-  const response = await fetch(`${baseUrl}/api/initial-questions/valuation`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ region, industry, stage }),
-    cache: "no-store",
-  });
-
-  const data = await response.json();
-  const { range } = data;
+  const range = spreadsheet.structuredData?.[region]?.[industry]?.[stage];
 
   return (
     <>
