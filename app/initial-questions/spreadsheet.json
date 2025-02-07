@@ -1,0 +1,1782 @@
+{
+  "Africa": {
+    "3D Printing": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "AdTech": {
+      "Seed": [0.602, 0.666],
+      "Series A": [null, null],
+      "Series B": [43.32, 43.32],
+      "Series C": [null, null]
+    },
+    "Artificial Intelligence & Machine Learning": {
+      "Seed": [0.64, 5.57],
+      "Series A": [15.22, 30.249],
+      "Series B": [63.95, 75.87],
+      "Series C": [null, null]
+    },
+    "Advanced Manufacturing": {
+      "Seed": [11.49, 12.485],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "AgTech": {
+      "Seed": [0.48, 1.9],
+      "Series A": [null, null],
+      "Series B": [91.19, 150.43],
+      "Series C": [null, null]
+    },
+    "AudioTech": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Augmented Reality": {
+      "Seed": [0.5, 0.5],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Autonomous cars": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "B2B Payments": {
+      "Seed": [2.61, 6.57],
+      "Series A": [127.97, 127.97],
+      "Series B": [null, null],
+      "Series C": [763.01, 763.01]
+    },
+    "Beauty": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Big Data": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Cannabis": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Car-Sharing": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "CleanTech": {
+      "Seed": [1.43, 19.77],
+      "Series A": [93.91, 160.4],
+      "Series B": [98.68, 161.26],
+      "Series C": [null, null]
+    },
+    "Climate Tech": {
+      "Seed": [1.03, 2.65],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "CloudTech & DevOps": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Construction Technology": {
+      "Seed": [4.62, 13.17],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Cryptocurrency/Blockchain": {
+      "Seed": [1.04, 16.96],
+      "Series A": [165.12, 165.12],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Cybersecurity": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Digital Health": {
+      "Seed": [4.84, 9.81],
+      "Series A": [8.47, 33.16],
+      "Series B": [77.02, 77.02],
+      "Series C": [null, null]
+    },
+    "E-Commerce": {
+      "Seed": [0.69, 9.69],
+      "Series A": [16.51, 53.87],
+      "Series B": [262, 262],
+      "Series C": [null, null]
+    },
+    "EdTech": {
+      "Seed": [0.66, 1.98],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Ephemeral Content": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Esports": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "FemTech": {
+      "Seed": [3.87, 3.87],
+      "Series A": [null, null],
+      "Series B": [101.09, 101.09],
+      "Series C": [null, null]
+    },
+    "FinTech": {
+      "Seed": [1.32, 15.51],
+      "Series A": [94.94, 130.03],
+      "Series B": [144.41, 213.01],
+      "Series C": [null, null]
+    },
+    "FoodTech": {
+      "Seed": [5.81, 5.81],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Gaming": {
+      "Seed": [0.23, 0.23],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "HealthTech": {
+      "Seed": [1.31, 10.25],
+      "Series A": [82.56, 82.56],
+      "Series B": [144.41, 144.41],
+      "Series C": [null, null]
+    },
+    "HR Tech": {
+      "Seed": [1.16, 3.87],
+      "Series A": [36.41, 36.41],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Impact Investing": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Industrials": {
+      "Seed": [2.86, 5.86],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Infrastructure": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "InsurTech": {
+      "Seed": [0.77, 0.77],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Internet of Things": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Legal Tech": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Life Sciences": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "LOHAS & Wellness": {
+      "Seed": [2.27, 2.95],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Manufacturing": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Marketing Tech": {
+      "Seed": [2.71, 2.71],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Micro-Mobility": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Mobile": {
+      "Seed": [1.26, 3.58],
+      "Series A": [61.92, 61.92],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Mobile Commerce": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Mobility Tech": {
+      "Seed": [0.34, 0.34],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Mortgage Tech": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Nanotechnology": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Oil & Gas": {
+      "Seed": [9.96, 9.96],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Oncology": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Pet Technology": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Real Estate Technology": {
+      "Seed": [0.77, 0.77],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Restaurant Technology": {
+      "Seed": [null, null],
+      "Series A": [66.05, 66.05],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Ridesharing": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Robotics and Drones": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "SaaS": {
+      "Seed": [3.53, 8.24],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Space Technology": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Supply Chain Tech": {
+      "Seed": [0.78, 0.78],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "TMT": {
+      "Seed": [1.66, 1.66],
+      "Series A": [null, null],
+      "Series B": [43.32, 43.32],
+      "Series C": [null, null]
+    },
+    "Virtual Reality": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Wearables & Quantified Self": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    }
+  },
+  "Americas": {
+    "3D Printing": {
+      "Seed": [5.48, 16.09],
+      "Series A": [18.5, 53.66],
+      "Series B": [65, 86.5],
+      "Series C": [110, 138.73]
+    },
+    "AdTech": {
+      "Seed": [3.878, 16.75],
+      "Series A": [19.04, 44],
+      "Series B": [28.8, 118.75],
+      "Series C": [83.44, 280.97]
+    },
+    "Artificial Intelligence & Machine Learning": {
+      "Seed": [5.42, 18.5],
+      "Series A": [26.49, 79.6],
+      "Series B": [70.2, 251.01],
+      "Series C": [144.32, 538]
+    },
+    "Advanced Manufacturing": {
+      "Seed": [6, 17.06],
+      "Series A": [28, 68],
+      "Series B": [69.12, 291.069],
+      "Series C": [81.125, 435.84]
+    },
+    "AgTech": {
+      "Seed": [3, 12.409],
+      "Series A": [13.7, 50],
+      "Series B": [52.07, 140],
+      "Series C": [129.5, 267.74]
+    },
+    "AudioTech": {
+      "Seed": [2.71, 14.54],
+      "Series A": [7.63, 71.42],
+      "Series B": [20.5, 69],
+      "Series C": [119.7, 131.1]
+    },
+    "Augmented Reality": {
+      "Seed": [4.07, 11.6],
+      "Series A": [25.88, 60.96],
+      "Series B": [21.81, 79.47],
+      "Series C": [80, 80]
+    },
+    "Autonomous cars": {
+      "Seed": [7.07, 42.93],
+      "Series A": [139.52, 286.91],
+      "Series B": [900, 900],
+      "Series C": [null, null]
+    },
+    "B2B Payments": {
+      "Seed": [4.7, 28.12],
+      "Series A": [33.02, 76.23],
+      "Series B": [126.36, 309.41],
+      "Series C": [117.15, 255.45]
+    },
+    "Beauty": {
+      "Seed": [4.69, 13.67],
+      "Series A": [15.48, 50.36],
+      "Series B": [66.25, 101.75],
+      "Series C": [55.62, 274]
+    },
+    "Big Data": {
+      "Seed": [7.69, 19.39],
+      "Series A": [27.75, 81.3],
+      "Series B": [69.85, 264.76],
+      "Series C": [117.5, 223.91]
+    },
+    "Cannabis": {
+      "Seed": [3.89, 14.73],
+      "Series A": [12, 44.55],
+      "Series B": [16.23, 48.45],
+      "Series C": [9.71, 9.71]
+    },
+    "Car-Sharing": {
+      "Seed": [0.08, 5.15],
+      "Series A": [115.58, 115.58],
+      "Series B": [null, null],
+      "Series C": [500, 500]
+    },
+    "CleanTech": {
+      "Seed": [4.4, 17.45],
+      "Series A": [24.76, 81.47],
+      "Series B": [59.44, 241.02],
+      "Series C": [130.39, 541.04]
+    },
+    "Climate Tech": {
+      "Seed": [5.04, 23.21],
+      "Series A": [25.2, 94.76],
+      "Series B": [47.48, 217.67],
+      "Series C": [148.55, 352]
+    },
+    "CloudTech & DevOps": {
+      "Seed": [5.61, 17.47],
+      "Series A": [32.25, 71.37],
+      "Series B": [76.7, 211.08],
+      "Series C": [283.5, 920.23]
+    },
+    "Construction Technology": {
+      "Seed": [6, 17.43],
+      "Series A": [20.06, 47.25],
+      "Series B": [49.28, 87],
+      "Series C": [111.67, 111.67]
+    },
+    "Cryptocurrency/Blockchain": {
+      "Seed": [6.99, 23.26],
+      "Series A": [41.28, 106.6],
+      "Series B": [35.75, 373.83],
+      "Series C": [161.67, 578.83]
+    },
+    "Cybersecurity": {
+      "Seed": [7.26, 20.26],
+      "Series A": [21.56, 67],
+      "Series B": [71.99, 234.01],
+      "Series C": [200, 464.74]
+    },
+    "Digital Health": {
+      "Seed": [4.49, 16.86],
+      "Series A": [20, 53.7],
+      "Series B": [39.31, 130.18],
+      "Series C": [112.08, 455.65]
+    },
+    "E-Commerce": {
+      "Seed": [3.16, 13.04],
+      "Series A": [15, 49.53],
+      "Series B": [36.75, 120.34],
+      "Series C": [94.63, 459.64]
+    },
+    "EdTech": {
+      "Seed": [1.33, 11.65],
+      "Series A": [16.63, 62.07],
+      "Series B": [50, 106.76],
+      "Series C": [67.43, 653.14]
+    },
+    "Ephemeral Content": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Esports": {
+      "Seed": [4.93, 13.61],
+      "Series A": [19.25, 44.19],
+      "Series B": [65, 65],
+      "Series C": [15, 15]
+    },
+    "FemTech": {
+      "Seed": [4.37, 13.74],
+      "Series A": [17.24, 64.76],
+      "Series B": [36.62, 116.19],
+      "Series C": [null, null]
+    },
+    "FinTech": {
+      "Seed": [5.81, 18.45],
+      "Series A": [29.54, 74.85],
+      "Series B": [48.03, 167.61],
+      "Series C": [201.15, 650]
+    },
+    "FoodTech": {
+      "Seed": [5.34, 20.5],
+      "Series A": [24.35, 56.6],
+      "Series B": [46.24, 167],
+      "Series C": [177, 450.87]
+    },
+    "Gaming": {
+      "Seed": [4.77, 15.38],
+      "Series A": [17.63, 51.33],
+      "Series B": [21.8, 78.05],
+      "Series C": [null, null]
+    },
+    "HealthTech": {
+      "Seed": [4.02, 16.26],
+      "Series A": [16, 59.96],
+      "Series B": [36.02, 145],
+      "Series C": [52.62, 205.57]
+    },
+    "HR Tech": {
+      "Seed": [3.87, 15],
+      "Series A": [24.57, 62.61],
+      "Series B": [59.1, 160.99],
+      "Series C": [88, 142.66]
+    },
+    "Impact Investing": {
+      "Seed": [5.43, 7.37],
+      "Series A": [null, null],
+      "Series B": [116.9, 135.24],
+      "Series C": [null, null]
+    },
+    "Industrials": {
+      "Seed": [2.42, 10.34],
+      "Series A": [14.87, 49.12],
+      "Series B": [53.1, 222.64],
+      "Series C": [118.75, 567.05]
+    },
+    "Infrastructure": {
+      "Seed": [3.36, 8.77],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "InsurTech": {
+      "Seed": [2.95, 14.05],
+      "Series A": [24.94, 47],
+      "Series B": [55.18, 207.1],
+      "Series C": [374.04, 402.14]
+    },
+    "Internet of Things": {
+      "Seed": [5.81, 20.37],
+      "Series A": [9.84, 57.89],
+      "Series B": [86.29, 155.33],
+      "Series C": [284.5, 287.5]
+    },
+    "Legal Tech": {
+      "Seed": [4.11, 11.32],
+      "Series A": [14.25, 26.58],
+      "Series B": [65, 143.21],
+      "Series C": [null, null]
+    },
+    "Life Sciences": {
+      "Seed": [4.38, 19.39],
+      "Series A": [22, 84.72],
+      "Series B": [60, 235.79],
+      "Series C": [62.01, 436.37]
+    },
+    "LOHAS & Wellness": {
+      "Seed": [1.93, 12.18],
+      "Series A": [14.5, 61.92],
+      "Series B": [22.86, 126.91],
+      "Series C": [402.5, 487.21]
+    },
+    "Manufacturing": {
+      "Seed": [2.96, 17.083],
+      "Series A": [12.4, 77.15],
+      "Series B": [99.29, 302.5],
+      "Series C": [222.58, 495.52]
+    },
+    "Marketing Tech": {
+      "Seed": [3.56, 17.5],
+      "Series A": [20.75, 38.32],
+      "Series B": [52.82, 98.09],
+      "Series C": [null, null]
+    },
+    "Micro-Mobility": {
+      "Seed": [10.08, 10.08],
+      "Series A": [21.09, 21.28],
+      "Series B": [null, null],
+      "Series C": [159.5, 159.5]
+    },
+    "Mobile": {
+      "Seed": [3.05, 16.06],
+      "Series A": [23.15, 55.96],
+      "Series B": [42.31, 153.4],
+      "Series C": [129.2, 318]
+    },
+    "Mobile Commerce": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [192.55, 192.55],
+      "Series C": [20.91, 20.91]
+    },
+    "Mobility Tech": {
+      "Seed": [2.71, 15],
+      "Series A": [29.75, 63.09],
+      "Series B": [56.49, 82.83],
+      "Series C": [15, 15]
+    },
+    "Mortgage Tech": {
+      "Seed": [1.93, 1.93],
+      "Series A": [13.33, 13.33],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Nanotechnology": {
+      "Seed": [3.63, 17.02],
+      "Series A": [18.37, 26.21],
+      "Series B": [15.09, 15.09],
+      "Series C": [135.5, 166.5]
+    },
+    "Oil & Gas": {
+      "Seed": [3.85, 12.82],
+      "Series A": [13.52, 22.5],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Oncology": {
+      "Seed": [7.27, 13.22],
+      "Series A": [12.5, 23],
+      "Series B": [125, 125],
+      "Series C": [null, null]
+    },
+    "Pet Technology": {
+      "Seed": [5.99, 15.73],
+      "Series A": [20, 35],
+      "Series B": [141.43, 263.2075],
+      "Series C": [232.14, 233.38]
+    },
+    "Real Estate Technology": {
+      "Seed": [3.85, 12.94],
+      "Series A": [35.5, 65],
+      "Series B": [35.04, 80],
+      "Series C": [211.56, 357.23]
+    },
+    "Restaurant Technology": {
+      "Seed": [5.33, 9.53],
+      "Series A": [13.74, 25.22],
+      "Series B": [null, null],
+      "Series C": [85, 85]
+    },
+    "Ridesharing": {
+      "Seed": [12.4, 12.4],
+      "Series A": [0.12, 0.12],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Robotics and Drones": {
+      "Seed": [5.55, 19.94],
+      "Series A": [36.19, 95.5],
+      "Series B": [85.92, 245.27],
+      "Series C": [null, null]
+    },
+    "SaaS": {
+      "Seed": [3.87, 15.51],
+      "Series A": [20.64, 67.16],
+      "Series B": [60.17, 143.6],
+      "Series C": [215, 416.19]
+    },
+    "Space Technology": {
+      "Seed": [7.75, 22.37],
+      "Series A": [86.79, 193.92],
+      "Series B": [272.5, 324.2],
+      "Series C": [206.83, 1635]
+    },
+    "Supply Chain Tech": {
+      "Seed": [4.57, 12.37],
+      "Series A": [22.93, 33.25],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "TMT": {
+      "Seed": [4.99, 19.77],
+      "Series A": [22.73, 73.64],
+      "Series B": [28.87, 64.62],
+      "Series C": [60, 229.6]
+    },
+    "Virtual Reality": {
+      "Seed": [1.15, 13.63],
+      "Series A": [65, 65],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Wearables & Quantified Self": {
+      "Seed": [8.5, 10],
+      "Series A": [17.34, 32.21],
+      "Series B": [null, null],
+      "Series C": [72.25, 90.75]
+    }
+  },
+  "Asia": {
+    "3D Printing": {
+      "Seed": [1.86, 6.55],
+      "Series A": [26.007, 56.804],
+      "Series B": [32.01, 76.38],
+      "Series C": [96.27, 96.27]
+    },
+    "AdTech": {
+      "Seed": [1.7206, 5.778],
+      "Series A": [5.65, 27.25],
+      "Series B": [23.588, 57.86],
+      "Series C": [54.55, 54.55]
+    },
+    "Artificial Intelligence & Machine Learning": {
+      "Seed": [1.47, 11.63],
+      "Series A": [10.32, 55.844],
+      "Series B": [30.53, 125.76],
+      "Series C": [66.81, 381.5]
+    },
+    "Advanced Manufacturing": {
+      "Seed": [3.102, 33.67],
+      "Series A": [21.025, 60.571],
+      "Series B": [66.16, 92.91],
+      "Series C": [95.75, 280.26]
+    },
+    "AgTech": {
+      "Seed": [0.72, 6.8],
+      "Series A": [11.75, 31.89],
+      "Series B": [11.9, 33.05],
+      "Series C": [35.3, 121.38]
+    },
+    "AudioTech": {
+      "Seed": [0.89, 3.02],
+      "Series A": [9.73, 120.53],
+      "Series B": [40.32, 129.69],
+      "Series C": [96.14, 96.14]
+    },
+    "Augmented Reality": {
+      "Seed": [3.72, 15.51],
+      "Series A": [13.63, 110.42],
+      "Series B": [11.28, 72.86],
+      "Series C": [69.69, 115.39]
+    },
+    "Autonomous cars": {
+      "Seed": [10.19, 10.19],
+      "Series A": [22.64, 69.08],
+      "Series B": [67.58, 391.7],
+      "Series C": [248.6, 666.52]
+    },
+    "B2B Payments": {
+      "Seed": [2.59, 6.78],
+      "Series A": [27.65, 66.31],
+      "Series B": [34.95, 76.35],
+      "Series C": [828, 828]
+    },
+    "Beauty": {
+      "Seed": [1.78, 6.31],
+      "Series A": [7.84, 28.77],
+      "Series B": [19.67, 72.24],
+      "Series C": [90.48, 166.28]
+    },
+    "Big Data": {
+      "Seed": [2.66, 14.37],
+      "Series A": [13, 57.25],
+      "Series B": [36.66, 91.57],
+      "Series C": [63.29, 222.87]
+    },
+    "Cannabis": {
+      "Seed": [0.69, 0.69],
+      "Series A": [4.12, 4.12],
+      "Series B": [36.15, 36.15],
+      "Series C": [null, null]
+    },
+    "Car-Sharing": {
+      "Seed": [2.89, 4.84],
+      "Series A": [19.11, 32.77],
+      "Series B": [39.38, 216.45],
+      "Series C": [null, null]
+    },
+    "CleanTech": {
+      "Seed": [1.93, 9.34],
+      "Series A": [14.69, 58.11],
+      "Series B": [56.23, 205.22],
+      "Series C": [81.83, 407.48]
+    },
+    "Climate Tech": {
+      "Seed": [6.78, 11.98],
+      "Series A": [33.02, 63.03],
+      "Series B": [70, 455.26],
+      "Series C": [107.9, 441.63]
+    },
+    "CloudTech & DevOps": {
+      "Seed": [3.11, 19.81],
+      "Series A": [15.72, 59.48],
+      "Series B": [20.85, 56.08],
+      "Series C": [12.06, 12.06]
+    },
+    "Construction Technology": {
+      "Seed": [1.15, 5.31],
+      "Series A": [7.67, 32.71],
+      "Series B": [40.77, 74.37],
+      "Series C": [null, null]
+    },
+    "Cryptocurrency/Blockchain": {
+      "Seed": [3.87, 18.22],
+      "Series A": [16.66, 67.08],
+      "Series B": [43.54, 245.511],
+      "Series C": [158.82, 1146.39]
+    },
+    "Cybersecurity": {
+      "Seed": [7.3, 31.02],
+      "Series A": [17.52, 66.48],
+      "Series B": [50.28, 151.63],
+      "Series C": [78.71, 148.4]
+    },
+    "Digital Health": {
+      "Seed": [0.56, 9.2],
+      "Series A": [12, 28.89],
+      "Series B": [18.1, 93.28],
+      "Series C": [91.07, 217.04]
+    },
+    "E-Commerce": {
+      "Seed": [1.18, 6.16],
+      "Series A": [8.25, 33.02],
+      "Series B": [32.82, 107.93],
+      "Series C": [86.9, 589.6]
+    },
+    "EdTech": {
+      "Seed": [1.43, 6.98],
+      "Series A": [12.28, 35.01],
+      "Series B": [12.69, 138.4],
+      "Series C": [69.33, 118.73]
+    },
+    "Ephemeral Content": {
+      "Seed": [3.25, 3.25],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Esports": {
+      "Seed": [4.38, 10.55],
+      "Series A": [43.77, 74.59],
+      "Series B": [40, 40],
+      "Series C": [1838.17, 1838.17]
+    },
+    "FemTech": {
+      "Seed": [1.59, 4.32],
+      "Series A": [14.6, 28.7],
+      "Series B": [66.09, 66.09],
+      "Series C": [38.06, 79.55]
+    },
+    "FinTech": {
+      "Seed": [1.73, 11.87],
+      "Series A": [15.8, 49.53],
+      "Series B": [37.3, 165.94],
+      "Series C": [101.411, 342.61]
+    },
+    "FoodTech": {
+      "Seed": [0.73, 7.75],
+      "Series A": [11.05, 41.58],
+      "Series B": [37.71, 205.86],
+      "Series C": [14.87, 21.01]
+    },
+    "Gaming": {
+      "Seed": [2.82, 12.43],
+      "Series A": [11.73, 66.66],
+      "Series B": [42.38, 265.2],
+      "Series C": [26.48, 39.04]
+    },
+    "HealthTech": {
+      "Seed": [1.63, 8],
+      "Series A": [7.78, 34.31],
+      "Series B": [10.83, 54.39],
+      "Series C": [48.34, 138.52]
+    },
+    "HR Tech": {
+      "Seed": [0.95, 3.91],
+      "Series A": [12.86, 30.74],
+      "Series B": [5.27, 43.44],
+      "Series C": [41.8, 78.26]
+    },
+    "Impact Investing": {
+      "Seed": [1.93, 1.93],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [99.33, 99.33]
+    },
+    "Industrials": {
+      "Seed": [1.9, 10.47],
+      "Series A": [58.02, 89.76],
+      "Series B": [52.74, 69.79],
+      "Series C": [249.26, 767.61]
+    },
+    "Infrastructure": {
+      "Seed": [null, null],
+      "Series A": [18.12, 18.12],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "InsurTech": {
+      "Seed": [2.63, 7.58],
+      "Series A": [25.32, 47.06],
+      "Series B": [null, null],
+      "Series C": [62.42, 62.42]
+    },
+    "Internet of Things": {
+      "Seed": [1.32, 4.8],
+      "Series A": [16.36, 58.18],
+      "Series B": [13.33, 68.38],
+      "Series C": [57.44, 158.15]
+    },
+    "Legal Tech": {
+      "Seed": [3.39, 7.4],
+      "Series A": [44.31, 88.62],
+      "Series B": [51.47, 62.81],
+      "Series C": [null, null]
+    },
+    "Life Sciences": {
+      "Seed": [3.84, 9.91],
+      "Series A": [33.77, 60.72],
+      "Series B": [66.57, 143.16],
+      "Series C": [63.6, 289.94]
+    },
+    "LOHAS & Wellness": {
+      "Seed": [1.49, 16.15],
+      "Series A": [16.51, 68.15],
+      "Series B": [36.39, 133.1],
+      "Series C": [702.34, 702.34]
+    },
+    "Manufacturing": {
+      "Seed": [2.28, 11.2],
+      "Series A": [15.96, 60.57],
+      "Series B": [66.63, 133.86],
+      "Series C": [96.12, 205.73]
+    },
+    "Marketing Tech": {
+      "Seed": [1.78, 11.16],
+      "Series A": [7.01, 36.04],
+      "Series B": [36.97, 66.81],
+      "Series C": [80.22, 90.46]
+    },
+    "Micro-Mobility": {
+      "Seed": [9.79, 30.21],
+      "Series A": [130.7, 351.06],
+      "Series B": [12.54, 12.54],
+      "Series C": [null, null]
+    },
+    "Mobile": {
+      "Seed": [1.27, 8.2],
+      "Series A": [6.24, 35.61],
+      "Series B": [18.26, 81.35],
+      "Series C": [32.48, 104.78]
+    },
+    "Mobile Commerce": {
+      "Seed": [11.49, 29.57],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Mobility Tech": {
+      "Seed": [2, 20.7],
+      "Series A": [11.85, 33.23],
+      "Series B": [52.76, 65.96],
+      "Series C": [29.42, 142.47]
+    },
+    "Mortgage Tech": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Nanotechnology": {
+      "Seed": [6.65, 15.43],
+      "Series A": [33.37, 53.11],
+      "Series B": [null, null],
+      "Series C": [94.61, 94.61]
+    },
+    "Oil & Gas": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [98.35, 98.35]
+    },
+    "Oncology": {
+      "Seed": [3.99, 3.99],
+      "Series A": [45.02, 56.95],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Pet Technology": {
+      "Seed": [2.77, 3.74],
+      "Series A": [22.66, 56.96],
+      "Series B": [50.07, 65.53],
+      "Series C": [null, null]
+    },
+    "Real Estate Technology": {
+      "Seed": [1.13, 6.92],
+      "Series A": [6.35, 16.27],
+      "Series B": [22.82, 36.58],
+      "Series C": [34.67, 47.45]
+    },
+    "Restaurant Technology": {
+      "Seed": [0.54, 5.74],
+      "Series A": [10.61, 20.2],
+      "Series B": [62.43, 138.07],
+      "Series C": [null, null]
+    },
+    "Ridesharing": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Robotics and Drones": {
+      "Seed": [2.61, 11.16],
+      "Series A": [7.79, 58.99],
+      "Series B": [12.01, 52.9],
+      "Series C": [144.71, 239.91]
+    },
+    "SaaS": {
+      "Seed": [1.88, 8.45],
+      "Series A": [7.76, 49.53],
+      "Series B": [12.29, 99.53],
+      "Series C": [14.91, 89.82]
+    },
+    "Space Technology": {
+      "Seed": [3.36, 15.86],
+      "Series A": [56.76, 58.99],
+      "Series B": [22.78, 187.69],
+      "Series C": [605.07, 605.07]
+    },
+    "Supply Chain Tech": {
+      "Seed": [0.55, 6.12],
+      "Series A": [17.02, 53.79],
+      "Series B": [64.98, 64.98],
+      "Series C": [1.75, 1.75]
+    },
+    "TMT": {
+      "Seed": [0.97, 7.71],
+      "Series A": [9.9, 20.1],
+      "Series B": [23.58, 54.81],
+      "Series C": [256.3, 433.53]
+    },
+    "Virtual Reality": {
+      "Seed": [1.62, 3.64],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Wearables & Quantified Self": {
+      "Seed": [2.15, 4.07],
+      "Series A": [4.01, 4.01],
+      "Series B": [67.16, 69.02],
+      "Series C": [null, null]
+    }
+  },
+  "Europe": {
+    "3D Printing": {
+      "Seed": [3.01, 9.26],
+      "Series A": [12.97, 33.81],
+      "Series B": [139.61, 139.61],
+      "Series C": [66.166, 174.65]
+    },
+    "AdTech": {
+      "Seed": [1.54, 10.71],
+      "Series A": [13.29, 30.079],
+      "Series B": [51.48, 76.49],
+      "Series C": [72.83, 149.13]
+    },
+    "Artificial Intelligence & Machine Learning": {
+      "Seed": [2.56, 11.63],
+      "Series A": [16.67, 61.92],
+      "Series B": [58.8, 214.79],
+      "Series C": [211.09, 823.47]
+    },
+    "Advanced Manufacturing": {
+      "Seed": [3.15, 16.14],
+      "Series A": [26.91, 70.9],
+      "Series B": [44.34, 109.99],
+      "Series C": [268.61, 470.83]
+    },
+    "AgTech": {
+      "Seed": [2.59, 6.06],
+      "Series A": [21.16, 57.12],
+      "Series B": [58.69, 194.48],
+      "Series C": [152.63, 322.67]
+    },
+    "AudioTech": {
+      "Seed": [1.46, 10.95],
+      "Series A": [19.38, 27.79],
+      "Series B": [131.92, 131.92],
+      "Series C": [44.8, 44.8]
+    },
+    "Augmented Reality": {
+      "Seed": [2.4, 8.37],
+      "Series A": [20.46, 74.66],
+      "Series B": [76.08, 115.22],
+      "Series C": [500, 500]
+    },
+    "Autonomous cars": {
+      "Seed": [8.12, 8.86],
+      "Series A": [41.83, 74.66],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "B2B Payments": {
+      "Seed": [8.27, 17.06],
+      "Series A": [37.21, 83.18],
+      "Series B": [79.45, 124.12],
+      "Series C": [93.67, 271.21]
+    },
+    "Beauty": {
+      "Seed": [1.59, 6.88],
+      "Series A": [9.7, 30.77],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Big Data": {
+      "Seed": [2.9, 12.08],
+      "Series A": [17.74, 45.6],
+      "Series B": [42.04, 63.68],
+      "Series C": [383.24, 497.69]
+    },
+    "Cannabis": {
+      "Seed": [3.14, 4.49],
+      "Series A": [162.55, 443.73],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Car-Sharing": {
+      "Seed": [21.64, 35.24],
+      "Series A": [10.2, 27.92],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "CleanTech": {
+      "Seed": [3.14, 15.95],
+      "Series A": [21.7, 69.78],
+      "Series B": [56.47, 269.77],
+      "Series C": [66.9, 447.71]
+    },
+    "Climate Tech": {
+      "Seed": [2.42, 15.13],
+      "Series A": [20.28, 60.89],
+      "Series B": [117.36, 216],
+      "Series C": [58.19, 361.99]
+    },
+    "CloudTech & DevOps": {
+      "Seed": [4.69, 17],
+      "Series A": [27.08, 75.41],
+      "Series B": [160.07, 191.39],
+      "Series C": [451.21, 451.21]
+    },
+    "Construction Technology": {
+      "Seed": [2.37, 11.63],
+      "Series A": [16.57, 43.29],
+      "Series B": [59.08, 105.46],
+      "Series C": [null, null]
+    },
+    "Cryptocurrency/Blockchain": {
+      "Seed": [3.87, 16.5],
+      "Series A": [28.88, 83.17],
+      "Series B": [112.4, 261.78],
+      "Series C": [303.74, 705.915]
+    },
+    "Cybersecurity": {
+      "Seed": [2.52, 10.88],
+      "Series A": [24.97, 60.45],
+      "Series B": [62.54, 161.81],
+      "Series C": [43.37, 46.75]
+    },
+    "Digital Health": {
+      "Seed": [1.66, 9.19],
+      "Series A": [13.66, 63.29],
+      "Series B": [54.1, 94.46],
+      "Series C": [102.6, 285.76]
+    },
+    "E-Commerce": {
+      "Seed": [2.13, 7.29],
+      "Series A": [9.88, 41.28],
+      "Series B": [47.87, 106.86],
+      "Series C": [56.6, 542.22]
+    },
+    "EdTech": {
+      "Seed": [1.38, 6.97],
+      "Series A": [13.54, 46.19],
+      "Series B": [20.41, 29.27],
+      "Series C": [263.58, 263.58]
+    },
+    "Ephemeral Content": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Esports": {
+      "Seed": [2.01, 4.8],
+      "Series A": [31.35, 65.49],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "FemTech": {
+      "Seed": [3.02, 10],
+      "Series A": [66.41, 142.33],
+      "Series B": [132.38, 156.45],
+      "Series C": [null, null]
+    },
+    "FinTech": {
+      "Seed": [3.53, 14.32],
+      "Series A": [19.43, 69.1],
+      "Series B": [73.16, 281.08],
+      "Series C": [180.5, 645.09]
+    },
+    "FoodTech": {
+      "Seed": [1.49, 8.59],
+      "Series A": [16.8, 36.88],
+      "Series B": [84.77, 156.45],
+      "Series C": [31.13, 31.13]
+    },
+    "Gaming": {
+      "Seed": [3.38, 15.55],
+      "Series A": [21.22, 61.05],
+      "Series B": [12.81, 27.6],
+      "Series C": [3.39, 3.39]
+    },
+    "HealthTech": {
+      "Seed": [1.51, 9.75],
+      "Series A": [16.57, 80.5],
+      "Series B": [36.87, 156.79],
+      "Series C": [166.68, 552.04]
+    },
+    "HR Tech": {
+      "Seed": [1.24, 7.62],
+      "Series A": [17.8, 29.22],
+      "Series B": [38.47, 145.47],
+      "Series C": [308.02, 319.23]
+    },
+    "Impact Investing": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Industrials": {
+      "Seed": [4.13, 13.92],
+      "Series A": [22.29, 126.95],
+      "Series B": [202.66, 202.66],
+      "Series C": [260.36, 987.31]
+    },
+    "Infrastructure": {
+      "Seed": [20.78, 20.78],
+      "Series A": [13.84, 13.84],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "InsurTech": {
+      "Seed": [2.09, 6.87],
+      "Series A": [19.18, 55.97],
+      "Series B": [49.13, 95.99],
+      "Series C": [null, null]
+    },
+    "Internet of Things": {
+      "Seed": [2.8, 11.13],
+      "Series A": [23.26, 66.65],
+      "Series B": [80.28, 203.41],
+      "Series C": [270.52, 270.52]
+    },
+    "Legal Tech": {
+      "Seed": [3.87, 10.12],
+      "Series A": [11.23, 12.57],
+      "Series B": [46.14, 111.88],
+      "Series C": [null, null]
+    },
+    "Life Sciences": {
+      "Seed": [3.24, 16.41],
+      "Series A": [15.22, 139.71],
+      "Series B": [34.67, 242.59],
+      "Series C": [100.73, 458.32]
+    },
+    "LOHAS & Wellness": {
+      "Seed": [1.9, 8.26],
+      "Series A": [12.15, 23.6],
+      "Series B": [56.8, 163.4],
+      "Series C": [107.35, 107.35]
+    },
+    "Manufacturing": {
+      "Seed": [3.54, 14.07],
+      "Series A": [16.83, 43.25],
+      "Series B": [92.93, 139.09],
+      "Series C": [280.43, 640.35]
+    },
+    "Marketing Tech": {
+      "Seed": [1.17, 5.81],
+      "Series A": [21.5, 39.21],
+      "Series B": [36.7, 165.84],
+      "Series C": [null, null]
+    },
+    "Micro-Mobility": {
+      "Seed": [0.4, 3.59],
+      "Series A": [16.93, 16.93],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Mobile": {
+      "Seed": [1.75, 8.53],
+      "Series A": [13.01, 45.8],
+      "Series B": [60, 169.21],
+      "Series C": [164.88, 416.19]
+    },
+    "Mobile Commerce": {
+      "Seed": [1.5, 4.42],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Mobility Tech": {
+      "Seed": [4.06, 5.25],
+      "Series A": [38.54, 155.26],
+      "Series B": [85.49, 116.49],
+      "Series C": [203.07, 430.73]
+    },
+    "Mortgage Tech": {
+      "Seed": [4.65, 4.65],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Nanotechnology": {
+      "Seed": [3.07, 5.87],
+      "Series A": [22.66, 22.66],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Oil & Gas": {
+      "Seed": [5.89, 5.89],
+      "Series A": [65.76, 65.76],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Oncology": {
+      "Seed": [1.5, 11.07],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Pet Technology": {
+      "Seed": [1.6, 3.34],
+      "Series A": [5.1, 5.1],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Real Estate Technology": {
+      "Seed": [2.08, 11.28],
+      "Series A": [11.18, 38.15],
+      "Series B": [42.65, 220.81],
+      "Series C": [110.33, 233.77]
+    },
+    "Restaurant Technology": {
+      "Seed": [2.67, 6.99],
+      "Series A": [45.42, 66.66],
+      "Series B": [94.5, 94.5],
+      "Series C": [null, null]
+    },
+    "Ridesharing": {
+      "Seed": [2.89, 4.58],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Robotics and Drones": {
+      "Seed": [1.52, 8.2],
+      "Series A": [30.98, 49.53],
+      "Series B": [115.54, 180.33],
+      "Series C": [148.75, 148.75]
+    },
+    "SaaS": {
+      "Seed": [1.84, 10.27],
+      "Series A": [19.42, 63.52],
+      "Series B": [43.86, 102.38],
+      "Series C": [22.25, 22.25]
+    },
+    "Space Technology": {
+      "Seed": [4.96, 20.12],
+      "Series A": [36.53, 118.15],
+      "Series B": [69.48, 157.87],
+      "Series C": [605.41, 1489.82]
+    },
+    "Supply Chain Tech": {
+      "Seed": [7.31, 15.31],
+      "Series A": [14.94, 23.3],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "TMT": {
+      "Seed": [1.82, 17.15],
+      "Series A": [38.11, 38.11],
+      "Series B": [158.26, 373.68],
+      "Series C": [null, null]
+    },
+    "Virtual Reality": {
+      "Seed": [1.27, 7.48],
+      "Series A": [1.11, 1.11],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Wearables & Quantified Self": {
+      "Seed": [2.48, 6.9],
+      "Series A": [22.58, 22.58],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    }
+  },
+  "Oceania": {
+    "3D Printing": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [15.3, 15.3],
+      "Series C": [null, null]
+    },
+    "AdTech": {
+      "Seed": [3.16, 7.81],
+      "Series A": [20.633, 34.399],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Artificial Intelligence & Machine Learning": {
+      "Seed": [0.94, 8.822],
+      "Series A": [15.89, 75.3],
+      "Series B": [74.13, 139.7],
+      "Series C": [215.03, 215.03]
+    },
+    "Advanced Manufacturing": {
+      "Seed": [28.15, 31.36],
+      "Series A": [86.23, 93.57],
+      "Series B": [48.055, 114.704],
+      "Series C": [null, null]
+    },
+    "AgTech": {
+      "Seed": [4.61, 16.48],
+      "Series A": [13.04, 18.78],
+      "Series B": [43.03, 207.79],
+      "Series C": [235, 235]
+    },
+    "AudioTech": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Augmented Reality": {
+      "Seed": [null, null],
+      "Series A": [12.25, 20.59],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Autonomous cars": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "B2B Payments": {
+      "Seed": [2.61, 11.05],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Beauty": {
+      "Seed": [5.67, 5.67],
+      "Series A": [null, null],
+      "Series B": [15.88, 15.88],
+      "Series C": [null, null]
+    },
+    "Big Data": {
+      "Seed": [null, null],
+      "Series A": [32.6, 32.6],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Cannabis": {
+      "Seed": [5.08, 5.08],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Car-Sharing": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "CleanTech": {
+      "Seed": [2.77, 10.94],
+      "Series A": [12.4, 48.11],
+      "Series B": [22.2, 109.8],
+      "Series C": [157.34, 203.974]
+    },
+    "Climate Tech": {
+      "Seed": [2.41, 5.18],
+      "Series A": [34.38, 41.04],
+      "Series B": [25.03, 25.03],
+      "Series C": [null, null]
+    },
+    "CloudTech & DevOps": {
+      "Seed": [0.58, 11.18],
+      "Series A": [172.5, 172.5],
+      "Series B": [69.6, 69.6],
+      "Series C": [346.82, 346.82]
+    },
+    "Construction Technology": {
+      "Seed": [3.15, 11.63],
+      "Series A": [21.56, 23.27],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Cryptocurrency/Blockchain": {
+      "Seed": [5.33, 31.89],
+      "Series A": [26.83, 116.16],
+      "Series B": [120.34, 120.34],
+      "Series C": [null, null]
+    },
+    "Cybersecurity": {
+      "Seed": [2.49, 6.28],
+      "Series A": [94.28, 94.28],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Digital Health": {
+      "Seed": [0.63, 9.18],
+      "Series A": [21.03, 40.67],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "E-Commerce": {
+      "Seed": [3.19, 18.4],
+      "Series A": [12.38, 12.38],
+      "Series B": [73.12, 103.84],
+      "Series C": [null, null]
+    },
+    "EdTech": {
+      "Seed": [0.68, 4.85],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Ephemeral Content": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Esports": {
+      "Seed": [null, null],
+      "Series A": [16.51, 16.51],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "FemTech": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "FinTech": {
+      "Seed": [3.84, 15.93],
+      "Series A": [14.4, 68.76],
+      "Series B": [54.35, 107.2],
+      "Series C": [79.38, 179.91]
+    },
+    "FoodTech": {
+      "Seed": [4.8, 7.81],
+      "Series A": [null, null],
+      "Series B": [44.92, 44.92],
+      "Series C": [null, null]
+    },
+    "Gaming": {
+      "Seed": [2.43, 5.21],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "HealthTech": {
+      "Seed": [3.36, 11.83],
+      "Series A": [18.89, 18.89],
+      "Series B": [27.06, 29.78],
+      "Series C": [228.57, 228.57]
+    },
+    "HR Tech": {
+      "Seed": [1.55, 5.89],
+      "Series A": [13.94, 34.92],
+      "Series B": [11.12, 11.12],
+      "Series C": [null, null]
+    },
+    "Impact Investing": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Industrials": {
+      "Seed": [0.58, 0.58],
+      "Series A": [1.48, 1.48],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Infrastructure": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "InsurTech": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Internet of Things": {
+      "Seed": [null, null],
+      "Series A": [16.51, 16.51],
+      "Series B": [null, null],
+      "Series C": [200.13, 200.13]
+    },
+    "Legal Tech": {
+      "Seed": [0.91, 7.75],
+      "Series A": [8.99, 13.57],
+      "Series B": [null, null],
+      "Series C": [339.2, 339.2]
+    },
+    "Life Sciences": {
+      "Seed": [2.89, 8],
+      "Series A": [8.71, 11.65],
+      "Series B": [18.5, 44.68],
+      "Series C": [null, null]
+    },
+    "LOHAS & Wellness": {
+      "Seed": [2.21, 2.76],
+      "Series A": [11.73, 26.86],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Manufacturing": {
+      "Seed": [2.69, 7.63],
+      "Series A": [20.47, 47.47],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Marketing Tech": {
+      "Seed": [24.03, 24.03],
+      "Series A": [80.16, 80.16],
+      "Series B": [21.56, 21.56],
+      "Series C": [null, null]
+    },
+    "Micro-Mobility": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Mobile": {
+      "Seed": [0.8, 3.85],
+      "Series A": [14.19, 25.25],
+      "Series B": [19.25, 19.25],
+      "Series C": [67.7, 67.7]
+    },
+    "Mobile Commerce": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Mobility Tech": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Mortgage Tech": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Nanotechnology": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Oil & Gas": {
+      "Seed": [null, null],
+      "Series A": [4.12, 4.12],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Oncology": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Pet Technology": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Real Estate Technology": {
+      "Seed": [1.31, 1.31],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Restaurant Technology": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Ridesharing": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Robotics and Drones": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "SaaS": {
+      "Seed": [1.44, 9.12],
+      "Series A": [20.64, 20.64],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Space Technology": {
+      "Seed": [null, null],
+      "Series A": [49.53, 49.53],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Supply Chain Tech": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "TMT": {
+      "Seed": [null, null],
+      "Series A": [198.85, 472.72],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Virtual Reality": {
+      "Seed": [null, null],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    },
+    "Wearables & Quantified Self": {
+      "Seed": [0.58, 0.58],
+      "Series A": [null, null],
+      "Series B": [null, null],
+      "Series C": [null, null]
+    }
+  }
+}

@@ -1,56 +1,72 @@
+import CTA from "@/components/CTA";
 import Header from "@/components/Header";
+import Checkmark from "@/components/icons/Checkmark";
 import Image from "next/image";
-import Link from "next/link";
+
+const FEATURES = ["No complex spreadsheets", "Takes under 5 minutes", "AI-powered"];
+
+const LOGOS = [
+  { src: "/logo/pitchbook.png", width: 120, height: 19, desktopWidth: 176, desktopHeight: 28 },
+  { src: "/logo/cb.png", width: 30, height: 30, desktopWidth: 44, desktopHeight: 44 },
+  { src: "/logo/tracxn.png", width: 112, height: 28, desktopWidth: 144, desktopHeight: 36 },
+];
 
 export default function Home() {
   return (
     <>
       <Header />
-      <main>
-        <div className="container mx-auto px-6 py-6">
-          <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8 lg:mb-10">
-            <div className="lg:py-14">
-              <h1 className="text-center lg:text-left text-3xl lg:text-5xl leading-normal lg:leading-snug mb-8">
-                Get an{" "}
-                <span className="text-primary-dark font-bold">
-                  Instant <br /> Valuation
-                </span>{" "}
-                for Your <br /> Startup <Image src="/icon-rocket.png" width={64} height={64} alt="" className="inline w-[64px] h-[64px]" />{" "}
-                for <span className="text-primary-dark font-bold">Free</span>
-              </h1>
-              <div className="flex justify-center lg:justify-start mb-8 lg:mb-6">
-                <ul className="flex flex-col gap-2 lg:gap-6 lg:mb-14 lg:text-2xl">
-                  {["No complex spreadsheets", "Takes under 5 minutes", "AI-powered"].map((item) => (
-                    <li key={item} className="flex gap-2 lg:gap-3">
-                      <Image src="/icon-checkmark.svg" width={32} height={32} alt="" className="w-[16px] lg:w-[32px]" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+      <main className="container pt-6 pb-16">
+        <div className="grid gap-8 lg:grid-cols-2 mb-8 lg:mb-14">
+          <div className="text-center lg:text-left lg:pt-14 lg:pb-32">
+            <h1 className="mb-8 text-[33px] leading-[48px] lg:mb-6 lg:text-[47px] lg:leading-[64px]">
+              Get an{" "}
+              <span className="font-bold text-primary-dark">
+                Instant <br /> Valuation
+              </span>{" "}
+              for Your <br />
+              <span className="leading-[64px]">
+                Startup <span className="text-[64px] align-middle">🚀</span> for{" "}
+                <span className="font-bold text-primary-dark">Free</span>
+              </span>
+            </h1>
+
+            <div className="flex justify-center lg:justify-start mb-8 lg:mb-14">
+              <ul className="text-base lg:text-[23px] space-y-2 lg:space-y-6">
+                {FEATURES.map((feature) => (
+                  <li key={feature} className="flex items-center gap-3">
+                    <Checkmark className="w-[20px] h-[20px] lg:w-[26px] lg:h-[26px] fill-current text-text-secondary" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <CTA href="/initial-questions">Start Free Valuation</CTA>
+          </div>
+
+          <div className="relative mx-auto w-[345px] h-[240px] lg:w-full lg:h-auto">
+            <Image src="/video-placeholder.png" alt="" fill className="rounded-[7px]" />
+          </div>
+        </div>
+
+        <div className="text-center">
+          <h2 className="mb-1 text-[16px] lg:text-[23px] font-bold lg:mb-0">Data-Backed:</h2>
+          <p className="mb-1 text-[16px] lg:text-[23px] text-text-secondary lg:mb-4">
+            We've screened over 50,000 fundraising transactions completed in 2023 and 2024
+          </p>
+
+          <div className="flex items-center justify-center gap-6 lg:gap-10">
+            {LOGOS.map(({ src, width, height, desktopWidth, desktopHeight }) => (
+              <div key={src} className="relative">
+                <div className="lg:hidden">
+                  <Image src={src} alt="" width={width} height={height} />
+                </div>
+                <div className="hidden lg:block">
+                  <Image src={src} alt="" width={desktopWidth} height={desktopHeight} />
+                </div>
               </div>
-              <Link
-                href="/initial-questions"
-                className="bg-primary block text-xl lg:text-2xl text-background-paper text-center font-bold rounded-full p-4 max-w-md mx-auto lg:mx-0"
-              >
-                Start Free Valuation
-              </Link>
-            </div>
-            <div>
-              <Image src="/video-placeholder.png" width={345} height={240} alt="" className="mx-auto block lg:hidden" />
-              <Image src="/video-placeholder-desktop.png" width={709} height={664} alt="" className="hidden lg:block" />
-            </div>
-          </section>
-          <section className="mb-8">
-            <div className="text-center mb-2 lg:mb-4 lg:text-2xl lg:leading-snug">
-              <p className="font-bold">Data-Backed:</p>
-              <p className="text-text-secondary">We've screened over 50,000 fundraising transactions completed in 2023 and 2024</p>
-            </div>
-            <div className="flex justify-center gap-7 lg:gap-10">
-              <Image src="/logo-pitchbook.png" width={176} height={28} alt="" className="w-[120px] lg:w-[176px]" />
-              <Image src="/logo-cb.png" width={44} height={44} alt="" className="w-[30px] lg:w-[44px]" />
-              <Image src="/logo-tracxn.png" width={144} height={28} alt="" className="w-[112px] lg:w-[144px]" />
-            </div>
-          </section>
+            ))}
+          </div>
         </div>
       </main>
     </>

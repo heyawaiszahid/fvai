@@ -1,31 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
+import Hamburger from "./icons/Hamburger";
 
 const Header = () => {
-  return (
-    <>
-      {/* Mobile Header */}
-      <header className="block lg:hidden">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            <Link href="/" className="inline-block">
-              <Image src="/logo.png" width={80} height={24} alt="" />
-            </Link>
-            <Image src="/icon-menu.svg" width={28} height={28} alt="" />
-          </div>
-        </div>
-      </header>
+  const logoSrc = { mobile: "/logo/fvai.png", desktop: "/logo/fvai-desktop.png" };
 
-      {/* Desktop Header */}
-      <header className="hidden lg:block lg:bg-text-primary">
-        <div className="container mx-auto px-6 py-7">
-          <Link href="/" className="inline-block">
-            <Image src="/logo-desktop.png" width={174} height={52} alt="" />
-          </Link>
-        </div>
-      </header>
-    </>
-  );
+  return ["lg:hidden", "hidden lg:block lg:bg-text-primary"].map((cls, index) => (
+    <header key={index} className={cls}>
+      <div className="container flex items-center justify-between pt-4 pb-4 lg:pt-7 lg:pb-8">
+        <Link href="/">
+          <Image
+            src={index === 0 ? logoSrc.mobile : logoSrc.desktop}
+            width={index === 0 ? 80 : 174}
+            height={index === 0 ? 24 : 52}
+            alt="Logo"
+          />
+        </Link>
+        {index === 0 && <Hamburger className="w-[28px] h-[28px] fill-current text-text-primary" />}
+      </div>
+    </header>
+  ));
 };
 
 export default Header;

@@ -4,7 +4,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 import { Textarea } from "@/components/ui/textarea";
-import Image from "next/image";
+import Good from "./icons/Good";
 
 const Field = ({
   control,
@@ -28,14 +28,12 @@ const Field = ({
         const isFocusedOrValid = focusField === name || field.value;
 
         return (
-          <FormItem
-            className={`${type === "radio" ? "space-y-2 lg:space-y-3" : "space-y-0"} ${type === "textarea" ? "lg:col-span-2" : ""}`}
-          >
+          <FormItem className={`space-y-0 ${type === "textarea" ? "lg:col-span-2" : ""}`}>
             <FormLabel
               className={`transition-colors duration-300 ease-out
                 ${
                   type === "radio"
-                    ? "text-text-primary text-base lg:text-2xl block mt-5 mb-5 lg:mt-8 lg:mb-8"
+                    ? "text-text-primary text-[16px] lg:text-[23px] block mb-6 lg:mb-8"
                     : isError
                     ? "text-error-dark"
                     : isFocusedOrValid
@@ -53,8 +51,12 @@ const Field = ({
                   {...field}
                   placeholder={placeholder}
                   autoComplete="off"
-                  className={`px-4 py-[21px] pr-12 border placeholder:text-others-backdropOverlay lg:text-base focus-visible:ring-0 transition-colors duration-300 ease-out ${
-                    isError ? "border-error-dark" : isFocusedOrValid ? "border-primary-dark" : "border-others-backdropOverlay"
+                  className={`px-4 py-[21px] pr-12 border placeholder:text-others-backdropOverlay lg:text-[16px] focus-visible:ring-0 transition-colors duration-300 ease-out ${
+                    isError
+                      ? "border-error-dark"
+                      : isFocusedOrValid
+                      ? "border-primary-dark"
+                      : "border-others-backdropOverlay"
                   }`}
                   onFocus={() => setFocusField(name)}
                   onBlur={() => setFocusField(null)}
@@ -63,8 +65,12 @@ const Field = ({
               ) : type === "select" ? (
                 <Select {...field} onValueChange={field.onChange} defaultValue={field.value}>
                   <FormControl
-                    className={`px-4 py-[21px] border text-base data-[placeholder]:text-others-backdropOverlay focus:ring-0 focus:outline-0 focus:border-primary-dark transition-colors duration-300 ease-out ${
-                      isError ? "border-error-dark" : isFocusedOrValid ? "border-primary-dark" : "border-others-backdropOverlay"
+                    className={`px-4 py-[21px] border text-[16px] data-[placeholder]:text-others-backdropOverlay focus:ring-0 focus:outline-0 focus:border-primary-dark transition-colors duration-300 ease-out ${
+                      isError
+                        ? "border-error-dark"
+                        : isFocusedOrValid
+                        ? "border-primary-dark"
+                        : "border-others-backdropOverlay"
                     }`}
                   >
                     <SelectTrigger onBlur={() => field.onChange(field.value)}>
@@ -91,7 +97,7 @@ const Field = ({
                     {...field}
                     placeholder={placeholder}
                     autoComplete="off"
-                    className="resize-none px-4 py-3 border-others-backdropOverlay placeholder:text-others-backdropOverlay lg:text-base shadow-none outline-none focus-visible:ring-0 focus:border-primary-dark duration-300 ease-out"
+                    className="resize-none px-4 py-3 border-others-backdropOverlay placeholder:text-others-backdropOverlay lg:text-[16px] shadow-none outline-none focus-visible:ring-0 focus:border-primary-dark duration-300 ease-out"
                     onFocus={() => setFocusField(name)}
                     onBlur={() => setFocusField(null)}
                     onChange={(e) => {
@@ -105,35 +111,37 @@ const Field = ({
                 <FormControl>
                   <RadioGroup onValueChange={field.onChange} defaultValue={field.value}>
                     {options.map((option) => (
-                      <FormItem key={option.value} className="space-y-0 flex gap-3 mb-2 lg:mb-6">
+                      <FormItem key={option.value} className="space-y-0 flex gap-2 lg:gap-3 mb-2 lg:mb-5">
                         <FormControl>
                           <RadioGroupItem
                             value={option.value}
                             className="w-5 h-5 lg:w-8 lg:h-8 border-others-backdropOverlay focus-visible:ring-0"
                           />
                         </FormControl>
-                        <FormLabel className="text-text-secondary text-base lg:text-2xl leading-5 cursor-pointer">{option.label}</FormLabel>
+                        <FormLabel className="text-text-secondary text-[16px] lg:text-[23px] leading-5 cursor-pointer">
+                          {option.label}
+                        </FormLabel>
                       </FormItem>
                     ))}
                   </RadioGroup>
                 </FormControl>
               ) : null}
               {type === "input" && !isError && field.value && (
-                <Image
-                  src="/icon-good.svg"
-                  alt="Valid"
-                  width={17}
-                  height={12}
-                  className="absolute top-1/2 right-5 transform -translate-y-1/2"
-                />
+                <Good className="w-[16px] h-[12] fill-current text-success-dark absolute top-1/2 right-5 transform -translate-y-1/2" />
               )}
             </div>
             <div className={`flex gap-4 ${type === "textarea" ? "items-end" : ""}`}>
-              {type !== "radio" && errors?.[name]?.message && <FormMessage className="text-xs">{errors[name]?.message}</FormMessage>}
+              {type !== "radio" && errors?.[name]?.message && (
+                <FormMessage className="text-[11px]">{errors[name]?.message}</FormMessage>
+              )}
               {type === "textarea" && charCount !== null && (
                 <p
-                  className={`ml-auto shrink-0 text-xs transition-colors duration-300 ease-out ${
-                    isError ? "text-error-dark" : focusField === name ? "text-primary-dark" : "text-others-backdropOverlay"
+                  className={`ml-auto shrink-0 text-[11px] transition-colors duration-300 ease-out ${
+                    isError
+                      ? "text-error-dark"
+                      : focusField === name
+                      ? "text-primary-dark"
+                      : "text-others-backdropOverlay"
                   }`}
                 >
                   {charCount}/50 Characters

@@ -2,12 +2,13 @@
 
 import Field from "@/components/Field";
 import Header from "@/components/Header";
+import Arrow2 from "@/components/icons/Arrow2";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import data from "./data.json";
 import Result from "./Result";
+import StepsIndicator from "./StepsIndicator";
 
 export default function DetailedQuestionnaire() {
   const form = useForm();
@@ -46,7 +47,6 @@ export default function DetailedQuestionnaire() {
     }
 
     // console.log(formData);
-
     // setScore(92.2);
 
     setIsSubmitted(true);
@@ -73,50 +73,18 @@ export default function DetailedQuestionnaire() {
   return (
     <>
       <Header />
-      <div className="bg-text-primary text-background-paper">
-        <div className="container mx-auto flex justify-between gap-2 px-8 py-4 cursor-default lg:pt-0 lg:pb-8">
-          {steps.map((step, index) => (
-            <Fragment key={index}>
-              <div
-                className={`relative flex items-center justify-center w-7 h-7 rounded-3xl border text-center leading-7 lg:w-auto lg:min-w-44 lg:h-auto lg:min-h-9 lg:px-5 lg:py-2 lg:text-xl lg:leading-none ${
-                  index < currentStep || isSubmitted
-                    ? "bg-info border-info"
-                    : index === currentStep
-                    ? "bg-info border-background-default"
-                    : "bg-info-light border-info text-background-default"
-                }`}
-              >
-                {index < currentStep || isSubmitted ? (
-                  <Image src="/icon-done.svg" width={14} height={10} alt="" className="lg:w-[26px] lg:h-[20px]" />
-                ) : (
-                  <>
-                    <span className="block lg:hidden">{index + 1}</span>
-                    <span className="hidden lg:block">{step}</span>
-                  </>
-                )}
-              </div>
-
-              {index < steps.length - 1 && (
-                <div className="flex items-center flex-1">
-                  <span className="w-full h-[3px] rounded bg-info-light lg:h-[6px]"></span>
-                </div>
-              )}
-            </Fragment>
-          ))}
-        </div>
-      </div>
-
+      <StepsIndicator steps={steps} currentStep={currentStep} isSubmitted={isSubmitted} />
       <main>
         {!isSubmitted ? (
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <FormProvider {...form}>
-              <div className="container mx-auto px-6 pt-6 lg:py-12">
-                <div className="flex flex-col">
-                  <div className="font-bold text-[26px] lg:text-[40px] lg:mb-2">{currentStepData.title}</div>
+              <div className="container pt-6 lg:pt-12 pb-6 lg:pb-12">
+                <div className="flex flex-col gap-7 lg:gap-10">
+                  <div className="text-[27px] lg:text-[39px] font-bold">{currentStepData.title}</div>
                   {Object.keys(currentStepData.questions).map((questionGroup) => (
-                    <div key={questionGroup}>
+                    <div key={questionGroup} className="flex flex-col gap-4 lg:gap-6">
                       {!questionGroup.includes("Untitled") && (
-                        <div className="mb-4 mt-8 font-bold text-[19px] lg:text-[30px]">{questionGroup}</div>
+                        <div className="text-[19px] lg:text-[33px] font-bold">{questionGroup}</div>
                       )}
                       {currentStepData.questions[questionGroup].map((question, index) => (
                         <Field
@@ -132,12 +100,13 @@ export default function DetailedQuestionnaire() {
                   ))}
                 </div>
               </div>
+
               <div className="lg:bg-text-primary">
-                <div className="container mx-auto mb-10 px-6 py-8 lg:mb-0 lg:py-14">
+                <div className="container mb-16 lg:mb-0 lg:py-14">
                   <div className="flex items-center justify-between">
                     <Button
                       type="button"
-                      className="text-primary-dark text-base ps-0 lg:text-2xl lg:text-background-paper underline lg:no-underline hover:no-underline"
+                      className="text-[16px] lg:text-[23px] text-primary-dark lg:text-background-paper ps-0 underline lg:no-underline hover:no-underline"
                       variant="link"
                       onClick={handleBack}
                       disabled={currentStep === 0}
@@ -146,17 +115,15 @@ export default function DetailedQuestionnaire() {
                     </Button>
                     <Button
                       type="button"
-                      className="flex items-center bg-primary text-background-paper text-xl lg:text-2xl min-w-40 lg:min-w-72 rounded-3xl lg:py-6 hover:bg-primary disabled:bg-primary-light disabled:text-background-default disabled:opacity-100"
+                      className="flex items-center w-[158px] lg:w-[284px] py-[19px] lg:py-[22px] text-[19px] lg:text-[23px] text-background-paper disabled:text-background-default bg-primary hover:bg-primary disabled:bg-primary-light rounded-[18px] lg:rounded-[24px] disabled:opacity-100 [&_svg]:w-[20px] lg:[&_svg]:w-[27px] [&_svg]:h-[14px]"
                       onClick={handleNext}
                       disabled={!isStepAnswered}
                     >
                       <span>Next</span>
-                      <Image
-                        src="/icon-next.svg"
-                        width={20}
-                        height={20}
-                        alt=""
-                        className={`lg:w-7 ${!isStepAnswered ? "opacity-60" : "opacity-100"}`}
+                      <Arrow2
+                        className={`stroke-current text-background-paper ${
+                          !isStepAnswered ? "opacity-60" : "opacity-100"
+                        }`}
                       />
                     </Button>
                   </div>
@@ -165,7 +132,7 @@ export default function DetailedQuestionnaire() {
             </FormProvider>
           </form>
         ) : (
-          <div className="container mx-auto px-6 pt-8 lg:py-20">
+          <div className="container pt-8 lg:pt-20">
             <Result score={score} />
           </div>
         )}

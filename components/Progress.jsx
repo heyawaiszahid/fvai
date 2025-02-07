@@ -1,4 +1,4 @@
-const CircularProgress = ({ size = 100, thickness = 10, score = 90 }) => {
+const Progress = ({ size = 100, thickness = 10, score = 90 }) => {
   const radius = (size - thickness) / 2;
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (circumference * score) / 100;
@@ -36,4 +36,4 @@ const CircularProgress = ({ size = 100, thickness = 10, score = 90 }) => {
   );
 };
 
-export default CircularProgress;
+export default Progress;

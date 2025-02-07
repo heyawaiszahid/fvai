@@ -200,8 +200,8 @@
     { "code": "ZM", "name": "Zambia" },
     { "code": "ZW", "name": "Zimbabwe" }
   ],
-  "startupStages": ["Seed", "Series A", "Series B", "Series C"],
-  "industryVerticals": [
+  "stages": ["Seed", "Series A", "Series B", "Series C"],
+  "industries": [
     "3D Printing",
     "AdTech",
     "Advanced Manufacturing",
