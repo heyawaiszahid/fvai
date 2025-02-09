@@ -2,16 +2,17 @@ import CTA from "@/components/CTA";
 import Header from "@/components/Header";
 import Retry from "@/components/Retry";
 import spreadsheet from "@/lib/spreadsheet.json";
+import { cookies } from "next/headers";
 import Image from "next/image";
-import { redirect } from "next/navigation";
 
-export default async function Valuation({ searchParams }) {
-  const params = await searchParams;
-  const { region, industry, stage } = params || {};
+export default async function Valuation() {
+  const cookiesStore = await cookies();
 
-  if (!region || !industry || !stage) {
-    redirect("/initial-questions");
-  }
+  const appDataCookie = cookiesStore.get("appData");
+
+  const appData = JSON.parse(appDataCookie.value);
+
+  const { region, industry, stage } = appData.initialQuestions;
 
   const range = spreadsheet.structuredData?.[region]?.[industry]?.[stage] || [null, null];
 
@@ -39,7 +40,7 @@ export default async function Valuation({ searchParams }) {
             <p className="text-[39px] font-bold text-text-secondary mb-5 lg:mb-8">
               ${range[0] || 0}M - ${range[1] || 0}M
             </p>
-            <CTA href={`/detailed-questionnaire?min=${range[0]}&max=${range[1]}`}>
+            <CTA href="/detailed-questionnaire">
               Refine My Valuation <br />
               Start Scorecard
             </CTA>

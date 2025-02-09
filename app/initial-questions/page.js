@@ -9,17 +9,21 @@ import countries from "@/lib/countries";
 import spreadsheet from "@/lib/spreadsheet.json";
 import { step1Schema, step2Schema } from "@/schemas/initial-questions";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { deleteCookie, setCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
 export default function InitialQuestions() {
+  const router = useRouter();
   const [step, setStep] = useState(1);
   const [focusField, setFocusField] = useState(null);
   const [charCount, setCharCount] = useState(0);
   let [formData, setFormData] = useState({});
 
-  const router = useRouter();
+  useEffect(() => {
+    deleteCookie("appData");
+  }, []);
 
   const schema = step === 1 ? step1Schema : step2Schema;
 
@@ -49,9 +53,8 @@ export default function InitialQuestions() {
 
     if (step === 2) {
       formData = { ...formData, ...values };
-      const { region, industry, stage } = formData;
-      const queryString = new URLSearchParams({ region, industry, stage }).toString();
-      router.push(`/initial-questions/valuation?${queryString}`);
+      setCookie("appData", JSON.stringify({ initialQuestions: formData }));
+      router.push(`/initial-questions/valuation`);
     }
   };
 

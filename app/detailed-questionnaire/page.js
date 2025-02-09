@@ -4,7 +4,8 @@ import Field from "@/components/Field";
 import Header from "@/components/Header";
 import Arrow2 from "@/components/icons/Arrow2";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { getCookie, setCookie } from "cookies-next";
+import { useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import data from "./data.json";
 import Result from "./Result";
@@ -14,6 +15,8 @@ export default function DetailedQuestionnaire() {
   const form = useForm();
   const [currentStep, setCurrentStep] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [score, setScore] = useState();
+  const [hasMounted, setHasMounted] = useState(false);
 
   const steps = Object.keys(data);
   const currentStepData = data[steps[currentStep]];
@@ -27,7 +30,20 @@ export default function DetailedQuestionnaire() {
     });
   });
 
-  const [score, setScore] = useState(82.2);
+  useEffect(() => {
+    const appDataCookie = getCookie("appData");
+
+    if (appDataCookie) {
+      const appData = JSON.parse(appDataCookie);
+
+      if (appData?.detailedQuestionnaire?.score) {
+        setScore(appData.detailedQuestionnaire.score);
+        setIsSubmitted(true);
+      }
+    }
+
+    setHasMounted(true);
+  }, []);
 
   const onSubmit = (values) => {
     const formData = {};
@@ -46,10 +62,14 @@ export default function DetailedQuestionnaire() {
       }
     }
 
-    // console.log(formData);
-    // setScore(92.2);
+    const calculatedScore = 92.2;
 
+    setScore(calculatedScore);
     setIsSubmitted(true);
+
+    const appDataCookie = getCookie("appData");
+    const appData = appDataCookie ? JSON.parse(appDataCookie) : {};
+    setCookie("appData", JSON.stringify({ ...appData, detailedQuestionnaire: { score: calculatedScore } }));
   };
 
   const handleNext = () => {
@@ -69,6 +89,10 @@ export default function DetailedQuestionnaire() {
       window.scrollTo(0, 0);
     }
   };
+
+  if (!hasMounted) {
+    return null;
+  }
 
   return (
     <>
