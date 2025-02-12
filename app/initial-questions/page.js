@@ -69,6 +69,10 @@ export default function InitialQuestions() {
     }
   };
 
+  useEffect(() => {
+    router.prefetch("/initial-questions/valuation");
+  }, [router]);
+
   return (
     <>
       <Header />
