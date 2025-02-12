@@ -17,12 +17,6 @@ export function middleware(req) {
     return NextResponse.redirect(new URL("/detailed-questionnaire", req.url));
   }
 
-  if (path === "/initial-questions/valuation" && appData?.initialQuestions) {
-    const response = NextResponse.next();
-    response.headers.set("x-app-data", JSON.stringify(appData));
-    return response;
-  }
-
   return NextResponse.next();
 }
 

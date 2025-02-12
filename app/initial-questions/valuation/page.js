@@ -2,23 +2,19 @@ import CTA from "@/components/CTA";
 import Header from "@/components/Header";
 import Retry from "@/components/Retry";
 import spreadsheet from "@/lib/spreadsheet.json";
-// import { cookies } from "next/headers";
-import { headers } from "next/headers";
+import { cookies } from "next/headers";
 import Image from "next/image";
 
 export default async function Valuation() {
-  // const cookiesStore = await cookies();
-  // const appDataCookie = cookiesStore.get("appData");
-  // const appData = JSON.parse(appDataCookie.value);
+  const cookiesStore = await cookies();
 
-  const headersList = await headers();
-  const appDataHeader = headersList.get("x-app-data");
-  const appData = JSON.parse(appDataHeader);
+  const appDataCookie = cookiesStore.get("appData");
+
+  const appData = JSON.parse(appDataCookie.value);
 
   const { region, industry, stage } = appData.initialQuestions;
 
   const range = spreadsheet.structuredData?.[region]?.[industry]?.[stage] || [null, null];
-  console.timeEnd("ReadCookie");
 
   return (
     <>
