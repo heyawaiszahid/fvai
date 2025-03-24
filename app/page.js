@@ -336,7 +336,7 @@ export default function Home() {
                 </CTA>
                 <CTA
                   href="#"
-                  className="bg-transparent text-info font-bold px-3 !rounded-[24px] border-[4px] border-info w-[344px] py-3"
+                  className="bg-transparent text-info font-bold px-3 !rounded-[24px] border-[4px] border-info !w-[344px] py-3"
                 >
                   Book a Consultation
                 </CTA>
@@ -505,7 +505,7 @@ export default function Home() {
               <div className="text-center">
                 <CTA
                   href="#"
-                  className="text-primary-dark border-primary-dark border-[4px] !rounded-[27px] !py-2 bg-transparent w-[344px]"
+                  className="text-primary-dark border-primary-dark border-[4px] !rounded-[27px] !py-2 bg-transparent !w-[344px]"
                 >
                   Book a Consultation
                 </CTA>
