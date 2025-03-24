@@ -13,8 +13,8 @@ export const initialQuestionsSchema = z.object({
     .string()
     .trim()
     .optional()
-    .refine((val) => !val || z.string().url().safeParse(val).success, {
-      message: "Please enter a valid URL.",
+    .refine((val) => !val || /^(https?:\/\/|www\.)[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(:\d+)?(\/.*)?$/.test(val), {
+      message: "Please enter a valid URL starting with 'http://', 'https://', or 'www.'.",
     }),
   stage: z.string().min(1, { message: "Startup Stage is required." }),
   industry: z.string().min(1, { message: "Industry Vertical is required." }),

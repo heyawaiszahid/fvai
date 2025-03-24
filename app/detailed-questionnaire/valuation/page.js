@@ -3,7 +3,6 @@ import Header from "@/components/Header";
 import Checkmark from "@/components/icons/Checkmark";
 import Retry from "@/components/Retry";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Valuation() {
   return (
@@ -45,30 +44,44 @@ export default function Valuation() {
               />
             </div>
           </section>
-          <section className="text-center">
-            <div className="text-[16px] lg:text-[23px] lg:leading-[32px] mb-3 lg:mb-10 lg:max-w-[806px] lg:mx-auto">
-              Looking for more tailored help? Book a consultation to explore additional services with FVA Advisory.
-            </div>
-            <ul className="flex flex-wrap justify-between gap-y-2 text-left text-[13px] lg:text-[23px] mb-5 lg:mb-10">
-              {["Market Research", "Financial Modeling", "Pitch Deck", "DCF Valuation"].map((item) => (
-                <li key={item} className="flex items-center gap-1 lg:gap-3 min-w-[150px] sm:min-w-fit">
-                  <Checkmark className="w-[20px] h-[20px] fill-current text-text-secondary" />
-                  <span>{item}</span>
+          <div className="pt-2">
+            <p className="text-center">Looking for more personalized guidance to take your startup further?</p>
+            <p className="text-center mb-3">
+              <span className="text-primary-dark font-bold">Book a consultation</span> to explore additional services
+              with
+              <span className="text-primary-dark font-bold">FVA Advisory,</span> including:
+            </p>
+            <div className="flex justify-between mb-6">
+              <ul className="space-y-2">
+                <li className="flex items-center gap-1">
+                  <Checkmark className="w-[16px] h-[16px] fill-current text-primary-dark" />
+                  <span className="text-text-secondary text-[13px] leading-[24px]">Market Research</span>
                 </li>
-              ))}
-            </ul>
-            <Link
-              href="#"
-              className="block text-center text-[16px] lg:text-[28px] font-semibold text-background-paper bg-secondary-light py-2 lg:py-4 mb-5 lg:max-w-md lg:mx-auto rounded-[20px] lg:rounded-full"
-            >
-              Book a Consultation
-            </Link>
-            <div className="lg:hidden">
-              <Retry href="/initial-questions" className="no-underline">
-                Start Over
-              </Retry>
+                <li className="flex items-center gap-1">
+                  <Checkmark className="w-[16px] h-[16px] fill-current text-primary-dark" />
+                  <span className="text-text-secondary text-[13px] leading-[24px]">Pitch Deck</span>
+                </li>
+              </ul>
+              <ul className="space-y-2">
+                <li className="flex items-center gap-1">
+                  <Checkmark className="w-[16px] h-[16px] fill-current text-primary-dark" />
+                  <span className="text-text-secondary text-[13px] leading-[24px]">Financial Modeling</span>
+                </li>
+                <li className="flex items-center gap-1">
+                  <Checkmark className="w-[16px] h-[16px] fill-current text-primary-dark" />
+                  <span className="text-text-secondary text-[13px] leading-[24px]">DCF Valuation</span>
+                </li>
+              </ul>
             </div>
-          </section>
+            <div className="text-center mb-8">
+              <CTA href="#" className="text-primary-dark border-primary-dark border-[3px] !py-1 bg-white">
+                Book a Consultation
+              </CTA>
+            </div>
+            <Retry href="/initial-questions" className="no-underline">
+              Start Over
+            </Retry>
+          </div>
         </div>
       </main>
     </>

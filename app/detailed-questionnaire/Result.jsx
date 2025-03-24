@@ -59,33 +59,23 @@ const Result = ({ score }) => {
 
   return (
     <div className="flex">
-      <div className="mx-auto flex flex-col items-center lg:w-1/2 lg:items-start lg:pt-16 gap-8 lg:gap-6">
-        <div className="text-text-secondary text-[33px] text-center lg:text-[47px] lg:text-left leading-10">
-          {feedback}
+      <div className="mx-auto flex flex-col items-center">
+        <div className="text-text-secondary text-[23px] flex items-center gap-2 mb-2">
+          {feedback} <span className="text-[40px]">{emoji}</span>
         </div>
-        <div className="text-primary-dark text-[19px] hidden lg:block lg:mb-16">{details}</div>
-        <div className="relative lg:hidden">
-          <Progress size={340} thickness={36} score={score} />
+        <div className="text-primary-dark text-[13px] leading-[24px] px-5 text-center mb-3">{details}</div>
+        <div className="relative mb-12">
+          <Progress size={340} thickness={40} score={score} />
           <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center gap-2">
-            <span className="text-[64px]">{emoji}</span>
             <span className="text-text-secondary text-[47px]">{score}%</span>
           </div>
         </div>
         <Link
           href="/detailed-questionnaire/valuation"
-          className="w-full max-w-md bg-secondary-light text-background-paper text-center text-base lg:text-[28px] font-semibold py-2 lg:py-5 rounded-[44px] lg:rounded-full"
+          className="w-full max-w-md bg-text-primary text-background-paper text-center text-base font-semibold py-2 rounded-[44px]"
         >
           View Your Valuation
         </Link>
-      </div>
-      <div className="hidden lg:flex lg:w-1/2 lg:justify-end">
-        <div className="relative flex justify-center">
-          <Progress size={440} thickness={44} score={score} />
-          <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
-            <span className="text-[116px]">{emoji}</span>
-            <span className="text-text-secondary text-[47px] -mt-3">{score}%</span>
-          </div>
-        </div>
       </div>
     </div>
   );

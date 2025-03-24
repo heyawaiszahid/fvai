@@ -51,7 +51,7 @@ const Field = ({
                   {...field}
                   placeholder={placeholder}
                   autoComplete="off"
-                  className={`px-4 py-[21px] pr-12 border placeholder:text-others-backdropOverlay lg:text-[16px] focus-visible:ring-0 transition-colors duration-300 ease-out ${
+                  className={`px-4 py-[21px] pr-12 border bg-background-paper placeholder:text-others-backdropOverlay lg:text-[16px] focus-visible:ring-0 transition-colors duration-300 ease-out ${
                     isError
                       ? "border-error-dark"
                       : isFocusedOrValid
@@ -65,7 +65,7 @@ const Field = ({
               ) : type === "select" ? (
                 <Select {...field} onValueChange={field.onChange} defaultValue={field.value}>
                   <FormControl
-                    className={`px-4 py-[21px] border text-[16px] data-[placeholder]:text-others-backdropOverlay focus:ring-0 focus:outline-0 focus:border-primary-dark transition-colors duration-300 ease-out ${
+                    className={`px-4 py-[21px] border text-[16px] bg-background-paper data-[placeholder]:text-others-backdropOverlay focus:ring-0 focus:outline-0 focus:border-primary-dark transition-colors duration-300 ease-out ${
                       isError
                         ? "border-error-dark"
                         : isFocusedOrValid
@@ -97,7 +97,7 @@ const Field = ({
                     {...field}
                     placeholder={placeholder}
                     autoComplete="off"
-                    className="resize-none px-4 py-3 border-others-backdropOverlay placeholder:text-others-backdropOverlay lg:text-[16px] shadow-none outline-none focus-visible:ring-0 focus:border-primary-dark duration-300 ease-out"
+                    className="resize-none px-4 py-3 bg-background-paper border-others-backdropOverlay placeholder:text-others-backdropOverlay lg:text-[16px] shadow-none outline-none focus-visible:ring-0 focus:border-primary-dark duration-300 ease-out"
                     onFocus={() => setFocusField(name)}
                     onBlur={() => setFocusField(null)}
                     onChange={(e) => {

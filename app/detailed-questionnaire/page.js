@@ -156,7 +156,7 @@ export default function DetailedQuestionnaire() {
             </FormProvider>
           </form>
         ) : (
-          <div className="container pt-8 pb-16 lg:pt-20">
+          <div className="container pt-4 pb-16 lg:pt-20">
             <Result score={score} />
           </div>
         )}
