@@ -1,6 +1,7 @@
 "use client";
 
 import Field from "@/components/Field";
+import Header from "@/components/Header";
 import Back from "@/components/icons/Back";
 import Sidebar from "@/components/Sidebar";
 import { Button } from "@/components/ui/button";
@@ -70,6 +71,10 @@ export default function InitialQuestions() {
 
   return (
     <>
+      <div className="lg:hidden">
+        <Header />
+      </div>
+
       <div className="flex">
         <Sidebar>
           <p className="text-[16px] leading-[24px]">
@@ -79,8 +84,8 @@ export default function InitialQuestions() {
           </p>
         </Sidebar>
 
-        <main className="container pt-6 pb-16 lg:pt-28 lg:px-[6vw] bg-custom-gradient-2 relative">
-          <div className="w-[236px] h-[198px] absolute top-[0px] right-0 bg-[url(/logo-aesthetic-2.png)] bg-no-repeat bg-cover opacity-[23%]"></div>
+        <main className="container pt-6 pb-16 lg:pt-28 lg:px-[6vw] lg:bg-custom-gradient-2 lg:relative">
+          <div className="w-[236px] h-[198px] absolute top-[0px] right-0 bg-[url(/logo-aesthetic-2.png)] bg-no-repeat bg-cover opacity-[23%] hidden lg:block"></div>
           <div className="relative z-10">
             <div className="relative flex items-center mb-8 lg:mb-16">
               <button onClick={handleBack} className="absolute left-0">
