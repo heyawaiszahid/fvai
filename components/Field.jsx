@@ -110,19 +110,27 @@ const Field = ({
               ) : type === "radio" ? (
                 <FormControl>
                   <RadioGroup onValueChange={field.onChange} defaultValue={field.value}>
-                    {options.map((option) => (
-                      <FormItem key={option.value} className="space-y-0 flex gap-2 lg:gap-3 mb-2 lg:mb-5">
-                        <FormControl>
-                          <RadioGroupItem
-                            value={option.value}
-                            className="w-5 h-5 lg:w-8 lg:h-8 border-others-backdropOverlay focus-visible:ring-0"
-                          />
-                        </FormControl>
-                        <FormLabel className="text-text-secondary text-[16px] lg:text-[23px] leading-[20px] lg:leading-[32px] cursor-pointer">
-                          {option.label}
-                        </FormLabel>
-                      </FormItem>
-                    ))}
+                    {options.map((option) => {
+                      const isSelected = field.value === option.value;
+
+                      return (
+                        <FormItem key={option.value} className="space-y-0 flex gap-2 lg:gap-3 mb-2 lg:mb-6">
+                          <FormControl>
+                            <RadioGroupItem
+                              value={option.value}
+                              className="w-5 h-5 border-others-backdropOverlay focus-visible:ring-0 lg:hidden"
+                            />
+                          </FormControl>
+                          <FormLabel
+                            className={`text-text-secondary text-[16px] lg:text-[23px] leading-[20px] lg:leading-[32px] cursor-pointer lg:w-full lg:py-3 lg:pl-14 lg:rounded-[9px] ${
+                              isSelected ? "lg:bg-text-secondary lg:text-white" : "lg:bg-white"
+                            }`}
+                          >
+                            {option.label}
+                          </FormLabel>
+                        </FormItem>
+                      );
+                    })}
                   </RadioGroup>
                 </FormControl>
               ) : null}

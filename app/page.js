@@ -16,6 +16,7 @@ import Scale from "@/components/icons/Scale";
 import Tick from "@/components/icons/Tick";
 import Tick2 from "@/components/icons/Tick2";
 import Image from "next/image";
+import Link from "next/link";
 
 const FEATURES = ["No complex spreadsheets", "Takes under 5 minutes", "AI-powered"];
 
@@ -102,7 +103,22 @@ const FeatureCard = ({ icon: Icon, title, description, bgImage }) => {
 export default function Home() {
   return (
     <>
-      <Header />
+      <Header>
+        <div className="flex gap-5">
+          <Link
+            href="/initial-questions"
+            className="bg-info text-white font-bold px-3 py-3 rounded-[9px] flex items-center"
+          >
+            Start Free Valuation
+          </Link>
+          <Link
+            href="#"
+            className="text-info font-bold px-3 py-3 rounded-[9px] border-[2px] border-info flex items-center"
+          >
+            Book a Consultation
+          </Link>
+        </div>
+      </Header>
       <main>
         <div className="lg:hidden">
           <div className="container pt-6 pb-12">

@@ -69,8 +69,8 @@ export default async function Valuation() {
             <Retry2 href="/initial-questions">Start Over</Retry2>
           </Sidebar>
 
-          <main className="container pt-12 px-[6vw] bg-custom-gradient-2">
-            <div className="relative z-10">
+          <main className="pt-12 bg-custom-gradient-2">
+            <div className="container px-[6vw] relative z-10">
               <h1 className="text-[47px] text-text-secondary leading-[64px] mb-12 text-center">
                 {stage} Stage {industry} startups in {region} have{" "}
                 <span className="text-primary-dark font-bold">pre-money valuations</span> range <br /> between:{" "}

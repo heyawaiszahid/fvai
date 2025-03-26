@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Hamburger from "./icons/Hamburger";
 
-const Header = () => {
+const Header = ({ children }) => {
   const logoSrc = { mobile: "/fvai.png", desktop: "/fvai-desktop.png" };
 
   return ["lg:hidden", "hidden lg:block shadow-lg relative z-[1]"].map((cls, index) => (
@@ -19,22 +19,7 @@ const Header = () => {
         </Link>
         {index === 0 && <Hamburger className="w-[28px] h-[28px] fill-current text-text-primary" />}
 
-        {index === 1 && (
-          <div className="flex gap-5">
-            <Link
-              href="/initial-questions"
-              className="bg-info text-white font-bold px-3 py-3 rounded-[9px] flex items-center"
-            >
-              Start Free Valuation
-            </Link>
-            <Link
-              href="#"
-              className="text-info font-bold px-3 py-3 rounded-[9px] border-[2px] border-info flex items-center"
-            >
-              Book a Consultation
-            </Link>
-          </div>
-        )}
+        {index === 1 && children}
       </div>
     </header>
   ));
