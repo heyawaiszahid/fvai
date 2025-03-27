@@ -1,3 +1,5 @@
+"use client";
+
 import CTA from "@/components/CTA";
 import Header from "@/components/Header";
 import Checkmark from "@/components/icons/Checkmark";
@@ -5,20 +7,23 @@ import Retry from "@/components/Retry";
 import Retry2 from "@/components/Retry2";
 import Sidebar from "@/components/Sidebar";
 import spreadsheet from "@/lib/spreadsheet.json";
-import { cookies } from "next/headers";
+import { getCookie } from "cookies-next";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
-export default async function Valuation() {
-  const cookiesStore = await cookies();
+export default function Valuation() {
+  const [appData, setAppData] = useState(null);
 
-  const appDataCookie = cookiesStore.get("appData");
+  useEffect(() => {
+    const storedData = getCookie("appData");
+    if (storedData) setAppData(JSON.parse(storedData));
+  }, []);
 
-  const appData = JSON.parse(appDataCookie.value);
+  if (!appData) return;
 
   const { region, industry, stage } = appData.initialQuestions;
 
-  // const range = spreadsheet.structuredData?.[region]?.[industry]?.[stage] || [null, null];
-  const range = [1, 2];
+  const range = spreadsheet.structuredData?.[region]?.[industry]?.[stage] || [null, null];
 
   return (
     <>
