@@ -17,7 +17,8 @@ export default async function Valuation() {
 
   const { region, industry, stage } = appData.initialQuestions;
 
-  const range = spreadsheet.structuredData?.[region]?.[industry]?.[stage] || [null, null];
+  // const range = spreadsheet.structuredData?.[region]?.[industry]?.[stage] || [null, null];
+  const range = [1, 2];
 
   return (
     <>
