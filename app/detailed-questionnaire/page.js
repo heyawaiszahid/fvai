@@ -128,9 +128,37 @@ export default function DetailedQuestionnaire() {
   };
 
   const handleBack = () => {
+    if (showAdditionalQuestions) {
+      setShowAdditionalQuestions(false);
+      return;
+    }
+
+    if (showAdditionalQuestions2) {
+      setShowAdditionalQuestions2(false);
+      return;
+    }
+
     if (currentStep > 0) {
       setCurrentStep(currentStep - 1);
       window.scrollTo(0, 0);
+
+      if (steps[currentStep - 1] === "Team") {
+        const baseAnswers = data.Team.questions.Base.map((q, i) => watchedValues[`Base_${i}`]);
+        const allNo = baseAnswers.every((answer) => answer === "No");
+
+        if (allNo) {
+          setShowAdditionalQuestions(true);
+        }
+      }
+
+      if (steps[currentStep - 1] === "Traction") {
+        const base2Answers = data.Traction.questions["Base-2"].map((q, i) => watchedValues[`Base-2_${i}`]);
+        const allNoBase2 = base2Answers.every((answer) => answer === "No");
+
+        if (allNoBase2) {
+          setShowAdditionalQuestions2(true);
+        }
+      }
     }
   };
 
