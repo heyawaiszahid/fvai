@@ -4,6 +4,7 @@ import Field from "@/components/Field";
 import Header from "@/components/Header";
 import Arrow2 from "@/components/icons/Arrow2";
 import Chat from "@/components/icons/Chat";
+import Sidebar from "@/components/Sidebar";
 import { Button } from "@/components/ui/button";
 import { getCookie, setCookie } from "cookies-next";
 import { useEffect, useState } from "react";
@@ -11,11 +12,12 @@ import { FormProvider, useForm } from "react-hook-form";
 import data from "./data.json";
 import Result from "./Result";
 import StepsIndicator from "./StepsIndicator";
-import Sidebar from "@/components/Sidebar";
 
 export default function DetailedQuestionnaire() {
   const form = useForm();
   const [currentStep, setCurrentStep] = useState(0);
+  const [showAdditionalQuestions, setShowAdditionalQuestions] = useState(false);
+  const [showAdditionalQuestions2, setShowAdditionalQuestions2] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [score, setScore] = useState();
   const [hasMounted, setHasMounted] = useState(false);
@@ -27,6 +29,22 @@ export default function DetailedQuestionnaire() {
   const watchedValues = watch();
 
   const isStepAnswered = Object.keys(currentStepData.questions).every((questionGroup) => {
+    if (!showAdditionalQuestions && ["Experience", "Education", "Team"].includes(questionGroup)) {
+      return true;
+    }
+
+    if (
+      !showAdditionalQuestions2 &&
+      steps[currentStep] === "Traction" &&
+      [
+        "Revenue",
+        "Strategic Partnerships and Pilot Programs",
+        "User Engagement / Organic Social Media Growth",
+      ].includes(questionGroup)
+    ) {
+      return true;
+    }
+
     return currentStepData.questions[questionGroup].every((question, index) => {
       return watchedValues[`${questionGroup}_${index}`] !== undefined;
     });
@@ -79,7 +97,31 @@ export default function DetailedQuestionnaire() {
       form.handleSubmit(onSubmit)();
     } else {
       if (isStepAnswered) {
-        setCurrentStep(currentStep + 1);
+        if (steps[currentStep] === "Team") {
+          const baseAnswers = data.Team.questions.Base.map((q, i) => watchedValues[`Base_${i}`]);
+          const allNo = baseAnswers.every((answer) => answer === "No");
+
+          if (allNo && !showAdditionalQuestions) {
+            setShowAdditionalQuestions(true);
+            return;
+          }
+
+          setShowAdditionalQuestions(false);
+          setCurrentStep(currentStep + 1);
+        } else if (steps[currentStep] === "Traction") {
+          const base2Answers = data.Traction.questions["Base-2"].map((q, i) => watchedValues[`Base-2_${i}`]);
+          const allNoBase2 = base2Answers.every((answer) => answer === "No");
+
+          if (allNoBase2 && !showAdditionalQuestions2) {
+            setShowAdditionalQuestions2(true);
+            return;
+          }
+
+          setShowAdditionalQuestions2(false);
+          setCurrentStep(currentStep + 1);
+        } else {
+          setCurrentStep(currentStep + 1);
+        }
         window.scrollTo(0, 0);
       }
     }
@@ -127,32 +169,55 @@ export default function DetailedQuestionnaire() {
                         let displayIndex = 1;
 
                         return Object.keys(currentStepData.questions).map((questionGroup) => {
-                          const isUntitled = questionGroup.includes("Untitled");
-                          const currentIndex = displayIndex;
+                          const isBase = questionGroup === "Base";
+                          const isBase2 = questionGroup === "Base-2";
 
-                          if (!isUntitled) {
-                            displayIndex++;
+                          if (showAdditionalQuestions && isBase) {
+                            return null;
                           }
 
-                          return (
-                            <div key={questionGroup} className="flex flex-col gap-4 lg:gap-6">
-                              {!isUntitled && (
-                                <div className="text-[19px] lg:text-[33px] font-bold">
-                                  <span className="hidden lg:inline">{currentIndex}.</span> {questionGroup}
-                                </div>
-                              )}
-                              {currentStepData.questions[questionGroup].map((question, index) => (
-                                <Field
-                                  key={index}
-                                  control={form.control}
-                                  name={`${questionGroup}_${index}`}
-                                  label={question.question}
-                                  type="radio"
-                                  options={question.options.map((option) => ({ value: option, label: option }))}
-                                />
-                              ))}
-                            </div>
-                          );
+                          if (showAdditionalQuestions2 && isBase2) {
+                            return null;
+                          }
+
+                          if (
+                            isBase ||
+                            isBase2 ||
+                            showAdditionalQuestions ||
+                            showAdditionalQuestions2 ||
+                            ![
+                              "Experience",
+                              "Education",
+                              "Team",
+                              "Revenue",
+                              "Strategic Partnerships and Pilot Programs",
+                              "User Engagement / Organic Social Media Growth",
+                            ].includes(questionGroup)
+                          ) {
+                            const shouldShowNumber = !isBase && !isBase2;
+                            const currentIndex = shouldShowNumber ? displayIndex++ : null;
+
+                            return (
+                              <div key={questionGroup} className="flex flex-col gap-4 lg:gap-6">
+                                {shouldShowNumber && (
+                                  <div className="text-[19px] lg:text-[33px] font-bold">
+                                    <span className="hidden lg:inline">{currentIndex}.</span> {questionGroup}
+                                  </div>
+                                )}
+                                {currentStepData.questions[questionGroup].map((question, index) => (
+                                  <Field
+                                    key={index}
+                                    control={form.control}
+                                    name={`${questionGroup}_${index}`}
+                                    label={question.question}
+                                    type="radio"
+                                    options={question.options.map((option) => ({ value: option, label: option }))}
+                                  />
+                                ))}
+                              </div>
+                            );
+                          }
+                          return null;
                         });
                       })()}
                     </div>
@@ -166,7 +231,7 @@ export default function DetailedQuestionnaire() {
                           className="text-[16px] lg:text-[23px] text-primary-dark lg:text-text-primary ps-0 underline lg:no-underline hover:no-underline"
                           variant="link"
                           onClick={handleBack}
-                          disabled={currentStep === 0}
+                          disabled={currentStep === 0 && !showAdditionalQuestions && !showAdditionalQuestions2} // ✅ FIX
                         >
                           Back
                         </Button>

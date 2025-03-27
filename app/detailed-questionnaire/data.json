@@ -2,7 +2,7 @@
   "Team": {
     "title": "1. Founder / Strength of Management Team",
     "questions": {
-      "Untitled": [
+      "Base": [
         {
           "question": "1. Has the founder/co-founder had a successful exit via M&A or IPO?",
           "options": ["Yes", "No"]
@@ -82,7 +82,7 @@
   "Traction": {
     "title": "3. Traction",
     "questions": {
-      "Untitled-2": [
+      "Base-2": [
         {
           "question": "Is the startup generating revenue with strong month-on-month / year-on-year revenue growth?",
           "options": ["Yes", "No"]
