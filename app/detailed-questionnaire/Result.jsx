@@ -64,11 +64,11 @@ const Result = ({ score }) => {
     <>
       <div className="flex lg:hidden">
         <div className="mx-auto flex flex-col items-center">
-          <div className="text-text-secondary text-[23px] flex items-center gap-2 mb-2">
+          <div className="text-text-secondary text-[23px] leading-[32px] text-center gap-2 mb-6">
             {feedback} <span className="text-[40px]">{emoji}</span>
           </div>
           <div className="text-primary-dark text-[13px] leading-[24px] px-5 text-center mb-3">{details}</div>
-          <div className="relative mb-12">
+          <div className="relative mb-8">
             <Progress size={340} thickness={40} score={score} />
             <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center gap-2">
               <span className="text-text-secondary text-[47px]">{score}%</span>
@@ -97,9 +97,9 @@ const Result = ({ score }) => {
             View Your Valuation
           </Link>
         </div>
-        <div className="flex items-center justify-between w-full px-10 cursor-default mb-2">
+        <div className="flex items-end justify-between w-full px-10 cursor-default mb-2">
           <span className="text-[137px] leading-none text-[#4169E11F] font-bold">{type}</span>
-          <span className="text-[116px] leading-none">{emoji}</span>
+          <span className="text-[116px] leading-none mr-6">{emoji}</span>
         </div>
 
         <div className="px-10 flex">
