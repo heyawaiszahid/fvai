@@ -13,6 +13,86 @@ import data from "./data.json";
 import Result from "./Result";
 import StepsIndicator from "./StepsIndicator";
 
+const getScoreFromAnswer = (answer, isGrowthRate = false) => {
+  const scores = { a: 0, b: 1, c: 2, d: 3, e: 5 };
+  if (isGrowthRate) {
+    if (answer === "c") return 3;
+    if (answer === "d") return 4;
+  }
+  return scores[answer.toLowerCase()] || 0;
+};
+
+const calculateTeamScore = (values) => {
+  const exitYes = values["Base"] === "Yes";
+  const ceoYes = values["Base - 2"] === "Yes";
+
+  if (exitYes || ceoYes) {
+    return 5 * 0.3;
+  }
+
+  const experience = values["Experience"]?.charAt(0).toLowerCase();
+  const education = values["Education"]?.charAt(0).toLowerCase();
+  const team = values["Team"]?.charAt(0).toLowerCase();
+
+  const expScore = getScoreFromAnswer(experience) * 0.5;
+  const eduScore = getScoreFromAnswer(education) * 0.25;
+  const teamScore = getScoreFromAnswer(team) * 0.25;
+
+  return (expScore + eduScore + teamScore) * 0.3;
+};
+
+const calculateMarketOpportunityScore = (values) => {
+  const marketSize = values["Market Size"]?.charAt(0).toLowerCase();
+  const growthRate = values["Market Growth Rate"]?.charAt(0).toLowerCase();
+
+  const marketSizeScore = getScoreFromAnswer(marketSize) * 0.7;
+  const growthRateScore = getScoreFromAnswer(growthRate, true) * 0.3;
+
+  return (marketSizeScore + growthRateScore) * 0.2;
+};
+
+const calculateTractionScore = (values) => {
+  const strongGrowth = values["Base-2"] === "Yes";
+
+  if (strongGrowth) {
+    return 5 * 0.2;
+  }
+
+  const revenue = values["Revenue"]?.charAt(0).toLowerCase();
+  const partnership = values["Strategic Partnerships and Pilot Programs"]?.charAt(0).toLowerCase();
+  const engagement = values["User Engagement / Organic Social Media Growth"]?.charAt(0).toLowerCase();
+
+  const revenueScore = getScoreFromAnswer(revenue) * 0.4;
+  const partnershipScore = getScoreFromAnswer(partnership) * 0.3;
+  const engagementScore = getScoreFromAnswer(engagement) * 0.3;
+
+  return (revenueScore + partnershipScore + engagementScore) * 0.2;
+};
+
+const calculateProductScore = (values) => {
+  const stage = values["Stage of Development"]?.charAt(0).toLowerCase();
+  const scalability = values["Scalability"]?.charAt(0).toLowerCase();
+  const essential = values["Vitamin or Painkiller"]?.charAt(0).toLowerCase();
+
+  const stageScore = getScoreFromAnswer(stage) * 0.4;
+  const scalabilityScore = getScoreFromAnswer(scalability) * 0.35;
+  const essentialScore = getScoreFromAnswer(essential) * 0.25;
+
+  return (stageScore + scalabilityScore + essentialScore) * 0.15;
+};
+
+const calculateCompetitivenessScore = (values) => {
+  const competitor = values["Strength of Competitors in the Marketplace"]?.charAt(0).toLowerCase();
+  const product = values["Strength of Competitive Products"]?.charAt(0).toLowerCase();
+  const differentiation = values["Differentiation / Unique Selling Points"]?.charAt(0).toLowerCase();
+
+  const competitorScore = getScoreFromAnswer(competitor) * 0.35;
+  const productScore = getScoreFromAnswer(product) * 0.3;
+  const diffScore = getScoreFromAnswer(differentiation) * 0.45;
+
+  return (competitorScore + productScore + diffScore) * 0.15;
+};
+
 export default function DetailedQuestionnaire() {
   const form = useForm();
   const [currentStep, setCurrentStep] = useState(0);
@@ -46,7 +126,7 @@ export default function DetailedQuestionnaire() {
     }
 
     return currentStepData.questions[questionGroup].every((question, index) => {
-      return watchedValues[`${questionGroup}_${index}`] !== undefined;
+      return watchedValues[index === 0 ? questionGroup : `${questionGroup} - ${index + 1}`] !== undefined;
     });
   });
 
@@ -82,14 +162,48 @@ export default function DetailedQuestionnaire() {
       }
     }
 
-    const calculatedScore = 92.2;
-
-    setScore(calculatedScore);
-    setIsSubmitted(true);
-
     const appDataCookie = getCookie("appData");
     const appData = appDataCookie ? JSON.parse(appDataCookie) : {};
-    setCookie("appData", JSON.stringify({ ...appData, detailedQuestionnaire: { score: calculatedScore } }));
+    const [min, max] = appData?.initialQuestions?.range;
+
+    const scores = {
+      Team: calculateTeamScore(values),
+      Market: calculateMarketOpportunityScore(values),
+      Traction: calculateTractionScore(values),
+      Product: calculateProductScore(values),
+      Competitiveness: calculateCompetitivenessScore(values),
+    };
+
+    const totalScore = Object.values(scores).reduce((sum, score) => sum + score, 0);
+
+    const percentage = ((totalScore / 5) * 100).toFixed(2);
+
+    let estimatedValue;
+    if (percentage < 50) {
+      estimatedValue = 0;
+    } else if (percentage === 50) {
+      estimatedValue = min;
+    } else if (percentage === 100) {
+      estimatedValue = max;
+    } else {
+      const fraction = (percentage - 50) / 50;
+      estimatedValue = min + fraction * (max - min);
+    }
+
+    setScore(percentage);
+    setIsSubmitted(true);
+
+    setCookie(
+      "appData",
+      JSON.stringify({
+        ...appData,
+        detailedQuestionnaire: {
+          score: percentage,
+          valuation: estimatedValue,
+          categoryScores: scores,
+        },
+      })
+    );
   };
 
   const handleNext = () => {
@@ -98,7 +212,9 @@ export default function DetailedQuestionnaire() {
     } else {
       if (isStepAnswered) {
         if (steps[currentStep] === "Team") {
-          const baseAnswers = data.Team.questions.Base.map((q, i) => watchedValues[`Base_${i}`]);
+          const baseAnswers = data.Team.questions.Base.map(
+            (q, i) => watchedValues[i === 0 ? "Base" : `Base - ${i + 1}`]
+          );
           const allNo = baseAnswers.every((answer) => answer === "No");
 
           if (allNo && !showAdditionalQuestions) {
@@ -109,7 +225,9 @@ export default function DetailedQuestionnaire() {
           setShowAdditionalQuestions(false);
           setCurrentStep(currentStep + 1);
         } else if (steps[currentStep] === "Traction") {
-          const base2Answers = data.Traction.questions["Base-2"].map((q, i) => watchedValues[`Base-2_${i}`]);
+          const base2Answers = data.Traction.questions["Base-2"].map(
+            (q, i) => watchedValues[i === 0 ? "Base-2" : `Base-2 - ${i + 1}`]
+          );
           const allNoBase2 = base2Answers.every((answer) => answer === "No");
 
           if (allNoBase2 && !showAdditionalQuestions2) {
@@ -143,7 +261,7 @@ export default function DetailedQuestionnaire() {
       window.scrollTo(0, 0);
 
       if (steps[currentStep - 1] === "Team") {
-        const baseAnswers = data.Team.questions.Base.map((q, i) => watchedValues[`Base_${i}`]);
+        const baseAnswers = data.Team.questions.Base.map((q, i) => watchedValues[i === 0 ? "Base" : `Base - ${i + 1}`]);
         const allNo = baseAnswers.every((answer) => answer === "No");
 
         if (allNo) {
@@ -152,7 +270,9 @@ export default function DetailedQuestionnaire() {
       }
 
       if (steps[currentStep - 1] === "Traction") {
-        const base2Answers = data.Traction.questions["Base-2"].map((q, i) => watchedValues[`Base-2_${i}`]);
+        const base2Answers = data.Traction.questions["Base-2"].map(
+          (q, i) => watchedValues[i === 0 ? "Base-2" : `Base-2 - ${i + 1}`]
+        );
         const allNoBase2 = base2Answers.every((answer) => answer === "No");
 
         if (allNoBase2) {
@@ -236,7 +356,7 @@ export default function DetailedQuestionnaire() {
                                   <Field
                                     key={index}
                                     control={form.control}
-                                    name={`${questionGroup}_${index}`}
+                                    name={index === 0 ? questionGroup : `${questionGroup} - ${index + 1}`}
                                     label={question.question}
                                     type="radio"
                                     options={question.options.map((option) => ({ value: option, label: option }))}

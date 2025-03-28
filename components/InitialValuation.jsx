@@ -1,7 +1,7 @@
 "use client";
 
 import spreadsheet from "@/lib/spreadsheet.json";
-import { getCookie } from "cookies-next";
+import { getCookie, setCookie } from "cookies-next";
 import { useEffect, useState } from "react";
 
 const InitialValuation = () => {
@@ -9,14 +9,31 @@ const InitialValuation = () => {
 
   useEffect(() => {
     const storedData = getCookie("appData");
-    if (storedData) setAppData(JSON.parse(storedData));
+
+    if (storedData) {
+      const parsedData = JSON.parse(storedData);
+
+      const { region, industry, stage } = parsedData.initialQuestions;
+
+      const range = spreadsheet.structuredData?.[region]?.[industry]?.[stage] || [null, null];
+
+      const updatedData = {
+        ...parsedData,
+        initialQuestions: {
+          ...parsedData.initialQuestions,
+          range,
+        },
+      };
+
+      setAppData(updatedData);
+
+      setCookie("appData", JSON.stringify(updatedData));
+    }
   }, []);
 
   if (!appData) return;
 
-  const { region, industry, stage } = appData.initialQuestions;
-
-  const range = spreadsheet.structuredData?.[region]?.[industry]?.[stage] || [null, null];
+  const { region, industry, stage, range } = appData.initialQuestions;
 
   return (
     <>
