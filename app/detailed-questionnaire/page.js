@@ -190,6 +190,8 @@ export default function DetailedQuestionnaire() {
       estimatedValue = min + fraction * (max - min);
     }
 
+    estimatedValue = estimatedValue.toFixed(1);
+
     setScore(percentage);
     setIsSubmitted(true);
 

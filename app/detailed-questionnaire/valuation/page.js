@@ -1,4 +1,5 @@
 import CTA from "@/components/CTA";
+import DetailedValuation from "@/components/DetailedValuation";
 import Header from "@/components/Header";
 import Checkmark from "@/components/icons/Checkmark";
 import Retry from "@/components/Retry";
@@ -16,7 +17,10 @@ export default function Valuation() {
             <section className="grid-cols-2 gap-12 mb-4">
               <div className="text-center">
                 <div className="text-[27px] leading-[40px] text-text-primary mb-6">
-                  Your Pre-Money <br /> Valuation is: <span className="text-primary font-bold">$6.2M</span>
+                  Your Pre-Money <br /> Valuation is:{" "}
+                  <span className="text-primary font-bold">
+                    <DetailedValuation />
+                  </span>
                 </div>
                 <div className="text-[16px] mb-8 text-text-secondary">
                   Based on your responses, the estimated range has been refined, giving you a precise valuation for your
@@ -91,7 +95,10 @@ export default function Valuation() {
           <main className="pt-12 bg-custom-gradient-2">
             <div className="relative z-10 max-w-[1160px] mx-auto">
               <h1 className="text-[47px] text-text-secondary leading-[64px] mb-8 text-center font-bold">
-                Your Pre-Money Valuation is: <span className="text-primary">$6.2M</span>
+                Your Pre-Money Valuation is:{" "}
+                <span className="text-primary">
+                  <DetailedValuation />
+                </span>
               </h1>
               <p className="text-[27px] leading-[40px] text-text-secondary text-center mb-14">
                 Based on your responses, the estimated range has been refined, giving you a precise valuation for your
