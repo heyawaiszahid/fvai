@@ -150,7 +150,7 @@ export default function Success() {
                   Your information has been received. Your Valuation Report will be emailed to you within 48 hours.
                 </p>
                 <div className="hidden lg:block text-right">
-                  <CTA href="/" className="lg:text-[27px] lg:leading-[40px] lg:max-w-[260px] lg:py-1 lg:rounded-[18px]">
+                  <CTA href="/" className="lg:!max-w-[260px] lg:!py-1 lg:!rounded-[18px]">
                     Home Page
                   </CTA>
                 </div>
