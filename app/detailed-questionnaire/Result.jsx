@@ -64,7 +64,7 @@ const Result = ({ score }) => {
     <>
       <div className="flex lg:hidden">
         <div className="mx-auto flex flex-col items-center">
-          <div className="text-text-secondary text-[23px] leading-[32px] text-center gap-2 mb-6">
+          <div className="text-text-secondary text-[23px] leading-[32px] text-center gap-2 mb-6 flex">
             {feedback} <span className="text-[40px]">{emoji}</span>
           </div>
           <div className="text-primary-dark text-[13px] leading-[24px] px-5 text-center mb-3">{details}</div>

@@ -13,7 +13,7 @@ export function middleware(req) {
     return NextResponse.redirect(new URL("/initial-questions", req.url));
   }
 
-  if (path === "/detailed-questionnaire/valuation" && !appData?.detailedQuestionnaire) {
+  if (path.startsWith("/detailed-questionnaire/") && !appData?.detailedQuestionnaire) {
     return NextResponse.redirect(new URL("/detailed-questionnaire", req.url));
   }
 
@@ -21,5 +21,5 @@ export function middleware(req) {
 }
 
 export const config = {
-  matcher: ["/initial-questions/valuation", "/detailed-questionnaire", "/detailed-questionnaire/valuation"],
+  matcher: ["/initial-questions/valuation", "/detailed-questionnaire", "/detailed-questionnaire/:path*"],
 };

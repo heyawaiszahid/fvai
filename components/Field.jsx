@@ -60,6 +60,34 @@ const Field = ({
                   }`}
                   onFocus={() => setFocusField(name)}
                   onBlur={() => setFocusField(null)}
+                  onChange={(e) => {
+                    if (name === "cardNumber") {
+                      const rawValue = e.target.value.replace(/\D/g, "").slice(0, 16);
+                      field.onChange(rawValue);
+                      e.target.value = rawValue.replace(/(\d{4})(?=\d)/g, "$1 ");
+                    } else if (name === "expiryDate") {
+                      let value = e.target.value.replace(/\D/g, "");
+                      if (value.length > 2) {
+                        const month = parseInt(value.slice(0, 2));
+                        if (month < 1 || month > 12) {
+                          return;
+                        }
+                        value = value.slice(0, 2) + "/" + value.slice(2, 4);
+                      }
+                      const formattedValue = value.slice(0, 5);
+                      field.onChange(formattedValue);
+                      e.target.value = formattedValue;
+                    } else if (name === "cvc") {
+                      const value = e.target.value.replace(/\D/g, "").slice(0, 4);
+                      field.onChange(value);
+                      e.target.value = value;
+                    } else {
+                      field.onChange(e);
+                    }
+                  }}
+                  value={
+                    name === "cardNumber" ? field.value?.replace(/(\d{4})(?=\d)/g, "$1 ") || "" : field.value || ""
+                  }
                   id={name}
                 />
               ) : type === "select" ? (
@@ -135,7 +163,7 @@ const Field = ({
                 </FormControl>
               ) : null}
               {type === "input" && !isError && field.value && (
-                <Good className="w-[16px] h-[12] fill-current text-success-dark absolute top-1/2 right-5 transform -translate-y-1/2" />
+                <Good className="w-[16px] h-[12px] fill-current text-success-dark absolute top-1/2 right-5 transform -translate-y-1/2" />
               )}
             </div>
             <div className={`flex gap-4 ${type === "textarea" ? "items-end" : ""}`}>
