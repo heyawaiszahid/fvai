@@ -42,7 +42,7 @@ export default function Payment() {
 
   const onSubmit = (values) => {
     console.log(values);
-    router.push("/detailed-questionnaire/valuation/report/payment/error");
+    router.push("/detailed-questionnaire/valuation/report/payment/success");
   };
 
   const handleBack = () => {
