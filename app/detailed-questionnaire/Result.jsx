@@ -69,7 +69,7 @@ const Result = ({ score }) => {
           </div>
           <div className="text-primary-dark text-[13px] leading-[24px] px-5 text-center mb-3">{details}</div>
           <div className="relative mb-8">
-            <Progress size={340} thickness={40} score={score} />
+            <Progress size={300} thickness={40} score={score} />
             <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center gap-2">
               <span className="text-text-secondary text-[47px]">{score}%</span>
             </div>
