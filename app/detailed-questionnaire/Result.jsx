@@ -13,9 +13,9 @@ const Result = ({ score }) => {
       ),
       details: (
         <>
-          Your result falls into the <span className="font-bold">"excellent"</span>, indicating strong performance
-          across critical areas such as leadership, market opportunity, traction, product, and competitiveness. Keep
-          building on these strengths to maintain momentum.
+          Your result falls into the <span className="font-bold">"excellent"</span> category, indicating strong
+          performance across critical areas such as leadership, market opportunity, traction, product, and
+          competitiveness. Keep building on these strengths to maintain momentum.
         </>
       ),
       emoji: "🚀",
@@ -30,19 +30,19 @@ const Result = ({ score }) => {
       ),
       details: (
         <>
-          Your result falls into the <span className="font-bold">"good"</span>, reflecting solid progress in several key
-          areas like leadership, market potential, traction, product development, and competitiveness. With targeted
-          improvements, you can increase your business value and drive further growth.
+          Your result falls into the <span className="font-bold">"good"</span> category, reflecting solid progress in
+          several key areas like leadership, market potential, traction, product development, and competitiveness. With
+          targeted improvements, you can increase your business value and drive further growth.
         </>
       ),
       emoji: "🙂",
     },
     {
       min: 0,
-      type: "Needs Improvements",
+      type: "Needs Improvement",
       feedback: (
         <>
-          Your result <span className="text-text-primary lg:text-text-secondary font-bold">needs improvements.</span>
+          Your result <span className="text-text-primary lg:text-text-secondary font-bold">needs improvement.</span>
         </>
       ),
       details: (
