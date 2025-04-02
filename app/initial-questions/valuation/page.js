@@ -2,7 +2,6 @@ import CTA from "@/components/CTA";
 import Header from "@/components/Header";
 import Checkmark from "@/components/icons/Checkmark";
 import InitialValuation from "@/components/InitialValuation";
-import Retry from "@/components/Retry";
 import Retry2 from "@/components/Retry2";
 import Sidebar from "@/components/Sidebar";
 import Image from "next/image";
@@ -15,8 +14,8 @@ export default function Valuation() {
 
         <div className="container pb-16">
           <main>
-            <section className="grid grid-cols-1 lg:grid-cols-2 lg:gap-10 mb-6 lg:mb-0">
-              <div className="lg:order-2 flex justify-center -mb-20 lg:mb-0">
+            <section className="grid grid-cols-1">
+              <div className="flex justify-center -mb-20">
                 <Image
                   src="/charts.png"
                   width={709}
@@ -24,23 +23,10 @@ export default function Valuation() {
                   alt=""
                   layout="responsive"
                   loading="eager"
-                  className="-mt-8 lg:mt-0"
+                  className="-mt-8"
                 />
               </div>
-              <div className="text-center lg:pt-20">
-                <InitialValuation />
-                <CTA href="/detailed-questionnaire">
-                  Refine My Valuation <br />
-                  Start Scorecard
-                </CTA>
-              </div>
-            </section>
-            <section className="text-center max-w-[1200px] mx-auto">
-              <p className="text-[13px] lg:text-[23px] text-text-primary leading-[24px] lg:leading-[32px] mb-6 lg:mb-12">
-                The valuation range above is based on the 1st to 3rd quartile pre-money valuations implied from
-                fundraising transactions in your region, stage of development, and vertical.
-              </p>
-              <Retry href="/initial-questions">Try Again</Retry>
+              <InitialValuation />
             </section>
           </main>
         </div>
@@ -54,17 +40,7 @@ export default function Valuation() {
 
           <main className="pt-12 bg-custom-gradient-2">
             <div className="container px-[6vw] relative z-10">
-              <div className="text-center">
-                <InitialValuation />
-                <CTA href="/detailed-questionnaire" className="mb-20">
-                  Refine My Valuation - <br /> Start Scorecard
-                </CTA>
-              </div>
-              <p className="text-[27px] leading-[40px] mb-20 text-center">
-                The valuation range above is based on the 1st quartile to 3rd quartile pre-money valuations implied from
-                fundraising transactions in your region, stage of development, and vertical.
-              </p>
-
+              <InitialValuation />
               <div className="mb-20">
                 <h2 className="text-center text-[39px] leading-[56px] font-bold mb-5">Need More Tailored Help?</h2>
                 <p className="text-center text-[27px] leading-[40px]">
