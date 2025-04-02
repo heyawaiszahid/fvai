@@ -12,6 +12,8 @@ import { FormProvider, useForm } from "react-hook-form";
 import data from "./data.json";
 import Result from "./Result";
 import StepsIndicator from "./StepsIndicator";
+import Checkmark from "@/components/icons/Checkmark";
+import CTA from "@/components/CTA";
 
 const getScoreFromAnswer = (answer, isGrowthRate = false) => {
   const scores = { a: 0, b: 1, c: 2, d: 3, e: 5 };
@@ -406,6 +408,97 @@ export default function DetailedQuestionnaire() {
             ) : (
               <div className="container pt-4 pb-16 lg:pt-20">
                 <Result score={score} />
+                {score < 50 && (
+                  <>
+                    <div className="lg:hidden">
+                      <div className="container pt-8">
+                        <h2 className="text-center text-[27px] leading-[40px] font-bold mb-6">
+                          Need More Tailored Help?
+                        </h2>
+                        <p className="text-center">
+                          Looking for more personalized guidance to take your startup further?
+                        </p>
+                        <p className="text-center mb-3">
+                          <span className="text-primary-dark font-bold">Book a consultation</span> to explore additional
+                          services with <span className="text-primary-dark font-bold">FVA Advisory,</span> including:
+                        </p>
+                        <div className="flex justify-between mb-6">
+                          <ul className="space-y-2">
+                            <li className="flex items-center gap-1">
+                              <Checkmark className="w-[16px] h-[16px] fill-current text-primary-dark" />
+                              <span className="text-text-secondary text-[13px] leading-[24px]">Market Research</span>
+                            </li>
+                            <li className="flex items-center gap-1">
+                              <Checkmark className="w-[16px] h-[16px] fill-current text-primary-dark" />
+                              <span className="text-text-secondary text-[13px] leading-[24px]">Pitch Deck</span>
+                            </li>
+                          </ul>
+                          <ul className="space-y-2">
+                            <li className="flex items-center gap-1">
+                              <Checkmark className="w-[16px] h-[16px] fill-current text-primary-dark" />
+                              <span className="text-text-secondary text-[13px] leading-[24px]">Financial Modeling</span>
+                            </li>
+                            <li className="flex items-center gap-1">
+                              <Checkmark className="w-[16px] h-[16px] fill-current text-primary-dark" />
+                              <span className="text-text-secondary text-[13px] leading-[24px]">DCF Valuation</span>
+                            </li>
+                          </ul>
+                        </div>
+                        <div className="text-center">
+                          <CTA href="#" className="text-primary-dark border-primary-dark border-[3px] !py-2 bg-white">
+                            Book a Consultation
+                          </CTA>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="hidden lg:block">
+                      <div className="container pt-20 pb-6">
+                        <h2 className="text-center text-[39px] leading-[56px] font-bold mb-5">
+                          Need More Tailored Help?
+                        </h2>
+                        <p className="text-center text-[27px] leading-[40px]">
+                          Looking for more <span className="text-info">personalized guidance</span> to take your startup
+                          further?
+                        </p>
+                        <p className="text-center text-[27px] leading-[40px] mb-8">
+                          <span className="text-info">Book a consultation</span> to explore additional services with{" "}
+                          <span className="text-info">FVA Advisory,</span> including:
+                        </p>
+                        <div className="flex justify-between mb-10 max-w-[737px] mx-auto">
+                          <ul className="space-y-4">
+                            <li className="flex items-center gap-4">
+                              <Checkmark className="w-[33px] h-[33px] fill-current text-info" />
+                              <span className="text-text-secondary text-[27px] leading-[40px]">Financial Modeling</span>
+                            </li>
+                            <li className="flex items-center gap-4">
+                              <Checkmark className="w-[33px] h-[33px] fill-current text-info" />
+                              <span className="text-text-secondary text-[27px] leading-[40px]">DCF Valuation</span>
+                            </li>
+                          </ul>
+                          <ul className="space-y-4">
+                            <li className="flex items-center gap-4">
+                              <Checkmark className="w-[33px] h-[33px] fill-current text-info" />
+                              <span className="text-text-secondary text-[27px] leading-[40px]">Market Research</span>
+                            </li>
+                            <li className="flex items-center gap-4">
+                              <Checkmark className="w-[33px] h-[33px] fill-current text-info" />
+                              <span className="text-text-secondary text-[27px] leading-[40px]">Pitch Deck</span>
+                            </li>
+                          </ul>
+                        </div>
+                        <div className="text-center">
+                          <CTA
+                            href="#"
+                            className="text-primary-dark border-primary-dark border-[4px] !rounded-[27px] !py-2 bg-transparent !w-[344px]"
+                          >
+                            Book a Consultation
+                          </CTA>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )}
               </div>
             )}
           </div>
