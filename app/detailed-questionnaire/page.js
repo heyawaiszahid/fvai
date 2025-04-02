@@ -12,8 +12,6 @@ import { FormProvider, useForm } from "react-hook-form";
 import data from "./data.json";
 import Result from "./Result";
 import StepsIndicator from "./StepsIndicator";
-import Checkmark from "@/components/icons/Checkmark";
-import CTA from "@/components/CTA";
 
 const getScoreFromAnswer = (answer, isGrowthRate = false) => {
   const scores = { a: 0, b: 1, c: 2, d: 3, e: 5 };
@@ -407,125 +405,7 @@ export default function DetailedQuestionnaire() {
               </form>
             ) : (
               <div className="container pt-4 pb-16 lg:pt-20">
-                {score > 50 ? (
-                  <Result score={score} />
-                ) : (
-                  <>
-                    <div className="flex lg:hidden">
-                      <div className="mx-auto flex flex-col items-center">
-                        <div className="text-primary-dark text-[13px] leading-[24px] px-5 text-center mb-3">
-                          A score below 50% indicates that your startup would face significant challenges attracting
-                          venture capital investment. At this stage, we are unable to provide a meaningful valuation for
-                          your startup. We recommend improving highlighted areas before approaching investors. With
-                          targeted improvements, you can strengthen your pitch and increase your chances of successful
-                          fundraising in the future.
-                        </div>
-
-                        <div className="container pt-5 pb-10">
-                          <h2 className="text-center text-[27px] leading-[40px] font-bold mb-6">
-                            Need More Tailored Help?
-                          </h2>
-                          <p className="text-center">
-                            Looking for more personalized guidance to take your startup further?
-                          </p>
-                          <p className="text-center mb-3">
-                            <span className="text-primary-dark font-bold">Book a consultation</span> to explore
-                            additional services with <span className="text-primary-dark font-bold">FVA Advisory,</span>{" "}
-                            including:
-                          </p>
-                          <div className="flex justify-between mb-6">
-                            <ul className="space-y-2">
-                              <li className="flex items-center gap-1">
-                                <Checkmark className="w-[16px] h-[16px] fill-current text-primary-dark" />
-                                <span className="text-text-secondary text-[13px] leading-[24px]">Market Research</span>
-                              </li>
-                              <li className="flex items-center gap-1">
-                                <Checkmark className="w-[16px] h-[16px] fill-current text-primary-dark" />
-                                <span className="text-text-secondary text-[13px] leading-[24px]">Pitch Deck</span>
-                              </li>
-                            </ul>
-                            <ul className="space-y-2">
-                              <li className="flex items-center gap-1">
-                                <Checkmark className="w-[16px] h-[16px] fill-current text-primary-dark" />
-                                <span className="text-text-secondary text-[13px] leading-[24px]">
-                                  Financial Modeling
-                                </span>
-                              </li>
-                              <li className="flex items-center gap-1">
-                                <Checkmark className="w-[16px] h-[16px] fill-current text-primary-dark" />
-                                <span className="text-text-secondary text-[13px] leading-[24px]">DCF Valuation</span>
-                              </li>
-                            </ul>
-                          </div>
-                          <div className="text-center">
-                            <CTA href="#" className="text-primary-dark border-primary-dark border-[3px] !py-2 bg-white">
-                              Book a Consultation
-                            </CTA>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="hidden lg:flex lg:flex-col">
-                      <div className="w-[236px] h-[198px] absolute top-[0px] right-0 bg-[url(/logo-aesthetic-2.png)] bg-no-repeat bg-cover opacity-[23%]"></div>
-                      <div className="mx-auto flex flex-col items-center pt-24">
-                        <div className="text-primary-dark text-[23px] leading-[32px] px-5 text-center mb-16 max-w-[940px]">
-                          A score below 50% indicates that your startup would face significant challenges attracting
-                          venture capital investment. At this stage, we are unable to provide a meaningful valuation for
-                          your startup. We recommend improving highlighted areas before approaching investors. With
-                          targeted improvements, you can strengthen your pitch and increase your chances of successful
-                          fundraising in the future.
-                        </div>
-
-                        <div className="container pb-16">
-                          <h2 className="text-center text-[39px] leading-[56px] font-bold mb-5">
-                            Need More Tailored Help?
-                          </h2>
-                          <p className="text-center text-[27px] leading-[40px]">
-                            Looking for more <span className="text-info">personalized guidance</span> to take your
-                            startup further?
-                          </p>
-                          <p className="text-center text-[27px] leading-[40px] mb-8">
-                            <span className="text-info">Book a consultation</span> to explore additional services with{" "}
-                            <span className="text-info">FVA Advisory,</span> including:
-                          </p>
-                          <div className="flex justify-between mb-10 max-w-[737px] mx-auto">
-                            <ul className="space-y-4">
-                              <li className="flex items-center gap-4">
-                                <Checkmark className="w-[33px] h-[33px] fill-current text-info" />
-                                <span className="text-text-secondary text-[27px] leading-[40px]">
-                                  Financial Modeling
-                                </span>
-                              </li>
-                              <li className="flex items-center gap-4">
-                                <Checkmark className="w-[33px] h-[33px] fill-current text-info" />
-                                <span className="text-text-secondary text-[27px] leading-[40px]">DCF Valuation</span>
-                              </li>
-                            </ul>
-                            <ul className="space-y-4">
-                              <li className="flex items-center gap-4">
-                                <Checkmark className="w-[33px] h-[33px] fill-current text-info" />
-                                <span className="text-text-secondary text-[27px] leading-[40px]">Market Research</span>
-                              </li>
-                              <li className="flex items-center gap-4">
-                                <Checkmark className="w-[33px] h-[33px] fill-current text-info" />
-                                <span className="text-text-secondary text-[27px] leading-[40px]">Pitch Deck</span>
-                              </li>
-                            </ul>
-                          </div>
-                          <div className="text-center">
-                            <CTA
-                              href="#"
-                              className="text-primary-dark border-primary-dark border-[4px] !rounded-[27px] !py-2 bg-transparent !w-[344px]"
-                            >
-                              Book a Consultation
-                            </CTA>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </>
-                )}
+                <Result score={score} />
               </div>
             )}
           </div>

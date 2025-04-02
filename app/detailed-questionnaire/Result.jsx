@@ -38,7 +38,7 @@ const Result = ({ score }) => {
       emoji: "🙂",
     },
     {
-      min: 0,
+      min: 50,
       type: "Needs Improvement",
       feedback: (
         <>
@@ -50,6 +50,24 @@ const Result = ({ score }) => {
           Your startup currently <span className="font-bold">"needs improvement"</span>, suggesting certain gaps in
           leadership, market opportunity, traction, or product readiness. By focusing on these areas and refining your
           strategy, you can move toward stronger results and a higher business valuation.
+        </>
+      ),
+      emoji: "🤔",
+    },
+    {
+      min: 0,
+      type: "Needs Improvement",
+      feedback: (
+        <>
+          Your result <span className="text-text-primary lg:text-text-secondary font-bold">needs improvement.</span>
+        </>
+      ),
+      details: (
+        <>
+          A score below 50% indicates that your startup would face significant challenges attracting venture capital
+          investment. At this stage, we are unable to provide a meaningful valuation for your startup. We recommend
+          improving highlighted areas before approaching investors. With targeted improvements, you can strengthen your
+          pitch and increase your chances of successful fundraising in the future.
         </>
       ),
       emoji: "🤔",
@@ -74,12 +92,21 @@ const Result = ({ score }) => {
               <span className="text-text-secondary text-[47px]">{score}%</span>
             </div>
           </div>
-          <Link
-            href="/detailed-questionnaire/valuation"
-            className="w-full max-w-md bg-text-primary text-background-paper text-center text-base font-semibold py-2 rounded-[44px]"
-          >
-            View Your Valuation
-          </Link>
+          {score >= 50 ? (
+            <Link
+              href="/detailed-questionnaire/valuation"
+              className="w-full max-w-md bg-text-primary text-background-paper text-center text-base font-semibold py-2 rounded-[44px]"
+            >
+              View Your Valuation
+            </Link>
+          ) : (
+            <Link
+              href="/initial-questions"
+              className="w-full max-w-md bg-text-primary text-background-paper text-center text-base font-semibold py-2 rounded-[44px]"
+            >
+              Start Over
+            </Link>
+          )}
         </div>
       </div>
 
@@ -90,12 +117,21 @@ const Result = ({ score }) => {
           <div className="text-primary-dark text-[23px] leading-[32px] px-5 text-center mb-16 max-w-[940px]">
             {details}
           </div>
-          <Link
-            href="/detailed-questionnaire/valuation"
-            className="w-full max-w-[555px] bg-text-primary text-background-paper text-center text-[27px] leading-[40px] font-bold py-4 rounded-[44px] mb-24"
-          >
-            View Your Valuation
-          </Link>
+          {score >= 50 ? (
+            <Link
+              href="/detailed-questionnaire/valuation"
+              className="w-full max-w-[555px] bg-text-primary text-background-paper text-center text-[27px] leading-[40px] font-bold py-4 rounded-[44px] mb-24"
+            >
+              View Your Valuation
+            </Link>
+          ) : (
+            <Link
+              href="/initial-questions"
+              className="w-full max-w-[555px] bg-text-primary text-background-paper text-center text-[27px] leading-[40px] font-bold py-4 rounded-[44px] mb-24"
+            >
+              Start Over
+            </Link>
+          )}
         </div>
         <div className="flex items-end justify-between w-full px-10 cursor-default mb-2">
           <span className="text-[137px] leading-none text-[#4169E11F] font-bold">{type}</span>
