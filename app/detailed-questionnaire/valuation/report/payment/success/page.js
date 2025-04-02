@@ -232,7 +232,7 @@ export default function Success() {
             <div className="container">
               <p className="text-[11px] leading-[16px] text-text-secondary text-center">
                 If you have any questions, check your email for more details or contact us at:{" "}
-                <span className="text-text-primary font-bold">support@example.com.</span>
+                <span className="text-text-primary font-bold">contact@fvaadvisory.com</span>
               </p>
             </div>
           </section>
