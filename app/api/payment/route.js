@@ -4,7 +4,6 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const allowedDomains = process.env.ALLOWED_DOMAINS?.split(",") || [];
 
 export async function POST(request) {
-  // Skip domain validation in development
   if (process.env.NODE_ENV !== "production") {
     return createPaymentIntent();
   }
@@ -12,7 +11,6 @@ export async function POST(request) {
   const origin = request.headers.get("origin");
   const referer = request.headers.get("referer");
 
-  // Check if request comes from allowed domain
   const isValidDomain = allowedDomains.some((domain) => origin?.includes(domain) || referer?.includes(domain));
 
   if (!isValidDomain) {
