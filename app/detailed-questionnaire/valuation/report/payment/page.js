@@ -3,51 +3,177 @@
 import Field from "@/components/Field";
 import Back from "@/components/icons/Back";
 import Good from "@/components/icons/Good";
+import Loading from "@/components/icons/Loading";
 import PaymentIcons from "@/components/icons/PaymentIcons";
 import SSL from "@/components/icons/SSL";
 import Sidebar from "@/components/Sidebar";
 import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { CardElement, Elements, useElements, useStripe } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { z } from "zod";
 
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+
+function StripeCardForm({ onSubmit, isValid, clientSecret, router, fullName }) {
+  const stripe = useStripe();
+  const elements = useElements();
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [cardComplete, setCardComplete] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!stripe || !elements || !clientSecret) {
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+
+    stripe
+      .confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: elements.getElement(CardElement),
+          billing_details: {
+            name: fullName,
+          },
+        },
+      })
+      .then(({ error, paymentIntent }) => {
+        if (error) {
+          setError(error.message);
+          router.push("/detailed-questionnaire/valuation/report/payment/error");
+        } else if (paymentIntent?.status === "succeeded") {
+          onSubmit();
+        } else {
+          router.push("/detailed-questionnaire/valuation/report/payment/error");
+        }
+      })
+      .catch((err) => {
+        setError(err.message);
+        router.push("/detailed-questionnaire/valuation/report/payment/error");
+      })
+      .finally(() => setLoading(false));
+  };
+
+  return (
+    <form onSubmit={handleSubmit} autoComplete="off">
+      <div className="mb-5 lg:mb-10">
+        <div className="px-4 py-[11.5px] border min-h-[44px] bg-background-paper border-others-backdropOverlay rounded-[6px]">
+          <CardElement
+            options={{
+              style: {
+                base: {
+                  fontSize: "16px",
+                  color: "#0a112d",
+                  "::placeholder": {
+                    color: "#00000080",
+                  },
+                },
+                invalid: {
+                  color: "#db262a",
+                },
+              },
+              hidePostalCode: true,
+              disableLink: true,
+            }}
+            onChange={(e) => setCardComplete(e.complete)}
+          />
+        </div>
+        {error && <p className="font-medium text-red-500 text-[11px]">{error}</p>}
+      </div>
+
+      <Button
+        type="submit"
+        className="w-full py-6 lg:py-7 lg:ml-auto text-[23px] lg:text-[27px] font-bold rounded-[10px] lg:rounded-[10px] bg-primary hover:bg-primary disabled:bg-primary-light disabled:text-background-default"
+        disabled={!isValid || loading || !stripe || !cardComplete}
+      >
+        {loading ? "Processing..." : "Pay Now - $500"}
+      </Button>
+    </form>
+  );
+}
+
 export default function Payment() {
   const router = useRouter();
+  const [clientSecret, setClientSecret] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [focusField, setFocusField] = useState(null);
 
+  useEffect(() => {
+    const createPaymentIntent = async () => {
+      try {
+        const existingPaymentIntent = sessionStorage.getItem("paymentIntent");
+
+        if (existingPaymentIntent) {
+          const { clientSecret, created } = JSON.parse(existingPaymentIntent);
+          if (Date.now() - created < 3600000) {
+            setClientSecret(clientSecret);
+            setLoading(false);
+            return;
+          }
+        }
+
+        const response = await fetch("/api/payment", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to create payment intent");
+        }
+
+        const data = await response.json();
+        setClientSecret(data.clientSecret);
+
+        sessionStorage.setItem(
+          "paymentIntent",
+          JSON.stringify({
+            clientSecret: data.clientSecret,
+            created: Date.now(),
+          })
+        );
+      } catch (err) {
+        console.error("Payment error:", err);
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    createPaymentIntent();
+  }, []);
+
   const cardSchema = z.object({
-    cardNumber: z.string().length(16, "Card number must be exactly 16 digits"),
-    expiryDate: z.string().regex(/^(0[1-9]|1[0-2])\/\d{2}$/, "Invalid expiration date (MM/YY)"),
-    cvc: z
-      .string()
-      .min(3, "CVC must be at least 3 digits")
-      .max(4, "CVC can't be more than 4 digits")
-      .regex(/^\d+$/, "Must contain only numbers"),
+    fullName: z.string().min(1, "Full name is required"),
   });
 
   const form = useForm({
     resolver: zodResolver(cardSchema),
     defaultValues: {
       fullName: "",
-      cardNumber: "",
-      expiryDate: "",
-      cvc: "",
     },
     mode: "onChange",
   });
 
   const { errors, isValid } = form.formState;
 
-  const onSubmit = (values) => {
-    console.log(values);
-    router.push("/detailed-questionnaire/valuation/report/payment/success");
-  };
-
   const handleBack = () => {
     router.push("/detailed-questionnaire/valuation/report");
   };
+
+  if (error) {
+    return <div className="text-red-500">Error: {error}</div>;
+  }
+
   return (
     <div className="block lg:flex">
       <Sidebar className="hidden lg:block"></Sidebar>
@@ -67,46 +193,36 @@ export default function Payment() {
           </h3>
 
           <FormProvider {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col lg:max-w-[552px] lg:mx-auto">
+            <div className="flex flex-col lg:max-w-[552px] lg:mx-auto">
               <div className="grid grid-cols-1 gap-5 lg:gap-10 mb-4 lg:mb-10">
                 <Field
                   control={form.control}
                   name="fullName"
                   placeholder="John Doe"
-                  focusField={focusField}
-                  setFocusField={setFocusField}
                   errors={errors}
                   label="Full Name"
-                />
-                <Field
-                  control={form.control}
-                  name="cardNumber"
-                  placeholder="4242 4242 4242 4242"
                   focusField={focusField}
                   setFocusField={setFocusField}
-                  errors={errors}
-                  label="Card Number"
                 />
-                <div className="grid grid-cols-2 gap-5 lg:gap-10">
-                  <Field
-                    control={form.control}
-                    name="expiryDate"
-                    placeholder="MM/YY"
-                    focusField={focusField}
-                    setFocusField={setFocusField}
-                    errors={errors}
-                    label="Expiration Date"
-                  />
-                  <Field
-                    control={form.control}
-                    name="cvc"
-                    placeholder="123"
-                    focusField={focusField}
-                    setFocusField={setFocusField}
-                    errors={errors}
-                    label="CVC / CVV"
-                  />
-                </div>
+
+                {loading ? (
+                  <Loading className="w-[80px] mx-auto" />
+                ) : clientSecret ? (
+                  <Elements stripe={stripePromise} options={{ clientSecret }}>
+                    <StripeCardForm
+                      onSubmit={() => {
+                        sessionStorage.removeItem("paymentIntent");
+                        router.push("/detailed-questionnaire/valuation/report/payment/success");
+                      }}
+                      isValid={isValid}
+                      clientSecret={clientSecret}
+                      router={router}
+                      fullName={form.watch("fullName")}
+                    />
+                  </Elements>
+                ) : (
+                  <div className="text-red-500 text-center py-6">Failed to load payment form. Please try again.</div>
+                )}
               </div>
 
               <div className="flex gap-2 items-center mb-1 lg:mb-3">
@@ -127,15 +243,7 @@ export default function Payment() {
                 <p className="text-[13px] leading-[24px] lg:text-[19px] lg:leading-[32px]">Trusted partners:</p>
                 <PaymentIcons className="w-[146px] h-[20px] lg:w-[209px] lg:h-[28px]" />
               </div>
-
-              <Button
-                type="submit"
-                className="w-full py-6 lg:py-7 lg:ml-auto text-[23px] lg:text-[27px] font-bold rounded-[10px] lg:rounded-[18px] bg-primary hover:bg-primary disabled:bg-primary-light disabled:text-background-default"
-                disabled={!isValid}
-              >
-                Pay Now - $500
-              </Button>
-            </form>
+            </div>
           </FormProvider>
         </div>
       </main>
