@@ -23,3 +23,29 @@ export async function POST(req) {
     return new Response(JSON.stringify({ success: false, error: "Operation failed" }), { status: 500 });
   }
 }
+
+const allowedDomains = process.env.ALLOWED_DOMAINS?.split(",") || [];
+
+export async function GET(request) {
+  if (process.env.NODE_ENV !== "development") {
+    const origin = request.headers.get("origin");
+    const referer = request.headers.get("referer");
+
+    const isValidDomain = allowedDomains.some((domain) => origin?.includes(domain) || referer?.includes(domain));
+
+    if (!isValidDomain) {
+      return new Response(JSON.stringify({ success: false, error: "Forbidden" }), {
+        status: 403,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+  }
+
+  try {
+    await connectToDatabase();
+    const valuations = await Valuation.find({}).sort({ _id: -1 });
+    return new Response(JSON.stringify(valuations));
+  } catch (error) {
+    return new Response(JSON.stringify({ success: false, error: "Failed to fetch data" }), { status: 500 });
+  }
+}
