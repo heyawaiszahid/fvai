@@ -56,8 +56,11 @@ export default function InitialQuestions() {
     setIsProcessing(true);
 
     if (step === 2) {
+      const { region, industry, stage } = values;
+      const range = spreadsheet.structuredData?.[region]?.[industry]?.[stage] || [null, null];
+
       const id = Date.now();
-      const payload = { id, initialQuestions: { ...formData, ...values } };
+      const payload = { id, initialQuestions: { ...formData, ...values, range } };
 
       setCookie("appData", JSON.stringify(payload));
 

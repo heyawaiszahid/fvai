@@ -166,7 +166,9 @@ export default function Admin() {
                       </div>
                       <div className="text-sm mt-1">
                         <span className="font-medium">Range:</span>{" "}
-                        {valuation.initialQuestions.range?.join(" - ") || "N/A"}
+                        {valuation?.initialQuestions?.range?.every((val) => val !== null)
+                          ? valuation.initialQuestions.range.join(" - ")
+                          : "N/A"}
                       </div>
                     </td>
 
