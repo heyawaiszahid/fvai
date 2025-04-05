@@ -43,10 +43,7 @@ export default function Admin() {
 
     const fetchData = async () => {
       try {
-        const response = await fetch("/api/valuationData", {
-          cache: "no-store",
-          next: { revalidate: 0 },
-        });
+        const response = await fetch("/api/valuationData");
         const data = await response.json();
         setValuations(data);
       } catch (err) {

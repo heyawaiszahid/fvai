@@ -44,12 +44,7 @@ export async function GET(request) {
   try {
     await connectToDatabase();
     const valuations = await Valuation.find({}).sort({ _id: -1 });
-    return new Response(JSON.stringify(valuations), {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      next: { revalidate: 0 },
-    });
+    return new Response(JSON.stringify(valuations));
   } catch (error) {
     return new Response(JSON.stringify({ success: false, error: "Failed to fetch data" }), { status: 500 });
   }
