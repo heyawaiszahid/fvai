@@ -30,58 +30,68 @@ function StripeCardForm({ onSubmit, isValid, clientSecret, router, fullName }) {
     e.preventDefault();
 
     if (!stripe || !elements || !clientSecret) {
+      setError("Payment system is not ready. Please try again.");
       return;
     }
 
     setLoading(true);
     setError(null);
 
-    stripe
-      .confirmCardPayment(clientSecret, {
+    try {
+      const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: elements.getElement(CardElement),
           billing_details: {
             name: fullName,
           },
         },
-      })
-      .then(({ error, paymentIntent }) => {
-        if (error) {
+      });
+
+      if (error) {
+        if (error.type === "card_error" || error.type === "validation_error") {
           setError(error.message);
-          router.push("/detailed-questionnaire/valuation/report/payment/error");
-          return;
-        }
-
-        if (paymentIntent?.status === "succeeded") {
-          const appDataCookie = getCookie("appData");
-          const appData = appDataCookie ? JSON.parse(appDataCookie) : {};
-
-          const payload = {
-            ...appData,
-            billing: {
-              transactionId: paymentIntent.id,
-            },
-          };
-
-          setCookie("appData", JSON.stringify(payload));
-
-          return fetch("/api/valuationData", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
-          }).then((res) => res.json());
         } else {
           router.push("/detailed-questionnaire/valuation/report/payment/error");
         }
-      })
-      .then(() => {
+        return;
+      }
+
+      if (paymentIntent?.status === "succeeded") {
+        const appDataCookie = getCookie("appData");
+        const appData = appDataCookie ? JSON.parse(appDataCookie) : {};
+
+        const payload = {
+          ...appData,
+          billing: {
+            transactionId: paymentIntent.id,
+          },
+        };
+
+        setCookie("appData", JSON.stringify(payload));
+
+        const response = await fetch("/api/valuationData", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to save payment data");
+        }
+
         onSubmit();
-      })
-      .catch((err) => {
-        setError(err.message);
+      } else {
+        setError("Payment not completed. Please try again.");
+      }
+    } catch (err) {
+      if (err.message.includes("Failed") || !err.type) {
         router.push("/detailed-questionnaire/valuation/report/payment/error");
-      })
-      .finally(() => setLoading(false));
+      } else {
+        setError(err.message);
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
