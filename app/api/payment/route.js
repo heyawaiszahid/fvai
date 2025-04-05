@@ -4,7 +4,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const allowedDomains = process.env.ALLOWED_DOMAINS?.split(",") || [];
 
 export async function POST(request) {
-  if (process.env.NODE_ENV !== "production") {
+  if (process.env.NODE_ENV === "development") {
     return createPaymentIntent();
   }
 
@@ -31,10 +31,13 @@ async function createPaymentIntent() {
       payment_method_types: ["card"],
     });
 
-    return new Response(JSON.stringify({ clientSecret: paymentIntent.client_secret }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    });
+    return new Response(
+      JSON.stringify({ clientSecret: paymentIntent.client_secret, transactionId: paymentIntent.id }),
+      {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
   } catch (err) {
     return new Response(JSON.stringify({ error: err.message }), {
       status: 500,

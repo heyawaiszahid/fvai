@@ -1,9 +1,11 @@
 "use client";
 
+import CTA from "@/components/CTA";
 import Field from "@/components/Field";
 import Header from "@/components/Header";
 import Arrow2 from "@/components/icons/Arrow2";
 import Chat from "@/components/icons/Chat";
+import Checkmark from "@/components/icons/Checkmark";
 import Sidebar from "@/components/Sidebar";
 import { Button } from "@/components/ui/button";
 import { getCookie, setCookie } from "cookies-next";
@@ -12,8 +14,6 @@ import { FormProvider, useForm } from "react-hook-form";
 import data from "./data.json";
 import Result from "./Result";
 import StepsIndicator from "./StepsIndicator";
-import Checkmark from "@/components/icons/Checkmark";
-import CTA from "@/components/CTA";
 
 const getScoreFromAnswer = (answer, isGrowthRate = false) => {
   const scores = { a: 0, b: 1, c: 2, d: 3, e: 5 };
@@ -103,6 +103,7 @@ export default function DetailedQuestionnaire() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [score, setScore] = useState();
   const [hasMounted, setHasMounted] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const steps = Object.keys(data);
   const currentStepData = data[steps[currentStep]];
@@ -147,7 +148,9 @@ export default function DetailedQuestionnaire() {
     setHasMounted(true);
   }, []);
 
-  const onSubmit = (values) => {
+  const onSubmit = async (values) => {
+    setIsProcessing(true);
+
     const formData = {};
 
     for (const [key, section] of Object.entries(data)) {
@@ -197,17 +200,21 @@ export default function DetailedQuestionnaire() {
     setScore(percentage);
     setIsSubmitted(true);
 
-    setCookie(
-      "appData",
-      JSON.stringify({
-        ...appData,
-        detailedQuestionnaire: {
-          score: percentage,
-          valuation: estimatedValue,
-          categoryScores: scores,
-        },
-      })
-    );
+    const payload = {
+      ...appData,
+      detailedQuestionnaire: {
+        score: percentage,
+        valuation: estimatedValue,
+      },
+    };
+
+    setCookie("appData", JSON.stringify(payload));
+
+    await fetch("/api/valuationData", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    }).then((res) => res.json());
   };
 
   const handleNext = () => {
@@ -303,7 +310,7 @@ export default function DetailedQuestionnaire() {
       <div className="flex">
         <Sidebar className={!isSubmitted ? "lg:hidden" : ""}></Sidebar>
 
-        <main className="lg:bg-custom-gradient-2">
+        <main className="w-full lg:bg-custom-gradient-2">
           <div className="relative z-10">
             <StepsIndicator steps={steps} currentStep={currentStep} isSubmitted={isSubmitted} />
 
@@ -391,14 +398,16 @@ export default function DetailedQuestionnaire() {
                           type="button"
                           className="flex items-center w-[158px] lg:w-[284px] py-[19px] lg:py-[22px] text-[19px] lg:text-[23px] text-background-paper disabled:text-background-default bg-primary hover:bg-primary disabled:bg-primary-light rounded-[18px] lg:rounded-[24px] disabled:opacity-100 [&_svg]:w-[20px] lg:[&_svg]:w-[27px] [&_svg]:h-[14px]"
                           onClick={handleNext}
-                          disabled={!isStepAnswered}
+                          disabled={!isStepAnswered || isProcessing}
                         >
-                          <span>Next</span>
-                          <Arrow2
-                            className={`stroke-current text-background-paper ${
-                              !isStepAnswered ? "opacity-60" : "opacity-100"
-                            }`}
-                          />
+                          <span>{isProcessing ? "Processing..." : "Next"}</span>
+                          {isProcessing && (
+                            <Arrow2
+                              className={`stroke-current text-background-paper ${
+                                !isStepAnswered ? "opacity-60" : "opacity-100"
+                              }`}
+                            />
+                          )}
                         </Button>
                       </div>
                     </div>

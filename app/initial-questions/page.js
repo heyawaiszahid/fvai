@@ -20,6 +20,7 @@ export default function InitialQuestions() {
   const [focusField, setFocusField] = useState(null);
   const [charCount, setCharCount] = useState(0);
   let [formData, setFormData] = useState({});
+  const [isProcessing, setIsProcessing] = useState(false);
 
   useEffect(() => {
     deleteCookie("appData");
@@ -45,16 +46,28 @@ export default function InitialQuestions() {
 
   const { errors, isValid } = form.formState;
 
-  const onSubmit = (values) => {
+  const onSubmit = async (values) => {
     if (step === 1) {
       setFormData((prevData) => ({ ...prevData, ...values }));
       setStep(2);
+      return;
     }
 
+    setIsProcessing(true);
+
     if (step === 2) {
-      formData = { ...formData, ...values };
-      setCookie("appData", JSON.stringify({ initialQuestions: formData }));
-      router.push(`/initial-questions/valuation`);
+      const id = Date.now();
+      const payload = { id, initialQuestions: { ...formData, ...values } };
+
+      setCookie("appData", JSON.stringify(payload));
+
+      const { success } = await fetch("/api/valuationData", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      }).then((res) => res.json());
+
+      success && router.push(`/initial-questions/valuation`);
     }
   };
 
@@ -207,9 +220,9 @@ export default function InitialQuestions() {
                 <Button
                   type="submit"
                   className="w-full lg:max-w-[259px] py-6 lg:py-7 lg:ml-auto text-[23px] lg:text-[27px] font-bold rounded-[10px] lg:rounded-[18px] bg-primary hover:bg-primary disabled:bg-primary-light disabled:text-background-default"
-                  disabled={!isValid}
+                  disabled={!isValid || isProcessing}
                 >
-                  Continue
+                  {isProcessing ? "Processing..." : "Continue"}
                 </Button>
               </form>
             </FormProvider>

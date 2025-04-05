@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CardElement, Elements, useElements, useStripe } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import { getCookie, setCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
@@ -48,11 +49,33 @@ function StripeCardForm({ onSubmit, isValid, clientSecret, router, fullName }) {
         if (error) {
           setError(error.message);
           router.push("/detailed-questionnaire/valuation/report/payment/error");
-        } else if (paymentIntent?.status === "succeeded") {
-          onSubmit();
+          return;
+        }
+
+        if (paymentIntent?.status === "succeeded") {
+          const appDataCookie = getCookie("appData");
+          const appData = appDataCookie ? JSON.parse(appDataCookie) : {};
+
+          const payload = {
+            ...appData,
+            billing: {
+              transactionId: paymentIntent.id,
+            },
+          };
+
+          setCookie("appData", JSON.stringify(payload));
+
+          return fetch("/api/valuationData", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          }).then((res) => res.json());
         } else {
           router.push("/detailed-questionnaire/valuation/report/payment/error");
         }
+      })
+      .then(() => {
+        onSubmit();
       })
       .catch((err) => {
         setError(err.message);
@@ -142,7 +165,6 @@ export default function Payment() {
           })
         );
       } catch (err) {
-        console.error("Payment error:", err);
         setError(err.message);
       } finally {
         setLoading(false);

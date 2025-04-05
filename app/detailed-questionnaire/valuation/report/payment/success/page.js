@@ -10,6 +10,7 @@ import Send from "@/components/icons/Send";
 import SuccessBig from "@/components/icons/SuccessBig";
 import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { getCookie } from "cookies-next";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { z } from "zod";
@@ -36,8 +37,24 @@ export default function Success() {
 
   const { errors, isValid } = form.formState;
 
-  const onSubmit = (values) => {
-    console.log(values);
+  const onSubmit = async (values) => {
+    const appDataCookie = getCookie("appData");
+    const appData = appDataCookie ? JSON.parse(appDataCookie) : {};
+
+    const payload = {
+      ...appData,
+      billing: {
+        ...appData.billing,
+        ...values,
+      },
+    };
+
+    await fetch("/api/valuationData", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    }).then((res) => res.json());
+
     setIsSubmitted(true);
   };
 
