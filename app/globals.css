@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  :root {
+    --radius: 0.5rem;
+  }
+}
+
+@layer utilities {
+  .bg-custom-gradient {
+    width: 100%;
+    background: #fff;
+    position: relative;
+  }
+  .bg-custom-gradient::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.08;
+    background: linear-gradient(180deg, rgba(137, 88, 254, 0.17) 0%, #618ae7 100%);
+  }
+
+  .bg-custom-gradient-2 {
+    width: 100%;
+    background: #fff;
+    position: relative;
+  }
+  .bg-custom-gradient-2::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    opacity: 0.12;
+    background: linear-gradient(180deg, rgba(137, 88, 254, 0.17) 0%, #618ae7 100%);
+  }
+  .bg-custom-gradient-2::before {
+    content: "";
+    position: absolute;
+    top: 100vh;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 100vh);
+    background: #eef1fc;
+  }
+}
