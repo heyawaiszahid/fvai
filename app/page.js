@@ -151,7 +151,14 @@ export default function Home() {
               </div>
 
               <div className="flex justify-center">
-                <video src="/videos/vsl-mobile.mp4" width={345} height={240} controls />
+                <video
+                  src="/videos/vsl-mobile.mp4"
+                  width={345}
+                  height={240}
+                  controls
+                  playsInline
+                  poster="/videos/vsl-mobile-poster.png"
+                />
               </div>
             </div>
 
@@ -222,7 +229,14 @@ export default function Home() {
           </div>
 
           <div className="container pb-12 flex justify-center">
-            <video src="/videos/methodology-mobile.mp4" width={345} height={240} controls />
+            <video
+              src="/videos/methodology-mobile.mp4"
+              width={345}
+              height={240}
+              controls
+              playsInline
+              poster="/videos/methodology-mobile-poster.png"
+            />
           </div>
 
           <div className="bg-text-primary">
@@ -385,7 +399,7 @@ export default function Home() {
 
           <div className="bg-[#f2f6fd]">
             <div className="container py-24 flex justify-center">
-              <video src="/videos/vsl.mp4" width={781} height={415} controls />
+              <video src="/videos/vsl.mp4" width={781} height={415} controls preload="metadata" />
             </div>
           </div>
 
@@ -461,7 +475,7 @@ export default function Home() {
 
           <div className="bg-[#f2f6fd]">
             <div className="container pb-24 flex justify-center">
-              <video src="/videos/methodology.mp4" width={781} height={415} controls />
+              <video src="/videos/methodology.mp4" width={781} height={415} controls preload="metadata" />
             </div>
           </div>
 
